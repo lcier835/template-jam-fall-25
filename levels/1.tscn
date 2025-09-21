@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=4 uid="uid://cqow47bch5ocs"]
+
+[ext_resource type="TileSet" uid="uid://b73ajyuswekgm" path="res://TileMap.tres" id="1_frab7"]
+[ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player/player.tscn" id="2_itw0v"]
+[ext_resource type="PackedScene" uid="uid://dkci6kctwgimn" path="res://coin/coin.tscn" id="3_a1scl"]
+[ext_resource type="PackedScene" uid="uid://l2n6jknpxv2a" path="res://star/star.tscn" id="4_2aftt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_frab7"]
+font_size = 32
+
+[node name="Main" type="Node2D"]
+y_sort_enabled = true
+texture_filter = 1
+metadata/_edit_horizontal_guides_ = [-31.0]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAAAAAAAAAEAAgAAAAAAP//AAAEAAgAAAAAAP7/AAAEAAgAAAD//wIAAAABAAkAAAD+/wIAAAABAAkAAAD9/wIAAAABAAkAAAAAAAEAAAAEAAgAAAAAAAIAAAAEAAkAAAD8/wIAAAABAAkAAAD7/wIAAAABAAkAAAD6/wIAAAABAAkAAAD5/wIAAAABAAkAAAD4/wIAAAABAAkAAAD3/wIAAAAAAAkAAAD3/wEAAAAAAAgAAAD3/wAAAAAAAAgAAAD3////AAAAAAgAAAD3//7/AAAAAAgAAAD3//3/AAAAAAgAAAD3//z/AAAAAAcAAAD4//z/AAADAAcAAAD5//z/AAADAAcAAAD6//z/AAADAAcAAAD7//z/AAADAAcAAAD8//z/AAADAAcAAAD9//z/AAADAAcAAAD+//z/AAADAAcAAAD///z/AAADAAcAAAAAAPz/AAAEAAcAAAAAAP3/AAAEAAgAAAA=")
+tile_set = ExtResource("1_frab7")
+
+[node name="Player" parent="." instance=ExtResource("2_itw0v")]
+position = Vector2(-118, 45)
+
+[node name="Coin" parent="." instance=ExtResource("3_a1scl")]
+position = Vector2(-392, -66)
+
+[node name="Coin2" parent="." instance=ExtResource("3_a1scl")]
+position = Vector2(-313, 35)
+
+[node name="Star" parent="." instance=ExtResource("4_2aftt")]
+position = Vector2(-479, -158)
+
+[node name="Instructions" type="Label" parent="."]
+z_index = -1
+offset_left = -225.0
+offset_top = -186.0
+offset_right = -7.0
+offset_bottom = -85.0
+scale = Vector2(0.5, 0.5)
+text = "WASD/Arrow keys to move
+Space to interact
+
+Or use touchscreen controls"
+label_settings = SubResource("LabelSettings_frab7")
