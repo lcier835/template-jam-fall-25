@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq28jt7gp46pk"]
+
+[ext_resource type="Script" uid="uid://bqjbnbfd7jlob" path="res://camera/camera.gd" id="1_8nkvj"]
+
+[node name="Camera" type="Camera2D"]
+script = ExtResource("1_8nkvj")
+desired_size = Vector2(648, 648)

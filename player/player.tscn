@@ -1,9 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://ckudr8chj1kgo"]
+[gd_scene load_steps=11 format=3 uid="uid://ckudr8chj1kgo"]
 
 [ext_resource type="Script" uid="uid://beq7d2f4hlba1" path="res://player/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://ck7q7yfgq1skk" path="res://player/Character.png" id="2_i3pqv"]
-[ext_resource type="Script" uid="uid://bqjbnbfd7jlob" path="res://player/camera.gd" id="3_yw30f"]
-[ext_resource type="PackedScene" uid="uid://d1w7cceh8pl4" path="res://ui/ui.tscn" id="4_hg6s5"]
 [ext_resource type="AudioStream" uid="uid://vau3ask78t47" path="res://player/step_sfx/step-01.ogg" id="5_hg6s5"]
 [ext_resource type="AudioStream" uid="uid://c10qjncbvcxw5" path="res://player/step_sfx/step-02.ogg" id="6_8t03j"]
 [ext_resource type="AudioStream" uid="uid://b2rvkbidxtyga" path="res://player/step_sfx/step-03.ogg" id="7_2ieo8"]
@@ -57,17 +55,6 @@ monitorable = false
 [node name="InteractionHitbox" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(0, 21)
 shape = SubResource("RectangleShape2D_onrkg")
-
-[node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("ui_control")]
-script = ExtResource("3_yw30f")
-desired_size = Vector2(648, 648)
-ui_control = NodePath("UI")
-
-[node name="UI" parent="Camera" instance=ExtResource("4_hg6s5")]
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
 
 [node name="StepSFX" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_kb6p2")

@@ -121,19 +121,28 @@ func portallingProcess(delta: float) -> void:
 		angle = (portal1.angle + 2) % 4
 		position = lerp(portal1.position + (angleToVector(angle) * -32), portal1.position, portalTeleportProgress)
 		var goalColor = portal1.sprite.modulate
-		#goalColor.a = 0
+		goalColor.a = 0
 		sprite.modulate = lerp(Color(1,1,1), goalColor, portalTeleportProgress)
 	
 	else:
 		angle = (portal2.angle) % 4
-		position = lerp(portal2.position, portal2.position + (angleToVector(angle) * 44), portalTeleportProgress - 1)
+		position = lerp(portal2.position, portal2.position + (angleToVector(angle) * 40), portalTeleportProgress - 1)
 		var goalColor = portal1.sprite.modulate
-		#goalColor.a = 0
+		goalColor.a = 0
 		sprite.modulate = lerp(goalColor, Color(1,1,1), portalTeleportProgress - 1)
 	
 	portalTeleportProgress += (delta * 2) / portalTeleportSpeed
 	updateSprite(250, delta)
 	if portalTeleportProgress > 2: 
-		position = portal2.position + (angleToVector(angle) * 44)
+		position = portal2.position + (angleToVector(angle) * 40)
 		sprite.modulate = Color(1, 1, 1)
-		
+
+func getCameraPos() -> Vector2:
+	if portalTeleportProgress < 2:
+		var pos1 = portal1.position + (angleToVector((portal1.angle + 2) % 4) * -32)
+		var pos2 = portal2.position + (angleToVector((portal2.angle) % 4) * 40)
+		var t = portalTeleportProgress / 2
+		t = t * t * (3.0 - (2.0 * t))
+		return lerp(pos1, pos2, t)
+	else:
+		return position
