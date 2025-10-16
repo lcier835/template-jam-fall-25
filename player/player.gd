@@ -44,7 +44,6 @@ func get_input_movement_vector() -> Vector2:
 func _process(delta: float) -> void:
 	var movement_vector := get_input_movement_vector()
 	if not movement_vector.is_zero_approx():
-		var movement_angle = movement_vector.angle() / TAU * 360
 		# set animation direction
 		if movement_vector.y == 1: # down
 			interaction_hitbox.position = Vector2(0, interaction_hitbox_distance)
@@ -89,3 +88,8 @@ func interact() -> void:
 	for bodies in interaction_area.get_overlapping_bodies():
 		if bodies.has_method(&"_interacted_by_player"):
 			bodies._interacted_by_player(self)
+
+func startPortalTransition(fromPortal: Portal, toPortal: Portal):
+	print("going from " + fromPortal.name + " to " + toPortal.name)
+	position = (position - fromPortal.position) + toPortal.position
+	pass

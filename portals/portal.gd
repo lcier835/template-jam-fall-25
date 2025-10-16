@@ -1,4 +1,4 @@
-extends Area2D
+class_name Portal extends Area2D
 
 @export var orangePortal : bool = false
 
@@ -22,9 +22,13 @@ func _process(delta: float) -> void:
 		animationTimer -= 4
 	sprite.frame = floori(animationTimer) + angle * 4
 	
-	#if has_overlapping_bodies():
-		#print(get_overlapping_bodies())
-	
 func _on_body_entered(body) -> void:
-	print("Collision! " + body.name)
-	pass # Replace with function body.
+	if body.name == "Player":
+		portal_transition(body)
+
+func portal_transition(body: Player):
+	print(get_tree().get_nodes_in_group("Portals"))
+	for p in get_tree().get_nodes_in_group("Portals"):
+		if p.orangePortal != orangePortal:
+			body.startPortalTransition(self, p)
+	return
