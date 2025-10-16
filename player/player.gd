@@ -23,6 +23,11 @@ var angle: int = 0
 @export var interaction_area: Area2D
 @export var step_sfx: AudioStreamPlayer
 
+@export var portalTeleportSpeed: float = 0.3
+var portal1: Portal
+var portal2: Portal
+var portalTeleportProgress: float = 2
+
 
 # Returns a Vector2i indicating (non-normalized) movement direction based on user input
 # If "up"  and "right" will return Vector2i(-1, 1)
@@ -42,30 +47,45 @@ func get_input_movement_vector() -> Vector2:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if portalTeleportProgress < 2:
+		portallingProcess(delta)
+		return
+
 	var movement_vector := get_input_movement_vector()
 	if not movement_vector.is_zero_approx():
 		# set animation direction
 		if movement_vector.y == 1: # down
 			interaction_hitbox.position = Vector2(0, interaction_hitbox_distance)
-			angle = 0
-		elif movement_vector.y == -1:
+			angle = 2
+		elif movement_vector.y == -1: #up
 			interaction_hitbox.position = Vector2(0, -interaction_hitbox_distance)
+			angle = 0
+		elif movement_vector.x == 1: # right
+			interaction_hitbox.position = Vector2(interaction_hitbox_distance, 0)
 			angle = 1
 		elif movement_vector.x == -1: # left
 			interaction_hitbox.position = Vector2(-interaction_hitbox_distance, 0)
-			angle = 2
-		elif movement_vector.x == 1: # right
-			interaction_hitbox.position = Vector2(interaction_hitbox_distance, 0)
 			angle = 3
 	
 	var actingLinearVelocityLength := (250 if linear_velocity.length() > 1 else 0)
 	
-	animation_frame = fmod(delta * anim_speed * actingLinearVelocityLength + animation_frame, 4)
-	sprite.frame = floori(animation_frame) + angle * 4
+	updateSprite(actingLinearVelocityLength, delta)
 	sound_delay += delta * walk_sfx_speed * actingLinearVelocityLength
 	if sound_delay > 1.0:
 		sound_delay = fmod(sound_delay, 1.0)
 		step_sfx.play()
+
+func angleToVector(ang) -> Vector2:
+	match(ang):
+		0: return Vector2(0, -1)
+		1: return Vector2(1, 0)
+		2: return Vector2(0, 1)
+		3: return Vector2(-1, 0)
+		_: return Vector2(0, 0)
+
+func updateSprite(speed: float, delta: float):
+	animation_frame = fmod(delta * anim_speed * speed + animation_frame, 4)
+	sprite.frame = floori(animation_frame) + angle * 4
 
 # For like _process, but runs at a fixed frame rate
 # better for physics realated code
@@ -90,6 +110,30 @@ func interact() -> void:
 			bodies._interacted_by_player(self)
 
 func startPortalTransition(fromPortal: Portal, toPortal: Portal):
-	print("going from " + fromPortal.name + " to " + toPortal.name)
-	position = (position - fromPortal.position) + toPortal.position
+	if portalTeleportProgress < 2: return
+	portal1 = fromPortal
+	portal2 = toPortal
+	portalTeleportProgress = 0
 	pass
+
+func portallingProcess(delta: float) -> void:
+	if portalTeleportProgress < 1:
+		angle = (portal1.angle + 2) % 4
+		position = lerp(portal1.position + (angleToVector(angle) * -32), portal1.position, portalTeleportProgress)
+		var goalColor = portal1.sprite.modulate
+		#goalColor.a = 0
+		sprite.modulate = lerp(Color(1,1,1), goalColor, portalTeleportProgress)
+	
+	else:
+		angle = (portal2.angle) % 4
+		position = lerp(portal2.position, portal2.position + (angleToVector(angle) * 44), portalTeleportProgress - 1)
+		var goalColor = portal1.sprite.modulate
+		#goalColor.a = 0
+		sprite.modulate = lerp(goalColor, Color(1,1,1), portalTeleportProgress - 1)
+	
+	portalTeleportProgress += (delta * 2) / portalTeleportSpeed
+	updateSprite(250, delta)
+	if portalTeleportProgress > 2: 
+		position = portal2.position + (angleToVector(angle) * 44)
+		sprite.modulate = Color(1, 1, 1)
+		

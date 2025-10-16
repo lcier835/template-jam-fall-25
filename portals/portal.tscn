@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://nb1261wya56h" path="res://portals/portalspritesheet.png" id="2_0q6we"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
-size = Vector2(8, 8)
+size = Vector2(4, 4)
 
 [node name="Portal" type="Area2D" groups=["Portals"]]
 collision_layer = 0
@@ -12,13 +12,11 @@ collision_mask = 2
 script = ExtResource("1_jnenf")
 
 [node name="PhysicsHitbox" type="CollisionShape2D" parent="."]
-position = Vector2(0, 24)
 shape = SubResource("RectangleShape2D_h2yge")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 0.5019608, 1, 1)
 texture_filter = 1
-position = Vector2(0, -8)
 scale = Vector2(4, 4)
 texture = ExtResource("2_0q6we")
 hframes = 4
