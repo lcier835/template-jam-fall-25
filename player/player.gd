@@ -4,7 +4,7 @@ class_name Player extends RigidBody2D
 var animation_frame: float = 0
 # counts up as you move when it passes 1, a walking sound effect is played
 var sound_delay: float = 0.5
-var direction: int = 0
+var angle: int = 0
 
 # The values on an exported varrible is merely the default value
 # to control the actual value, look in the of what used this script (the player)
@@ -14,11 +14,11 @@ var direction: int = 0
 # how quickly the player goes to theu desired speed
 @export var mov_speed_correction: float = 10
 # how quick to animate the player's movement based on their speed
-@export var anim_speed: float = 0.07
+@export var anim_speed: float = 0.03
 @export var walk_sfx_speed: float = 0.035
 @export var sprite: Sprite2D
 # how far the interaction hitbox is from the player
-@export var interaction_hitbox_distance: float = 21
+@export var interaction_hitbox_distance: float = 0
 @export var interaction_hitbox: CollisionShape2D
 @export var interaction_area: Area2D
 @export var step_sfx: AudioStreamPlayer
@@ -37,10 +37,8 @@ func get_input_movement_vector() -> Vector2:
 		keyboard_movement_vector.x -= 1
 	if Input.is_action_pressed(&"right"):
 		keyboard_movement_vector.x += 1
-	if keyboard_movement_vector.is_zero_approx():
-		return GLOBAL.get_singleton().touchscreen_joystick
-	else:
-		return keyboard_movement_vector.normalized()
+	
+	return keyboard_movement_vector
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -48,24 +46,24 @@ func _process(delta: float) -> void:
 	if not movement_vector.is_zero_approx():
 		var movement_angle = movement_vector.angle() / TAU * 360
 		# set animation direction
-		if abs(movement_angle) > 135: # left
-			interaction_hitbox.position = Vector2(-interaction_hitbox_distance, 0)
-			direction = 2
-		elif abs(movement_angle) <  45: # right
-			interaction_hitbox.position = Vector2(interaction_hitbox_distance, 0)
-			direction = 3
-		elif movement_angle > 0: # down
+		if movement_vector.y == 1: # down
 			interaction_hitbox.position = Vector2(0, interaction_hitbox_distance)
-			direction = 0
-		else:
+			angle = 0
+		elif movement_vector.y == -1:
 			interaction_hitbox.position = Vector2(0, -interaction_hitbox_distance)
-			direction = 1
-
+			angle = 1
+		elif movement_vector.x == -1: # left
+			interaction_hitbox.position = Vector2(-interaction_hitbox_distance, 0)
+			angle = 2
+		elif movement_vector.x == 1: # right
+			interaction_hitbox.position = Vector2(interaction_hitbox_distance, 0)
+			angle = 3
 	
-	animation_frame = fmod(delta * anim_speed * linear_velocity.length() + animation_frame, 4)
-	sprite.frame = floori(animation_frame) + direction * 4
+	var actingLinearVelocityLength := (250 if linear_velocity.length() > 1 else 0)
 	
-	sound_delay += delta * walk_sfx_speed * linear_velocity.length()
+	animation_frame = fmod(delta * anim_speed * actingLinearVelocityLength + animation_frame, 4)
+	sprite.frame = floori(animation_frame) + angle * 4
+	sound_delay += delta * walk_sfx_speed * actingLinearVelocityLength
 	if sound_delay > 1.0:
 		sound_delay = fmod(sound_delay, 1.0)
 		step_sfx.play()
@@ -75,7 +73,7 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	var basic_movement_vector := get_input_movement_vector()
 	var goal_movement_vector: Vector2 = basic_movement_vector * delta * mov_speed
-	linear_velocity = lerp(linear_velocity, goal_movement_vector, delta * mov_speed_correction)
+	linear_velocity = goal_movement_vector
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"interact"):
