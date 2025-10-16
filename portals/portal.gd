@@ -9,9 +9,8 @@ var sprite: Sprite2D
 
 func _ready() -> void:
 	sprite = $Sprite2D
-	print($PhysicsHitbox.position)
 	$PhysicsHitbox.position = angleToVector(angle) * 32
-	print($PhysicsHitbox.position)
+	if angle % 2 == 1: $PhysicsHitbox.position.y += 16
 	pass
 
 func angleToVector(ang) -> Vector2:
@@ -32,15 +31,14 @@ func _process(delta: float) -> void:
 	if animationTimer > 4:
 		animationTimer -= 4
 	sprite.frame = floori(animationTimer) + angle * 4
-	
-func _on_body_entered(body) -> void:
-	if body.name == "Player":
-		var pl: Player = body
-		if (pl.angle + 2) % 4 == angle:
-			portal_transition(pl)
+	for b in get_overlapping_bodies():
+		if b.name == "Player":
+			var pl: Player = b
+			if (pl.angle + 2) % 4 == angle:
+				portal_transition(pl)
 
 func portal_transition(body: Player):
 	for p in get_tree().get_nodes_in_group("Portals"):
 		if p.orangePortal != orangePortal:
 			body.startPortalTransition(self, p)
-	return
+			return
