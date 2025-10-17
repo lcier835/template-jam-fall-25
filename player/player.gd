@@ -28,11 +28,16 @@ var portal1: Portal
 var portal2: Portal
 var portalTeleportProgress: float = 2
 
+var inputVector: Vector2
 
-# Returns a Vector2i indicating (non-normalized) movement direction based on user input
-# If "up"  and "right" will return Vector2i(-1, 1)
-# If "up", "down", and "right" will return Vector2i(0, 1)
-func get_input_movement_vector() -> Vector2:
+func updateKeys():
+	var upEvent = Input.is_action_just_pressed(&"up") || Input.is_action_just_released(&"up")
+	var downEvent = Input.is_action_just_pressed(&"down") || Input.is_action_just_released(&"down")
+	var leftEvent = Input.is_action_just_pressed(&"left") || Input.is_action_just_released(&"left")
+	var rightEvent = Input.is_action_just_pressed(&"right") || Input.is_action_just_released(&"right")
+	if !upEvent && !downEvent && !leftEvent && !rightEvent:
+		return
+	
 	var keyboard_movement_vector = Vector2()
 	if Input.is_action_pressed(&"up"):
 		keyboard_movement_vector.y -= 1
@@ -43,27 +48,28 @@ func get_input_movement_vector() -> Vector2:
 	if Input.is_action_pressed(&"right"):
 		keyboard_movement_vector.x += 1
 	
-	return keyboard_movement_vector
+	inputVector = keyboard_movement_vector
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	updateKeys()
+	
 	if portalTeleportProgress < 2:
 		portallingProcess(delta)
 		return
-
-	var movement_vector := get_input_movement_vector()
-	if not movement_vector.is_zero_approx():
+	
+	if not inputVector.is_zero_approx():
 		# set animation direction
-		if movement_vector.y == 1: # down
+		if inputVector.y == 1: # down
 			interaction_hitbox.position = Vector2(0, interaction_hitbox_distance)
 			angle = 2
-		elif movement_vector.y == -1: #up
+		elif inputVector.y == -1: #up
 			interaction_hitbox.position = Vector2(0, -interaction_hitbox_distance)
 			angle = 0
-		elif movement_vector.x == 1: # right
+		elif inputVector.x == 1: # right
 			interaction_hitbox.position = Vector2(interaction_hitbox_distance, 0)
 			angle = 1
-		elif movement_vector.x == -1: # left
+		elif inputVector.x == -1: # left
 			interaction_hitbox.position = Vector2(-interaction_hitbox_distance, 0)
 			angle = 3
 	
@@ -90,8 +96,7 @@ func updateSprite(speed: float, delta: float):
 # For like _process, but runs at a fixed frame rate
 # better for physics realated code
 func _physics_process(delta: float) -> void:
-	var basic_movement_vector := get_input_movement_vector()
-	var goal_movement_vector: Vector2 = basic_movement_vector * delta * mov_speed
+	var goal_movement_vector: Vector2 = inputVector * delta * mov_speed
 	linear_velocity = goal_movement_vector
 
 func _input(event: InputEvent) -> void:
@@ -114,6 +119,11 @@ func startPortalTransition(fromPortal: Portal, toPortal: Portal):
 	portal1 = fromPortal
 	portal2 = toPortal
 	portalTeleportProgress = 0
+	
+	#rotate input
+	var angleOffset = (portal2.angle - portal1.angle + 6) % 4
+	print(angleOffset)
+	inputVector = inputVector.rotated(PI * angleOffset / 2)
 	pass
 
 func portallingProcess(delta: float) -> void:
