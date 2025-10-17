@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ckudr8chj1kgo"]
+[gd_scene load_steps=12 format=3 uid="uid://ckudr8chj1kgo"]
 
 [ext_resource type="Script" uid="uid://beq7d2f4hlba1" path="res://player/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://ck7q7yfgq1skk" path="res://player/Character.png" id="2_i3pqv"]
@@ -7,6 +7,9 @@
 [ext_resource type="AudioStream" uid="uid://b2rvkbidxtyga" path="res://player/step_sfx/step-03.ogg" id="7_2ieo8"]
 [ext_resource type="AudioStream" uid="uid://csgn6a5ttp13" path="res://player/step_sfx/step-04.ogg" id="8_ebec5"]
 [ext_resource type="AudioStream" uid="uid://bxnqfn2af3w1t" path="res://player/step_sfx/step-05.ogg" id="9_yllr7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_boad6"]
+friction = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
 size = Vector2(32, 32)
@@ -25,6 +28,7 @@ stream_4/stream = ExtResource("9_yllr7")
 
 [node name="Player" type="RigidBody2D" node_paths=PackedStringArray("sprite", "interaction_hitbox", "interaction_area", "step_sfx")]
 collision_layer = 2
+physics_material_override = SubResource("PhysicsMaterial_boad6")
 lock_rotation = true
 script = ExtResource("1_onrkg")
 sprite = NodePath("Sprite2D")

@@ -92,6 +92,9 @@ func angleToVector(ang) -> Vector2:
 func updateSprite(speed: float, delta: float):
 	animation_frame = fmod(delta * anim_speed * speed + animation_frame, 4)
 	sprite.frame = floori(animation_frame) + angle * 4
+	
+	sprite.position = Vector2(0, -8)
+	sprite.global_position = (sprite.global_position / 4).round() * 4
 
 # For like _process, but runs at a fixed frame rate
 # better for physics realated code
@@ -122,7 +125,6 @@ func startPortalTransition(fromPortal: Portal, toPortal: Portal):
 	
 	#rotate input
 	var angleOffset = (portal2.angle - portal1.angle + 6) % 4
-	print(angleOffset)
 	inputVector = inputVector.rotated(PI * angleOffset / 2)
 	pass
 
