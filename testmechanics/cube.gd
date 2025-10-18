@@ -27,6 +27,8 @@ func _physics_process(_delta: float) -> void:
 	if fizzleTimer > -1: return
 	if held && p.portalTeleportProgress >= 2:
 		linear_velocity = (goalPos - position) * 15
+		if(position - goalPos).length() > 128:
+			_unuse(p)
 	else:
 		linear_velocity = Vector2(0, 0)
 
