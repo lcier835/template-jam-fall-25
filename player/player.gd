@@ -154,7 +154,7 @@ func startPortalTransition(fromPortal: Portal, toPortal: Portal):
 	portal1 = fromPortal
 	portal2 = toPortal
 	portalTeleportProgress = 0
-	lastSafeSpot = portal1.position + (angleToVector(portal1.angle) * 64)
+	lastSafeSpot = portal1.position + (angleToVector(portal1.angle) * 72)
 	
 	#rotate input
 	var angleOffset = (portal2.angle - portal1.angle + 6) % 4
@@ -194,10 +194,8 @@ func getCameraPos() -> Vector2:
 		var t = portalTeleportProgress / 2
 		t = t * t * (3.0 - (2.0 * t))
 		return lerp(pos1, pos2, t)
-	elif drownAfterAnimation < 1:
-		return position
 	else:
-		return position + angleToVector(angle) * 32
+		return position
 
 func shootPortal(orange: bool):
 	portalRaycast.target_position = angleToVector(angle) * 5000
