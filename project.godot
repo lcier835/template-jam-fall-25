@@ -20,6 +20,7 @@ config/icon="uid://bv8i66e2am8k1"
 window/size/viewport_width=1440
 window/size/viewport_height=1080
 window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 
 [global_group]
 
@@ -73,9 +74,12 @@ orangeportal={
 
 2d_physics/layer_1="Physics"
 2d_physics/layer_2="Interactable"
+2d_physics/layer_3="ButtonPush"
 2d_physics/layer_4="Water"
 2d_physics/layer_5="Portal collide"
 2d_physics/layer_6="Portalable"
+2d_physics/layer_7="Kinetic grill blockers"
+2d_physics/stretch/scale_mode="fractional"
 
 [physics]
 
