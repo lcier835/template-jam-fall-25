@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg0mkp668av53"
-path="res://.godot/imported/pedestalbutton.png-79009279faab9c090a74d6cfac065f7d.ctex"
+uid="uid://bjnwcdth5cgqt"
+path="res://.godot/imported/cubedropper.png-896e1c7cecb59bb5c89e6645ceba6ad2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://testmechanics/pedestalbutton.png"
-dest_files=["res://.godot/imported/pedestalbutton.png-79009279faab9c090a74d6cfac065f7d.ctex"]
+source_file="res://testmechanics/resources/cubedropper.png"
+dest_files=["res://.godot/imported/cubedropper.png-896e1c7cecb59bb5c89e6645ceba6ad2.ctex"]
 
 [params]
 

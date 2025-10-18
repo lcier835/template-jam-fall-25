@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ccwssux3byp8q"]
 
-[ext_resource type="Script" uid="uid://c0y15isjnvabu" path="res://testmechanics/pedestalbutton.gd" id="1_8nbhw"]
-[ext_resource type="Texture2D" uid="uid://cg0mkp668av53" path="res://testmechanics/pedestalbutton.png" id="1_u3mlj"]
+[ext_resource type="Script" uid="uid://c0y15isjnvabu" path="res://testmechanics/resources/pedestalbutton.gd" id="1_8nbhw"]
+[ext_resource type="Texture2D" uid="uid://cg0mkp668av53" path="res://testmechanics/resources/pedestalbutton.png" id="1_u3mlj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvinn"]
 size = Vector2(16, 48)

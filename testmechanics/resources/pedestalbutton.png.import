@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kpuu4ytr0tng"
-path="res://.godot/imported/fizzler.png-eac9a312cb64da9762ae607075de69ea.ctex"
+uid="uid://cg0mkp668av53"
+path="res://.godot/imported/pedestalbutton.png-f7eee9ab6f9eb6b9a9060357c17e9ec4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://testmechanics/fizzler.png"
-dest_files=["res://.godot/imported/fizzler.png-eac9a312cb64da9762ae607075de69ea.ctex"]
+source_file="res://testmechanics/resources/pedestalbutton.png"
+dest_files=["res://.godot/imported/pedestalbutton.png-f7eee9ab6f9eb6b9a9060357c17e9ec4.ctex"]
 
 [params]
 

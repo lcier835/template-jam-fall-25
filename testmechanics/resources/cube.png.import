@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd4wterpdojoo"
-path="res://.godot/imported/fizzleredge.png-9201a9cd0fcb6585b119e286fd5782f8.ctex"
+uid="uid://cnrw3uvtfon34"
+path="res://.godot/imported/cube.png-bf16cdf483bd2e03c1bd44558f991d89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://testmechanics/fizzleredge.png"
-dest_files=["res://.godot/imported/fizzleredge.png-9201a9cd0fcb6585b119e286fd5782f8.ctex"]
+source_file="res://testmechanics/resources/cube.png"
+dest_files=["res://.godot/imported/cube.png-bf16cdf483bd2e03c1bd44558f991d89.ctex"]
 
 [params]
 

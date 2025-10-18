@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpi6kfiyr8apc"
-path="res://.godot/imported/fizzlermiddle.png-aca613de9f4edf63c353b9c1f966a3bf.ctex"
+uid="uid://bd4wterpdojoo"
+path="res://.godot/imported/fizzleredge.png-302749d8951daefab6e11de0dcbbeb0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://testmechanics/fizzlermiddle.png"
-dest_files=["res://.godot/imported/fizzlermiddle.png-aca613de9f4edf63c353b9c1f966a3bf.ctex"]
+source_file="res://testmechanics/resources/fizzleredge.png"
+dest_files=["res://.godot/imported/fizzleredge.png-302749d8951daefab6e11de0dcbbeb0b.ctex"]
 
 [params]
 

@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://c5ly2um5kudf3"]
 
-[ext_resource type="Script" uid="uid://crthw1gdmt8lf" path="res://testmechanics/fizzler.gd" id="1_lyw4b"]
-[ext_resource type="Texture2D" uid="uid://kpuu4ytr0tng" path="res://testmechanics/fizzler.png" id="2_lyw4b"]
-[ext_resource type="Texture2D" uid="uid://bd4wterpdojoo" path="res://testmechanics/fizzleredge.png" id="3_kp70o"]
-[ext_resource type="Texture2D" uid="uid://bpi6kfiyr8apc" path="res://testmechanics/fizzlermiddle.png" id="4_063it"]
+[ext_resource type="Script" uid="uid://crthw1gdmt8lf" path="res://testmechanics/resources/fizzler.gd" id="1_lyw4b"]
+[ext_resource type="Texture2D" uid="uid://kpuu4ytr0tng" path="res://testmechanics/resources/fizzler.png" id="2_lyw4b"]
+[ext_resource type="Texture2D" uid="uid://bd4wterpdojoo" path="res://testmechanics/resources/fizzleredge.png" id="3_kp70o"]
+[ext_resource type="Texture2D" uid="uid://bpi6kfiyr8apc" path="res://testmechanics/resources/fizzlermiddle.png" id="4_063it"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvinn"]
 size = Vector2(8, 64)
