@@ -27,8 +27,14 @@ var angle: int = 0
 var portal1: Portal
 var portal2: Portal
 var portalTeleportProgress: float = 2
+var drownAfterAnimation: float = 1
 
 var inputVector: Vector2
+
+@export var portalRaycast: RayCast2D 
+@export var normalRaycast: RayCast2D 
+@onready var portalScene = preload("res://portals/portal.tscn")
+var lastSafeSpot: Vector2
 
 func updateKeys():
 	var upEvent = Input.is_action_just_pressed(&"up") || Input.is_action_just_released(&"up")
@@ -57,6 +63,21 @@ func _process(delta: float) -> void:
 	if portalTeleportProgress < 2:
 		portallingProcess(delta)
 		return
+	
+	if drownAfterAnimation < 1:
+		angle = int(floor(drownAfterAnimation * 8)) % 4
+		updateSprite(0, 0)
+		sprite.modulate.a = 1 - drownAfterAnimation
+		drownAfterAnimation += delta
+		if drownAfterAnimation >= 1:
+			sprite.modulate.a = 1
+			position = lastSafeSpot
+			angle = 2
+			inputVector = Vector2(0, 0)
+			collision_mask = 1
+	
+	if Input.is_action_just_pressed("blueportal"): shootPortal(false)
+	if Input.is_action_just_pressed("orangeportal"): shootPortal(true)
 	
 	if not inputVector.is_zero_approx():
 		# set animation direction
@@ -122,6 +143,7 @@ func startPortalTransition(fromPortal: Portal, toPortal: Portal):
 	portal1 = fromPortal
 	portal2 = toPortal
 	portalTeleportProgress = 0
+	lastSafeSpot = portal1.position + (angleToVector(portal1.angle) * 64)
 	
 	#rotate input
 	var angleOffset = (portal2.angle - portal1.angle + 6) % 4
@@ -129,6 +151,11 @@ func startPortalTransition(fromPortal: Portal, toPortal: Portal):
 	pass
 
 func portallingProcess(delta: float) -> void:
+	var endDistance: int = 56
+	if angle == 0: endDistance = 68
+	if angle == 2: endDistance = 40
+	
+	
 	if portalTeleportProgress < 1:
 		angle = (portal1.angle + 2) % 4
 		position = lerp(portal1.position + (angleToVector(angle) * -32), portal1.position, portalTeleportProgress)
@@ -138,7 +165,7 @@ func portallingProcess(delta: float) -> void:
 	
 	else:
 		angle = (portal2.angle) % 4
-		position = lerp(portal2.position, portal2.position + (angleToVector(angle) * 40), portalTeleportProgress - 1)
+		position = lerp(portal2.position, portal2.position + (angleToVector(angle) * endDistance), portalTeleportProgress - 1)
 		var goalColor = portal1.sprite.modulate
 		goalColor.a = 0
 		sprite.modulate = lerp(goalColor, Color(1,1,1), portalTeleportProgress - 1)
@@ -146,7 +173,7 @@ func portallingProcess(delta: float) -> void:
 	portalTeleportProgress += (delta * 2) / portalTeleportSpeed
 	updateSprite(250, delta)
 	if portalTeleportProgress > 2: 
-		position = portal2.position + (angleToVector(angle) * 40)
+		position = portal2.position + (angleToVector(angle) * endDistance)
 		sprite.modulate = Color(1, 1, 1)
 
 func getCameraPos() -> Vector2:
@@ -156,5 +183,45 @@ func getCameraPos() -> Vector2:
 		var t = portalTeleportProgress / 2
 		t = t * t * (3.0 - (2.0 * t))
 		return lerp(pos1, pos2, t)
-	else:
+	elif drownAfterAnimation < 1:
 		return position
+	else:
+		return position + angleToVector(angle) * 32
+
+func shootPortal(orange: bool):
+	portalRaycast.target_position = angleToVector(angle) * 5000
+	normalRaycast.target_position = angleToVector(angle) * 5000
+	portalRaycast.force_raycast_update()
+	normalRaycast.force_raycast_update()
+	if portalRaycast.get_collision_point() == normalRaycast.get_collision_point() && portalRaycast.is_colliding():
+		var portalPos = portalRaycast.get_collision_point()
+		portalPos += angleToVector(angle) * 32
+		if angle % 2 == 0:
+			portalPos.x = floor(portalPos.x / 64) * 64 + 32
+			portalPos.y = round(portalPos.y)
+		else:
+			portalPos.y = floor(portalPos.y / 64) * 64 + 32
+			portalPos.x = round(portalPos.x)
+		
+		var newPortal = portalScene.instantiate()
+		newPortal.position = portalPos
+		newPortal.angle = (angle + 2) % 4
+		newPortal.orangePortal = orange
+		
+		# first see if portal should be rejected
+		for p in get_tree().get_nodes_in_group("Portals"):
+			if p.orangePortal != orange && portalPos == p.position:
+				return
+		
+		# then after confirming wall is empty clear all portals of current color
+		for p in get_tree().get_nodes_in_group("Portals"):
+			if p.orangePortal == orange:
+				p.queue_free()
+		
+		get_tree().root.add_child(newPortal)
+
+func waterBodyEntered(_body: Node2D):
+	if drownAfterAnimation >= 1:
+		drownAfterAnimation = 0
+		collision_mask = 0
+	
