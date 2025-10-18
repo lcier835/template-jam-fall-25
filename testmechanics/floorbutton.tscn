@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0rlets6d8b82"]
+
+[ext_resource type="Script" uid="uid://c04ju3n2l5tf3" path="res://testmechanics/floorbutton.gd" id="1_e1g03"]
+[ext_resource type="Texture2D" uid="uid://bqo5yqxfrttkm" path="res://testmechanics/floorbutton.png" id="1_gknwt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvinn"]
+size = Vector2(32, 32)
+
+[node name="FloorButton" type="Area2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_e1g03")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fvinn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+z_index = 1
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("1_gknwt")

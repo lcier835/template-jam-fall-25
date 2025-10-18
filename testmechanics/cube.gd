@@ -10,7 +10,7 @@ var fizzleTimer: float = -1
 var playerPortalTeleportProgressLastFrame: float = 2
 
 func _interacted_by_player(_player: Player):
-	collision_layer = 2
+	collision_layer = 6
 	_player.heldObject = self
 	p = _player
 	held = true
@@ -18,7 +18,7 @@ func _interacted_by_player(_player: Player):
 func _unuse(_player: Player):
 	if p.interaction_area.get_overlapping_bodies().find(self) != -1:
 		return
-	collision_layer = 3
+	collision_layer = 7
 	linear_velocity = Vector2(0, 0)
 	_player.heldObject = null
 	held = false
@@ -69,3 +69,9 @@ func _process(_delta: float) -> void:
 
 func _fizzle():
 	fizzleTimer = 0
+
+func onFloorButton():
+	$Sprite2D.modulate = Color(1, 1, 0)
+
+func offFloorButton():
+	$Sprite2D.modulate = Color(0, 0.5, 1)
