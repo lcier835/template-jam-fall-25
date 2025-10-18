@@ -238,3 +238,8 @@ func waterBodyEntered(_body: Node2D):
 		collision_mask = 0
 		if heldObject != null && heldObject is Cube:
 			heldObject._fizzle()
+
+func _fizzle():
+	for p in get_tree().get_nodes_in_group("Portals"):
+			if p.placedByPlayer:
+				p.queue_free()

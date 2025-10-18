@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5ly2um5kudf3"]
+
+[ext_resource type="Script" uid="uid://crthw1gdmt8lf" path="res://testmechanics/fizzler.gd" id="1_lyw4b"]
+[ext_resource type="Texture2D" uid="uid://kpuu4ytr0tng" path="res://testmechanics/fizzler.png" id="2_lyw4b"]
+[ext_resource type="Texture2D" uid="uid://bd4wterpdojoo" path="res://testmechanics/fizzleredge.png" id="3_kp70o"]
+[ext_resource type="Texture2D" uid="uid://bpi6kfiyr8apc" path="res://testmechanics/fizzlermiddle.png" id="4_063it"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvinn"]
+size = Vector2(8, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyw4b"]
+size = Vector2(8, 64)
+
+[node name="Fizzler" type="Area2D"]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("1_lyw4b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fvinn")
+
+[node name="Side1" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(0, -64)
+scale = Vector2(4, 4)
+texture = ExtResource("2_lyw4b")
+
+[node name="Fizzleredge" type="Sprite2D" parent="Side1"]
+modulate = Color(0, 1, 1, 0.5019608)
+z_index = 3
+position = Vector2(0, 2)
+texture = ExtResource("3_kp70o")
+
+[node name="Side2" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(0, 64)
+rotation = 3.1415927
+scale = Vector2(4, 4)
+texture = ExtResource("2_lyw4b")
+
+[node name="Fizzleredge" type="Sprite2D" parent="Side2"]
+modulate = Color(0, 1, 1, 0.5019608)
+z_index = 3
+position = Vector2(0, 2)
+texture = ExtResource("3_kp70o")
+
+[node name="Fizzlermiddle" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 1, 0.5019608)
+z_index = 3
+scale = Vector2(4, 4)
+texture = ExtResource("4_063it")
+
+[node name="PortalshotBlocker" type="RigidBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalshotBlocker"]
+shape = SubResource("RectangleShape2D_lyw4b")
+
+[connection signal="body_entered" from="." to="." method="_objectCollide"]

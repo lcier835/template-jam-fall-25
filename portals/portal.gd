@@ -6,6 +6,7 @@ class_name Portal extends Area2D
 var animationTimer: float = 0
 var animSpeed: float = 8
 var sprite: Sprite2D
+var placedByPlayer = true
 
 func _ready() -> void:
 	sprite = $Sprite2D
