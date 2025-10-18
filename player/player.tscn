@@ -15,7 +15,7 @@ friction = 0.0
 radius = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(41, 41)
+size = Vector2(48, 48)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kb6p2"]
 random_pitch = 1.1
@@ -57,14 +57,12 @@ hframes = 4
 vframes = 4
 
 [node name="InteractionArea" type="Area2D" parent="."]
-position = Vector2(0, 16)
 collision_layer = 0
 collision_mask = 2
 input_pickable = false
 monitorable = false
 
 [node name="InteractionHitbox" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(0, 21)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="StepSFX" type="AudioStreamPlayer" parent="."]

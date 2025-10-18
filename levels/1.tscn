@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://cqow47bch5ocs"]
+[gd_scene load_steps=6 format=4 uid="uid://cqow47bch5ocs"]
 
 [ext_resource type="TileSet" uid="uid://b4n7twc482f2" path="res://testchamber/assets/chambertileset.tres" id="1_frab7"]
 [ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player/player.tscn" id="2_itw0v"]
-[ext_resource type="PackedScene" uid="uid://dkci6kctwgimn" path="res://coin/coin.tscn" id="3_a1scl"]
-[ext_resource type="PackedScene" uid="uid://l2n6jknpxv2a" path="res://star/star.tscn" id="4_2aftt"]
+[ext_resource type="PackedScene" uid="uid://ce2r63i43hhn1" path="res://testmechanics/cube.tscn" id="5_a1scl"]
 [ext_resource type="PackedScene" uid="uid://l6j0qlj17kk6" path="res://portals/portal.tscn" id="5_itw0v"]
 [ext_resource type="PackedScene" uid="uid://dq28jt7gp46pk" path="res://camera/camera.tscn" id="6_a1scl"]
 
@@ -21,15 +20,6 @@ tile_set = ExtResource("1_frab7")
 [node name="Player" parent="." instance=ExtResource("2_itw0v")]
 position = Vector2(-118, 45)
 
-[node name="Coin" parent="." instance=ExtResource("3_a1scl")]
-position = Vector2(-392, -66)
-
-[node name="Coin2" parent="." instance=ExtResource("3_a1scl")]
-position = Vector2(-313, 35)
-
-[node name="Star" parent="." instance=ExtResource("4_2aftt")]
-position = Vector2(-479, -158)
-
 [node name="Portal2" parent="." instance=ExtResource("5_itw0v")]
 position = Vector2(-96, -224)
 orangePortal = true
@@ -42,3 +32,6 @@ angle = 3
 [node name="Camera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_a1scl")]
 position = Vector2(0, 68)
 player = NodePath("../Player")
+
+[node name="Cube" parent="." instance=ExtResource("5_a1scl")]
+position = Vector2(-192, -52)

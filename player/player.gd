@@ -18,7 +18,7 @@ var angle: int = 0
 @export var walk_sfx_speed: float = 0.035
 @export var sprite: Sprite2D
 # how far the interaction hitbox is from the player
-@export var interaction_hitbox_distance: float = 0
+@export var interaction_hitbox_distance: float = 32
 @export var interaction_hitbox: CollisionShape2D
 @export var interaction_area: Area2D
 @export var step_sfx: AudioStreamPlayer
@@ -35,6 +35,8 @@ var inputVector: Vector2
 @export var normalRaycast: RayCast2D 
 @onready var portalScene = preload("res://portals/portal.tscn")
 var lastSafeSpot: Vector2
+
+var heldObject: Cube
 
 func updateKeys():
 	var upEvent = Input.is_action_just_pressed(&"up") || Input.is_action_just_released(&"up")
@@ -76,8 +78,9 @@ func _process(delta: float) -> void:
 			inputVector = Vector2(0, 0)
 			collision_mask = 1
 	
-	if Input.is_action_just_pressed("blueportal"): shootPortal(false)
-	if Input.is_action_just_pressed("orangeportal"): shootPortal(true)
+	if heldObject == null:
+		if Input.is_action_just_pressed("blueportal"): shootPortal(false)
+		if Input.is_action_just_pressed("orangeportal"): shootPortal(true)
 	
 	if not inputVector.is_zero_approx():
 		# set animation direction
@@ -93,6 +96,8 @@ func _process(delta: float) -> void:
 		elif inputVector.x == -1: # left
 			interaction_hitbox.position = Vector2(-interaction_hitbox_distance, 0)
 			angle = 3
+	if heldObject != null:
+		interaction_hitbox.position = Vector2(0, 0)
 	
 	var actingLinearVelocityLength := (250 if linear_velocity.length() > 1 else 0)
 	
@@ -122,10 +127,16 @@ func updateSprite(speed: float, delta: float):
 func _physics_process(delta: float) -> void:
 	var goal_movement_vector: Vector2 = inputVector * delta * mov_speed
 	linear_velocity = goal_movement_vector
+	if heldObject != null:
+		var goalPosition = position + angleToVector(angle) * 64
+		heldObject.goalPos = goalPosition
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"interact"):
-		interact()
+		if heldObject && heldObject.has_method(&"_unuse"):
+			heldObject._unuse(self)
+		else:
+			interact()
 
 # finds any (physics) bodies or areas that are in the interaction hitbox
 # then calls their _interacted_by_player if they have that method passing the player
