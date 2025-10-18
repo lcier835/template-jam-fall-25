@@ -1,12 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://cqow47bch5ocs"]
+[gd_scene load_steps=7 format=4 uid="uid://cqow47bch5ocs"]
 
-[ext_resource type="TileSet" uid="uid://b73ajyuswekgm" path="res://TileMap.tres" id="1_frab7"]
+[ext_resource type="TileSet" uid="uid://b4n7twc482f2" path="res://testchamber/assets/chambertileset.tres" id="1_frab7"]
 [ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player/player.tscn" id="2_itw0v"]
 [ext_resource type="PackedScene" uid="uid://dkci6kctwgimn" path="res://coin/coin.tscn" id="3_a1scl"]
 [ext_resource type="PackedScene" uid="uid://l2n6jknpxv2a" path="res://star/star.tscn" id="4_2aftt"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_frab7"]
-font_size = 32
+[ext_resource type="PackedScene" uid="uid://l6j0qlj17kk6" path="res://portals/portal.tscn" id="5_itw0v"]
+[ext_resource type="PackedScene" uid="uid://dq28jt7gp46pk" path="res://camera/camera.tscn" id="6_a1scl"]
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -16,7 +15,7 @@ metadata/_edit_horizontal_guides_ = [-31.0]
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 scale = Vector2(4, 4)
-tile_map_data = PackedByteArray("AAAAAAAAAAAEAAgAAAAAAP//AAAEAAgAAAAAAP7/AAAEAAgAAAD//wIAAAABAAkAAAD+/wIAAAABAAkAAAD9/wIAAAABAAkAAAAAAAEAAAAEAAgAAAAAAAIAAAAEAAkAAAD8/wIAAAABAAkAAAD7/wIAAAABAAkAAAD6/wIAAAABAAkAAAD5/wIAAAABAAkAAAD4/wIAAAABAAkAAAD3/wIAAAAAAAkAAAD3/wEAAAAAAAgAAAD3/wAAAAAAAAgAAAD3////AAAAAAgAAAD3//7/AAAAAAgAAAD3//3/AAAAAAgAAAD3//z/AAAAAAcAAAD4//z/AAADAAcAAAD5//z/AAADAAcAAAD6//z/AAADAAcAAAD7//z/AAADAAcAAAD8//z/AAADAAcAAAD9//z/AAADAAcAAAD+//z/AAADAAcAAAD///z/AAADAAcAAAAAAPz/AAAEAAcAAAAAAP3/AAAEAAgAAAA=")
+tile_map_data = PackedByteArray("AAAAAP7/AAAGAAAAAAD9/wIAAAAFAAIAAAD8/wIAAAAEAAIAAAD7/wIAAAABAAIAAAD6/wIAAAABAAIAAAD5/wIAAAABAAIAAAD4/wIAAAABAAcAAAD3/wIAAAAAAAcAAAD3/wEAAAAAAAYAAAD3/wAAAAACAAUAAAD3////AAACAAUAAAD3//7/AAACAAUAAAD3//3/AAACAAUAAAD3//z/AAAAAAQAAAD4//z/AAABAAQAAAD5//z/AAACAAYAAAD6//z/AAACAAYAAAD7//z/AAACAAYAAAD8//z/AAACAAIAAAAAAPz/AAADAAAAAAAAAP3/AAADAAEAAAAAAP//AAAGAAEAAAD9//z/AAACAAIAAAD+//z/AAACAAIAAAD///z/AAACAAAAAAABAP//AAAFAAEAAAABAPz/AAACAAEAAAABAP3/AAACAAEAAAAFAAIAAAAHAAIAAAAGAAIAAAACAAMAAAAEAAIAAAAGAAIAAAD9/wMAAAAFAAMAAAACAAYAAAABAAIAAAADAAYAAAACAAMAAAD9/wUAAAAAAAIAAAD9/wYAAAAAAAMAAAD+/wYAAAABAAMAAAD9/wQAAAACAAEAAAD//wYAAAABAAIAAAAAAAYAAAABAAIAAAABAAYAAAABAAIAAAABAP7/AAAFAAAAAAACAP7/AAAMAAAAAAADAP7/AAAIAAIAAAAEAP7/AAAIAAIAAAAFAP7/AAAIAAIAAAAFAP//AAAIAAIAAAAFAAAAAAAIAAIAAAAFAAEAAAAMAAEAAAAEAAEAAAAKAAEAAAAEAAAAAAAMAAAAAAAEAP//AAAJAAAAAAADAP//AAAMAAEAAAACAP//AAAKAAEAAAAEAAUAAAADAAIAAAAEAAYAAAADAAMAAAAHAAEAAAADAAIAAAAHAAIAAAADAAMAAAAHAPz/AAABAAEAAAAHAP3/AAABAAEAAAAHAP7/AAABAAEAAAAHAP//AAABAAEAAAAHAAAAAAABAAEAAAAEAAQAAAABAAEAAAAEAAMAAAAGAAMAAAAGAAEAAAALAAEAAAAGAAAAAAANAAAAAAAGAP//AAANAAAAAAAGAP7/AAANAAAAAAABAPr/AAAAAAAAAAABAPv/AAAAAAEAAAACAPr/AAABAAAAAAAGAPr/AAACAAAAAAAHAPr/AAADAAAAAAAHAPv/AAADAAEAAAADAPr/AAACAAIAAAAEAPr/AAACAAIAAAAFAPr/AAACAAIAAAACAP3/AAAKAAAAAAADAP3/AAANAAEAAAAEAP3/AAANAAEAAAAFAP3/AAANAAEAAAAGAP3/AAALAAAAAAA=")
 tile_set = ExtResource("1_frab7")
 
 [node name="Player" parent="." instance=ExtResource("2_itw0v")]
@@ -31,15 +30,15 @@ position = Vector2(-313, 35)
 [node name="Star" parent="." instance=ExtResource("4_2aftt")]
 position = Vector2(-479, -158)
 
-[node name="Instructions" type="Label" parent="."]
-z_index = -1
-offset_left = -225.0
-offset_top = -186.0
-offset_right = -7.0
-offset_bottom = -85.0
-scale = Vector2(0.5, 0.5)
-text = "WASD/Arrow keys to move
-Space to interact
+[node name="Portal2" parent="." instance=ExtResource("5_itw0v")]
+position = Vector2(-96, -224)
+orangePortal = true
+angle = 2
 
-Or use touchscreen controls"
-label_settings = SubResource("LabelSettings_frab7")
+[node name="Portal" parent="." instance=ExtResource("5_itw0v")]
+position = Vector2(32, -96)
+angle = 3
+
+[node name="Camera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_a1scl")]
+position = Vector2(0, 68)
+player = NodePath("../Player")
