@@ -4,6 +4,9 @@ var held: bool = false
 var p: Player
 var goalPos: Vector2
 
+var dropper: CubeDropper
+var fizzleTimer: float = -1
+
 var playerPortalTeleportProgressLastFrame: float = 2
 
 func _interacted_by_player(_player: Player):
@@ -20,15 +23,24 @@ func _unuse(_player: Player):
 	_player.heldObject = null
 	held = false
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
+	if fizzleTimer > -1: return
 	if held && p.portalTeleportProgress >= 2:
 		linear_velocity = (goalPos - position) * 15
 	else:
 		linear_velocity = Vector2(0, 0)
 
 func _process(_delta: float) -> void:
+	if fizzleTimer > -1:
+		fizzleTimer += _delta * 2
+		modulate.a = 1 - fizzleTimer
+		if fizzleTimer > 1: 
+			dropper.respawnNoFizzle()
+			queue_free()
+	
 	$Sprite2D.position = Vector2(0, 0)
 	$Sprite2D.global_position = ($Sprite2D.global_position / 4).round() * 4
+	
 	if held:
 		# logic for portal teleportation
 		
@@ -54,3 +66,6 @@ func _process(_delta: float) -> void:
 			modulate.a = p.sprite.modulate.a
 		
 		playerPortalTeleportProgressLastFrame = p.portalTeleportProgress
+
+func _fizzle():
+	fizzleTimer = 1

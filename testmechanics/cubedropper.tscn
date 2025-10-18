@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy8qgf014pglj"]
+
+[ext_resource type="Script" uid="uid://ds2v4yh0m6dq2" path="res://testmechanics/cubedropper.gd" id="1_mkqy5"]
+[ext_resource type="Texture2D" uid="uid://bjnwcdth5cgqt" path="res://testmechanics/cubedropper.png" id="1_xferv"]
+
+[node name="CubeDropper" type="Node2D"]
+script = ExtResource("1_mkqy5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(0, -4)
+scale = Vector2(4, 4)
+texture = ExtResource("1_xferv")

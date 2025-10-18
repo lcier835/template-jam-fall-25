@@ -236,3 +236,5 @@ func waterBodyEntered(_body: Node2D):
 	if drownAfterAnimation >= 1:
 		drownAfterAnimation = 0
 		collision_mask = 0
+		if heldObject != null && heldObject is Cube:
+			heldObject._fizzle()
