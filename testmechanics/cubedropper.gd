@@ -18,8 +18,10 @@ func spawnCube():
 
 func respawn():
 	if cube != null && cube is Cube:
-		cube.fizzle()
-	respawnNoFizzle()
+		cube._fizzle()
+		cube = null
+	else:
+		respawnNoFizzle()
 
 func _process(_delta: float) -> void:
 	if cubebuffer:

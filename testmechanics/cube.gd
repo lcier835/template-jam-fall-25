@@ -32,7 +32,7 @@ func _physics_process(_delta: float) -> void:
 
 func _process(_delta: float) -> void:
 	if fizzleTimer > -1:
-		fizzleTimer += _delta * 2
+		fizzleTimer += _delta * 4
 		modulate.a = 1 - fizzleTimer
 		if fizzleTimer > 1: 
 			dropper.respawnNoFizzle()
@@ -68,4 +68,4 @@ func _process(_delta: float) -> void:
 		playerPortalTeleportProgressLastFrame = p.portalTeleportProgress
 
 func _fizzle():
-	fizzleTimer = 1
+	fizzleTimer = 0

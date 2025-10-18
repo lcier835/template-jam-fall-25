@@ -69,13 +69,13 @@ func _process(delta: float) -> void:
 	if drownAfterAnimation < 1:
 		angle = int(floor(drownAfterAnimation * 8)) % 4
 		updateSprite(0, 0)
+		inputVector = Vector2(0, 0)
 		sprite.modulate.a = 1 - drownAfterAnimation
 		drownAfterAnimation += delta
 		if drownAfterAnimation >= 1:
 			sprite.modulate.a = 1
 			position = lastSafeSpot
 			angle = 2
-			inputVector = Vector2(0, 0)
 			collision_mask = 1
 	
 	if heldObject == null:
@@ -145,9 +145,11 @@ func interact() -> void:
 	for area in interaction_area.get_overlapping_areas():
 		if area.has_method(&"_interacted_by_player"):
 			area._interacted_by_player(self)
+			return
 	for bodies in interaction_area.get_overlapping_bodies():
 		if bodies.has_method(&"_interacted_by_player"):
 			bodies._interacted_by_player(self)
+			return
 
 func startPortalTransition(fromPortal: Portal, toPortal: Portal):
 	if portalTeleportProgress < 2: return
