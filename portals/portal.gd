@@ -21,7 +21,7 @@ func angleToVector(ang) -> Vector2:
 		3: return Vector2(-1, 0)
 		_: return Vector2(0, 0)
 
-func _process(delta: float) -> void:
+func updateSprite(delta):
 	if orangePortal:
 		sprite.modulate = Color(1.0, 0.500, 0.0, 1.0)
 	else:
@@ -31,6 +31,10 @@ func _process(delta: float) -> void:
 	if animationTimer > 4:
 		animationTimer -= 4
 	sprite.frame = floori(animationTimer) + angle * 4
+
+func _process(delta: float) -> void:
+	updateSprite(delta)
+	
 	for b in get_overlapping_bodies():
 		if b.name == "Player":
 			var pl: Player = b

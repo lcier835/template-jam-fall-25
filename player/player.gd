@@ -219,9 +219,9 @@ func shootPortal(orange: bool):
 				p.queue_free()
 		
 		get_tree().root.add_child(newPortal)
+		newPortal.updateSprite(0)
 
 func waterBodyEntered(_body: Node2D):
 	if drownAfterAnimation >= 1:
 		drownAfterAnimation = 0
 		collision_mask = 0
-	
