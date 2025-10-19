@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6xilvuix4wwf"
-path="res://.godot/imported/elevatorwalls.png-82c74d893573727192b249307439bf1c.ctex"
+uid="uid://cr258it46jqoh"
+path="res://.godot/imported/elevatortop.png-b62778868df8c4341a9d95acdb8fda06.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://testchamber/assets/elevatorwalls.png"
-dest_files=["res://.godot/imported/elevatorwalls.png-82c74d893573727192b249307439bf1c.ctex"]
+source_file="res://testchamber/resources/elevatortop.png"
+dest_files=["res://.godot/imported/elevatortop.png-b62778868df8c4341a9d95acdb8fda06.ctex"]
 
 [params]
 

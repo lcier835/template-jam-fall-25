@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr258it46jqoh"
-path="res://.godot/imported/elevatortop.png-7f63a0af3b6e9e820649777c1f12b92e.ctex"
+uid="uid://d003xgctc4vfi"
+path="res://.godot/imported/tileset.png-b579938cd7f041685ad12918cc5baaaf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://testchamber/assets/elevatortop.png"
-dest_files=["res://.godot/imported/elevatortop.png-7f63a0af3b6e9e820649777c1f12b92e.ctex"]
+source_file="res://testchamber/resources/tileset.png"
+dest_files=["res://.godot/imported/tileset.png-b579938cd7f041685ad12918cc5baaaf.ctex"]
 
 [params]
 

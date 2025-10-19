@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://b4n7twc482f2"]
 
-[ext_resource type="Texture2D" uid="uid://d003xgctc4vfi" path="res://testchamber/assets/tileset.png" id="1_ik6sv"]
+[ext_resource type="Texture2D" uid="uid://d003xgctc4vfi" path="res://testchamber/resources/tileset.png" id="1_ik6sv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a0b8o"]
 resource_name = "tiles"

@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://chlvwkvf1kf63"]
 
-[ext_resource type="Script" uid="uid://cv6iyck0p07n3" path="res://testchamber/assets/enterance_elevator.gd" id="1_i01mv"]
-[ext_resource type="Texture2D" uid="uid://b6xilvuix4wwf" path="res://testchamber/assets/elevatorwalls.png" id="2_rsc2n"]
-[ext_resource type="Texture2D" uid="uid://dn4yr6xfwqmm7" path="res://testchamber/assets/elevatorwalls_bottom.png" id="3_poxeo"]
-[ext_resource type="Texture2D" uid="uid://c54lsll6hok2a" path="res://testchamber/assets/elevatorside_closed.png" id="4_qj6rb"]
-[ext_resource type="Texture2D" uid="uid://cr258it46jqoh" path="res://testchamber/assets/elevatortop.png" id="5_h4vlw"]
+[ext_resource type="Script" uid="uid://cv6iyck0p07n3" path="res://testchamber/resources/enterance_elevator.gd" id="1_i01mv"]
+[ext_resource type="Texture2D" uid="uid://b6xilvuix4wwf" path="res://testchamber/resources/elevatorwalls.png" id="2_rsc2n"]
+[ext_resource type="Texture2D" uid="uid://dn4yr6xfwqmm7" path="res://testchamber/resources/elevatorwalls_bottom.png" id="3_poxeo"]
+[ext_resource type="Texture2D" uid="uid://c54lsll6hok2a" path="res://testchamber/resources/elevatorside_closed.png" id="4_qj6rb"]
+[ext_resource type="Texture2D" uid="uid://cr258it46jqoh" path="res://testchamber/resources/elevatortop.png" id="5_h4vlw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5eas2"]
 size = Vector2(64, 128)

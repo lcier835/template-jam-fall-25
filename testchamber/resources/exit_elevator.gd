@@ -2,8 +2,8 @@ class_name exit_elevator extends Node2D
 
 @export var nextMapName: String
 
-var openDoorSprite: Texture2D = preload("res://testchamber/assets/elevatorside_open.png")
-var closeDoorSprite: Texture2D = preload("res://testchamber/assets/elevatorside_closed.png")
+var openDoorSprite: Texture2D = preload("res://testchamber/resources/elevatorside_open.png")
+var closeDoorSprite: Texture2D = preload("res://testchamber/resources/elevatorside_closed.png")
 
 var camera: FancyCam
 

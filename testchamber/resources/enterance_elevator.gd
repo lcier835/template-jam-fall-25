@@ -1,7 +1,7 @@
 class_name enterance_elevator extends Node2D
 
-var openDoorSprite: Texture2D = preload("res://testchamber/assets/elevatorside_open.png")
-var closeDoorSprite: Texture2D = preload("res://testchamber/assets/elevatorside_closed.png")
+var openDoorSprite: Texture2D = preload("res://testchamber/resources/elevatorside_open.png")
+var closeDoorSprite: Texture2D = preload("res://testchamber/resources/elevatorside_closed.png")
 
 
 var elevatorDistance: float = 0
@@ -17,11 +17,6 @@ var closeDoorTimer: float = 1
 
 var doneFirstTickChecks = false
 
-# 0: beginning of chamber
-# 1: player has gotten near, open door
-# 2: player has entered, close door
-# 3: elevator door shut, ascend
-# 4: load next map
 # 0: ascending
 # 1: 256 units away, start slowing down
 # 2: reached top, waiting to open door
