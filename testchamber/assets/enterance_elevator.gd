@@ -52,8 +52,8 @@ func _process(delta: float) -> void:
 		p.bluePortalgun = bluePortalgun
 		p.orangePortalgun = orangePortalgun
 		p.movementEnabled = false
-		get_tree().root.add_child(p)
-		get_tree().root.add_child(camera)
+		get_tree().get_current_scene().add_child(p)
+		get_tree().get_current_scene().add_child(camera)
 		doneFirstTickChecks = true
 		
 	match phase:

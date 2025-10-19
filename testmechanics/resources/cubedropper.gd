@@ -14,7 +14,7 @@ func spawnCube():
 	cube = cubeScene.instantiate()
 	cube.global_position = global_position
 	cube.dropper = self
-	get_tree().root.add_child(cube)
+	get_tree().get_current_scene().add_child(cube)
 
 func respawn():
 	if cube != null && cube is Cube:

@@ -258,7 +258,7 @@ func shootPortal(orange: bool):
 			if p.orangePortal == orange:
 				p.queue_free()
 		
-		get_tree().root.add_child(newPortal)
+		get_tree().get_current_scene().add_child(newPortal)
 		newPortal.updateSprite(0)
 
 func waterBodyEntered(_body: Node2D):
