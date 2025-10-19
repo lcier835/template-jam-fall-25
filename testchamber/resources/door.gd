@@ -31,8 +31,7 @@ func openDoor():
 func closeDoor():
 	wantsToClose = true
 
-func _process(delta: float) -> void:
-	print($PlayerBlocker.has_overlapping_bodies())
+func _process(_delta: float) -> void:
 	if wantsToClose && !$PlayerBlocker.has_overlapping_bodies():
 		open = false
 		updateSprites()

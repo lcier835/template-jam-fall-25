@@ -10,20 +10,14 @@ var angle: int = 0
 # to control the actual value, look in the of what used this script (the player)
 
 # the speed the tries to move at when a movement key is pressed
-@export var mov_speed: float = 15000
-# how quickly the player goes to theu desired speed
-@export var mov_speed_correction: float = 10
+var mov_speed: float = 15000
 # how quick to animate the player's movement based on their speed
-@export var anim_speed: float = 0.03
-@export var walk_sfx_speed: float = 0.035
-@export var sprite: Sprite2D
+var anim_speed: float = 0.03
+var walk_sfx_speed: float = 0.035
 # how far the interaction hitbox is from the player
-@export var interaction_hitbox_distance: float = 32
-@export var interaction_hitbox: CollisionShape2D
-@export var interaction_area: Area2D
-@export var step_sfx: AudioStreamPlayer
+var interaction_hitbox_distance: float = 32
 
-@export var portalTeleportSpeed: float = 0.3
+var portalTeleportSpeed: float = 0.3
 var portal1: Portal
 var portal2: Portal
 var portalTeleportProgress: float = 2
@@ -31,11 +25,9 @@ var drownAfterAnimation: float = 1
 
 var inputVector: Vector2
 
-var bluePortalgun = true
-var orangePortalgun = true
+@export var bluePortalgun = true
+@export var orangePortalgun = true
 
-@export var portalRaycast: RayCast2D 
-@export var normalRaycast: RayCast2D 
 @onready var portalScene = preload("res://portals/portal.tscn")
 var lastSafeSpot: Vector2
 
@@ -80,10 +72,10 @@ func _process(delta: float) -> void:
 		angle = int(floor(drownAfterAnimation * 8)) % 4
 		updateSprite(0, 0)
 		inputVector = Vector2(0, 0)
-		sprite.modulate.a = 1 - drownAfterAnimation
+		$Sprite2D.modulate.a = 1 - drownAfterAnimation
 		drownAfterAnimation += delta
 		if drownAfterAnimation >= 1:
-			sprite.modulate.a = 1
+			$Sprite2D.modulate.a = 1
 			position = lastSafeSpot
 			angle = 2
 			collision_mask = 1
@@ -95,20 +87,20 @@ func _process(delta: float) -> void:
 	if not inputVector.is_zero_approx() && !Input.is_action_pressed("strafe"):
 		# set animation direction
 		if inputVector.y == 1: # down
-			interaction_hitbox.position = Vector2(0, interaction_hitbox_distance)
+			$InteractionArea/InteractionHitbox.position = Vector2(0, interaction_hitbox_distance)
 			angle = 2
 		elif inputVector.y == -1: #up
-			interaction_hitbox.position = Vector2(0, -interaction_hitbox_distance)
+			$InteractionArea/InteractionHitbox.position = Vector2(0, -interaction_hitbox_distance)
 			angle = 0
 		elif inputVector.x == 1: # right
-			interaction_hitbox.position = Vector2(interaction_hitbox_distance, 0)
+			$InteractionArea/InteractionHitbox.position = Vector2(interaction_hitbox_distance, 0)
 			angle = 1
 		elif inputVector.x == -1: # left
-			interaction_hitbox.position = Vector2(-interaction_hitbox_distance, 0)
+			$InteractionArea/InteractionHitbox.position = Vector2(-interaction_hitbox_distance, 0)
 			angle = 3
 		
 	if heldObject != null:
-		interaction_hitbox.position = Vector2(0, 0)
+		$InteractionArea/InteractionHitbox.position = Vector2(0, 0)
 	
 	var actingLinearVelocityLength := (250 if linear_velocity.length() > 1 else 0)
 	
@@ -117,17 +109,17 @@ func _process(delta: float) -> void:
 	sound_delay += delta * walk_sfx_speed * actingLinearVelocityLength
 	if sound_delay > 1.0:
 		sound_delay = fmod(sound_delay, 1.0)
-		step_sfx.play()
+		$StepSFX.play()
 
 func processDisplacement(_delta: float):
 	if displacedByField:
-		$PortalableRaycast.position = Vector2(0, 16) + displacementFieldOffset
+		$PortalRaycast.position = Vector2(0, 16) + displacementFieldOffset
 		$NormalRaycast.position = Vector2(0, 16) + displacementFieldOffset
-		$CloneSprite.position = sprite.position + displacementFieldOffset
+		$CloneSprite.position = $Sprite2D.position + displacementFieldOffset
 		$CloneSprite.visible = true
-		$CloneSprite.modulate.a = sprite.modulate.a / 2
+		$CloneSprite.modulate.a = $Sprite2D.modulate.a / 2
 	else:
-		$PortalableRaycast.position = Vector2(0, 16)
+		$PortalRaycast.position = Vector2(0, 16)
 		$NormalRaycast.position = Vector2(0, 16)
 		$CloneSprite.visible = false
 
@@ -141,11 +133,11 @@ func angleToVector(ang) -> Vector2:
 
 func updateSprite(speed: float, delta: float):
 	animation_frame = fmod(delta * anim_speed * speed + animation_frame, 4)
-	sprite.frame = floori(animation_frame) + angle * 4
+	$Sprite2D.frame = floori(animation_frame) + angle * 4
 	$CloneSprite.frame = floori(animation_frame) + angle * 4
 	
-	sprite.position = Vector2(0, -8)
-	sprite.global_position = (sprite.global_position / 4).round() * 4
+	$Sprite2D.position = Vector2(0, -8)
+	$Sprite2D.global_position = ($Sprite2D.global_position / 4).round() * 4
 
 # For like _process, but runs at a fixed frame rate
 # better for physics realated code
@@ -168,11 +160,11 @@ func _input(event: InputEvent) -> void:
 # then calls their _interacted_by_player if they have that method passing the player
 # note that that interactable object needs to have collision layer 2 enabled
 func interact() -> void:
-	for area in interaction_area.get_overlapping_areas():
+	for area in $InteractionArea.get_overlapping_areas():
 		if area.has_method(&"_interacted_by_player"):
 			area._interacted_by_player(self)
 			return
-	for bodies in interaction_area.get_overlapping_bodies():
+	for bodies in $InteractionArea.get_overlapping_bodies():
 		if bodies.has_method(&"_interacted_by_player"):
 			bodies._interacted_by_player(self)
 			return
@@ -200,20 +192,20 @@ func portallingProcess(delta: float) -> void:
 		position = lerp(portal1.position + (angleToVector(angle) * -32), portal1.position, portalTeleportProgress)
 		var goalColor = portal1.sprite.modulate
 		goalColor.a = 0
-		sprite.modulate = lerp(Color(1,1,1), goalColor, portalTeleportProgress)
+		$Sprite2D.modulate = lerp(Color(1,1,1), goalColor, portalTeleportProgress)
 	
 	else:
 		angle = (portal2.angle) % 4
 		position = lerp(portal2.position, portal2.position + (angleToVector(angle) * endDistance), portalTeleportProgress - 1)
 		var goalColor = portal1.sprite.modulate
 		goalColor.a = 0
-		sprite.modulate = lerp(goalColor, Color(1,1,1), portalTeleportProgress - 1)
+		$Sprite2D.modulate = lerp(goalColor, Color(1,1,1), portalTeleportProgress - 1)
 	
 	portalTeleportProgress += (delta * 2) / portalTeleportSpeed
 	updateSprite(250, delta)
 	if portalTeleportProgress > 2: 
 		position = portal2.position + (angleToVector(angle) * endDistance)
-		sprite.modulate = Color(1, 1, 1)
+		$Sprite2D.modulate = Color(1, 1, 1)
 	
 	processDisplacement(delta)
 
@@ -230,12 +222,12 @@ func getCameraPos() -> Vector2:
 		return position
 
 func shootPortal(orange: bool):
-	portalRaycast.target_position = angleToVector(angle) * 5000
-	normalRaycast.target_position = angleToVector(angle) * 5000
-	portalRaycast.force_raycast_update()
-	normalRaycast.force_raycast_update()
-	if portalRaycast.get_collision_point() == normalRaycast.get_collision_point() && portalRaycast.is_colliding():
-		var portalPos = portalRaycast.get_collision_point()
+	$PortalRaycast.target_position = angleToVector(angle) * 5000
+	$NormalRaycast.target_position = angleToVector(angle) * 5000
+	$PortalRaycast.force_raycast_update()
+	$NormalRaycast.force_raycast_update()
+	if $PortalRaycast.get_collision_point() == $NormalRaycast.get_collision_point() && $PortalRaycast.is_colliding():
+		var portalPos = $PortalRaycast.get_collision_point()
 		portalPos += angleToVector(angle) * 32
 		if angle % 2 == 0:
 			portalPos.x = floor(portalPos.x / 64) * 64 + 32

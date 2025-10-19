@@ -29,19 +29,13 @@ stream_4/stream = ExtResource("9_yllr7")
 [sub_resource type="CircleShape2D" id="CircleShape2D_hg6s5"]
 radius = 14.0
 
-[node name="Player" type="RigidBody2D" node_paths=PackedStringArray("sprite", "interaction_hitbox", "interaction_area", "step_sfx", "portalRaycast", "normalRaycast") groups=["Displaceable", "Player"]]
+[node name="Player" type="RigidBody2D" groups=["Displaceable", "Player"]]
 collision_layer = 130
 physics_material_override = SubResource("PhysicsMaterial_boad6")
 lock_rotation = true
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_onrkg")
-sprite = NodePath("Sprite2D")
-interaction_hitbox = NodePath("InteractionArea/InteractionHitbox")
-interaction_area = NodePath("InteractionArea")
-step_sfx = NodePath("StepSFX")
-portalRaycast = NodePath("PortalableRaycast")
-normalRaycast = NodePath("NormalRaycast")
 
 [node name="PhysicsHitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 16)
@@ -79,7 +73,7 @@ stream = SubResource("AudioStreamRandomizer_kb6p2")
 volume_db = -20.0
 max_polyphony = 2
 
-[node name="PortalableRaycast" type="RayCast2D" parent="."]
+[node name="PortalRaycast" type="RayCast2D" parent="."]
 position = Vector2(0, 16)
 enabled = false
 target_position = Vector2(0, -5000)
