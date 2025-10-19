@@ -31,6 +31,9 @@ var drownAfterAnimation: float = 1
 
 var inputVector: Vector2
 
+var bluePortalgun = true
+var orangePortalgun = true
+
 @export var portalRaycast: RayCast2D 
 @export var normalRaycast: RayCast2D 
 @onready var portalScene = preload("res://portals/portal.tscn")
@@ -41,7 +44,11 @@ var heldObject: Cube
 var displacementFieldOffset := Vector2(0, 0)
 var displacedByField := false
 
+var movementEnabled = true
+
 func updateKeys():
+	if !movementEnabled:
+		return
 	var upEvent = Input.is_action_just_pressed(&"up") || Input.is_action_just_released(&"up")
 	var downEvent = Input.is_action_just_pressed(&"down") || Input.is_action_just_released(&"down")
 	var leftEvent = Input.is_action_just_pressed(&"left") || Input.is_action_just_released(&"left")
@@ -81,9 +88,9 @@ func _process(delta: float) -> void:
 			angle = 2
 			collision_mask = 1
 	
-	if heldObject == null:
-		if Input.is_action_just_pressed("blueportal"): shootPortal(false)
-		if Input.is_action_just_pressed("orangeportal"): shootPortal(true)
+	if heldObject == null && movementEnabled:
+		if Input.is_action_just_pressed("blueportal") && bluePortalgun: shootPortal(false)
+		if Input.is_action_just_pressed("orangeportal") && orangePortalgun: shootPortal(true)
 	
 	if not inputVector.is_zero_approx():
 		# set animation direction
@@ -149,6 +156,7 @@ func _physics_process(delta: float) -> void:
 		heldObject.goalPos = goalPosition
 
 func _input(event: InputEvent) -> void:
+	if !movementEnabled: return
 	if event.is_action_pressed(&"interact"):
 		if heldObject && heldObject.has_method(&"_unuse"):
 			heldObject._unuse(self)

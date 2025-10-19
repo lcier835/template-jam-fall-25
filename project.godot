@@ -25,6 +25,8 @@ window/stretch/mode="viewport"
 
 Portals=""
 Displaceable="May be displaced by displacement fields."
+Player=""
+Camera=""
 
 [input]
 
@@ -79,6 +81,7 @@ orangeportal={
 2d_physics/layer_5="Portal collide"
 2d_physics/layer_6="Portalable"
 2d_physics/layer_7="Kinetic grill blockers"
+2d_physics/layer_8="Player"
 2d_physics/stretch/scale_mode="fractional"
 
 [physics]
