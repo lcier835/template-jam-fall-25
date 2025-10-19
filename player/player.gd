@@ -201,6 +201,9 @@ func portallingProcess(delta: float) -> void:
 		var goalColor = portal1.sprite.modulate
 		goalColor.a = 0
 		$Sprite2D.modulate = lerp(goalColor, Color(1,1,1), portalTeleportProgress - 1)
+		
+	if heldObject != null:
+		heldObject.modulate.a = $Sprite2D.modulate.a
 	
 	portalTeleportProgress += (delta * 2) / portalTeleportSpeed
 	updateSprite(250, delta)

@@ -75,8 +75,10 @@ func _process(_delta: float) -> void:
 			)
 		
 		# every frame during portal transition
-		if p.portalTeleportProgress < 2:
-			modulate.a = p.sprite.modulate.a
+		#if p.portalTeleportProgress < 2:
+			#modulate.a = p.sprite.modulate.a
+		# THIS IS IN THE PLAYER SCRIPT NOW
+		# I CANT BE BOTHERED TO SOLVE THIS NORMALLY
 		
 		playerPortalTeleportProgressLastFrame = p.portalTeleportProgress
 
