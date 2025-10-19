@@ -45,8 +45,8 @@ func stopDisplacing(object: Node2D):
 	object.displacedByField = false
 
 func objectInside(object: Node2D) -> bool:
-	var lowerBound:= displacementArea * -32 + global_position
-	var upperBound:= displacementArea * 32 + global_position
+	var lowerBound:= displacementArea * -32 + global_position - Vector2(8, 8)
+	var upperBound:= displacementArea * 32 + global_position + Vector2(8, 8)
 	var checkPosition:= object.position
 	
 	var withinXRange = lowerBound.x < checkPosition.x && checkPosition.x < upperBound.x
