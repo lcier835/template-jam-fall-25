@@ -1,22 +1,14 @@
-extends Camera2D
+class_name FancyCam extends Camera2D
 
-@export var desired_size: Vector2 = Vector2(1440, 1080)
+var desired_size: Vector2 = Vector2(1440, 1080)
 
-@export var player: Player
+var target: Node2D
 
 var smoothedPosition: Vector2
+var lag = true
 
-func _ready() -> void:
-	get_tree().get_root().size_changed.connect(update_camera_zoom_level)
-	update_camera_zoom_level()
-
-func update_camera_zoom_level() -> void:
-	var current_size: Vector2 = get_tree().get_root().size
-	var zoom_vec := current_size / desired_size
-	var zoom_float := minf(zoom_vec.x, zoom_vec.y)
-	GLOBAL.get_singleton().camera_zoom = zoom_float
-	zoom.x = zoom_float
-	zoom.y = zoom_float
+func begin():
+	position = target.position
 
 func smoothMin(a: float, b: float, k: float) -> float:
 	k *= 2
@@ -24,8 +16,22 @@ func smoothMin(a: float, b: float, k: float) -> float:
 	return 0.5 * (a + b - sqrt (x * x + k * k))
 
 func _process(delta: float) -> void:
-	var goalPosition = player.getCameraPos()
-	smoothedPosition = lerp(smoothedPosition, goalPosition, delta * 3)
+	if target == null:
+		if get_tree().get_nodes_in_group("Player").size() == 0: return
+		target = get_tree().get_nodes_in_group("Player")[0]
+		position = target.position
+		smoothedPosition = target.position
+	var goalPosition = target.position
+	if target.has_method("getCameraPos"):
+		goalPosition = target.getCameraPos()
+	if lag:
+		smoothedPosition = lerp(smoothedPosition, goalPosition, delta * 3)
+	else:
+		smoothedPosition = goalPosition
 	var usePosition = smoothedPosition
 	
+	# find all camera magnets and add their pull
+	for c in get_tree().get_nodes_in_group("CameraMagnets"):
+		var strength = 1 / (1 + (smoothedPosition.distance_to(c.position) / c.strength))
+		usePosition = lerp(smoothedPosition, c.position, strength)
 	position = usePosition

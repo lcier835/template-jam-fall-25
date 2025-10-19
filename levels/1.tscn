@@ -24,9 +24,8 @@ tile_set = ExtResource("1_frab7")
 [node name="Player" parent="." instance=ExtResource("2_itw0v")]
 position = Vector2(-352, 32)
 
-[node name="Camera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_a1scl")]
+[node name="Camera" parent="." instance=ExtResource("6_a1scl")]
 position = Vector2(0, 68)
-player = NodePath("../Player")
 
 [node name="CubeDropper" parent="." instance=ExtResource("5_a1scl")]
 position = Vector2(-448, -128)
