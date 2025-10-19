@@ -8,8 +8,10 @@ var enabled: bool
 
 func _ready():
 	tilesWide = round(tilesWide * 2) / 2
+	$CollisionShape2D.shape = RectangleShape2D.new()
 	$CollisionShape2D.shape.size.y = tilesWide * 64
-	$PortalshotBlocker/CollisionShape2D.shape.size.y = tilesWide * 64
+	$CollisionShape2D.shape.size.x = 8
+	$PortalshotBlocker/CollisionShape2D.shape = $CollisionShape2D.shape
 	$Fizzlermiddle.scale.y = tilesWide * 4
 	$Side1.position.y = -32 + tilesWide * -32
 	$Side2.position.y = 32 + tilesWide * 32
