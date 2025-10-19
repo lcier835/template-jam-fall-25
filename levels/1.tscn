@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cqow47bch5ocs"]
+[gd_scene load_steps=11 format=4 uid="uid://cqow47bch5ocs"]
 
 [ext_resource type="TileSet" uid="uid://b4n7twc482f2" path="res://testchamber/chambertileset.tres" id="1_frab7"]
 [ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player/player.tscn" id="2_itw0v"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c5ly2um5kudf3" path="res://testmechanics/fizzler.tscn" id="7_2aftt"]
 [ext_resource type="PackedScene" uid="uid://ce2r63i43hhn1" path="res://testmechanics/cube.tscn" id="8_725xe"]
 [ext_resource type="PackedScene" uid="uid://dh505h1aeux62" path="res://testmechanics/displacementfield.tscn" id="9_344tg"]
+[ext_resource type="PackedScene" uid="uid://bxshcvar0v0kf" path="res://testchamber/exit_elevator.tscn" id="10_1diu1"]
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -23,7 +24,7 @@ tile_map_data = PackedByteArray("AAAAAP7/AAAGAAAAAAD9/wIAAAAFAAIAAAD8/wIAAAAEAAI
 tile_set = ExtResource("1_frab7")
 
 [node name="Player" parent="." instance=ExtResource("2_itw0v")]
-position = Vector2(-352, 32)
+position = Vector2(192, -256)
 
 [node name="Camera" parent="." instance=ExtResource("6_a1scl")]
 position = Vector2(0, 68)
@@ -69,6 +70,10 @@ displacementFieldBorder = true
 
 [node name="FloorButton2" parent="." instance=ExtResource("6_2aftt")]
 position = Vector2(-224, -160)
+
+[node name="ExitElevator" parent="." instance=ExtResource("10_1diu1")]
+position = Vector2(384, -608)
+nextMapName = "2"
 
 [connection signal="OnButtonPressed" from="PedestalButton" to="CubeDropper" method="respawn"]
 [connection signal="OnButtonPressed" from="FloorButton" to="Fizzler" method="disableFizzler"]
