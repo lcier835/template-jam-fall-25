@@ -28,10 +28,4 @@ func _process(delta: float) -> void:
 		smoothedPosition = lerp(smoothedPosition, goalPosition, delta * 3)
 	else:
 		smoothedPosition = goalPosition
-	var usePosition = smoothedPosition
-	
-	# find all camera magnets and add their pull
-	for c in get_tree().get_nodes_in_group("CameraMagnets"):
-		var strength = 1 / (1 + (smoothedPosition.distance_to(c.position) / c.strength))
-		usePosition = lerp(smoothedPosition, c.position, strength)
-	position = usePosition
+	position = smoothedPosition
