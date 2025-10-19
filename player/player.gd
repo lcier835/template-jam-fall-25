@@ -92,7 +92,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("blueportal") && bluePortalgun: shootPortal(false)
 		if Input.is_action_just_pressed("orangeportal") && orangePortalgun: shootPortal(true)
 	
-	if not inputVector.is_zero_approx():
+	if not inputVector.is_zero_approx() && !Input.is_action_pressed("strafe"):
 		# set animation direction
 		if inputVector.y == 1: # down
 			interaction_hitbox.position = Vector2(0, interaction_hitbox_distance)
@@ -106,6 +106,7 @@ func _process(delta: float) -> void:
 		elif inputVector.x == -1: # left
 			interaction_hitbox.position = Vector2(-interaction_hitbox_distance, 0)
 			angle = 3
+		
 	if heldObject != null:
 		interaction_hitbox.position = Vector2(0, 0)
 	
