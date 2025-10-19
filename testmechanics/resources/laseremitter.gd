@@ -48,7 +48,9 @@ func placeLasers():
 				else: angle = (collider.angle + 2) % 4
 				index += 1
 				continue
-			# TODO: Laser catchers
+			if collider is LaserCatcher:
+				collider.powered = true
+				return
 		
 		var continueAfterward = false
 		for p in get_tree().get_nodes_in_group("Portals"):

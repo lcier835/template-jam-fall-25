@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8xk0xb71rp4x"]
+
+[ext_resource type="Script" uid="uid://b3mb6l6rt4bt5" path="res://testmechanics/resources/lasercatcher.gd" id="1_3i7wy"]
+[ext_resource type="Texture2D" uid="uid://bu75gxt7p01xp" path="res://testmechanics/resources/lasercatcher.png" id="1_w57dw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3i7wy"]
+size = Vector2(64, 8)
+
+[node name="StaticBody2D" type="StaticBody2D" groups=["LaserInteract"]]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("1_3i7wy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -16)
+scale = Vector2(4, 4)
+texture = ExtResource("1_w57dw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3i7wy")

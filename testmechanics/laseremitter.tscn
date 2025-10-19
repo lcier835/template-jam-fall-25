@@ -17,7 +17,7 @@ texture = ExtResource("1_w57dw")
 position = Vector2(0, -32)
 enabled = false
 target_position = Vector2(0, -2560)
-collision_mask = 304
+collision_mask = 256
 
 [node name="Fizzlermiddle" type="Sprite2D" parent="."]
 modulate = Color(1, 0, 0, 0.5019608)
