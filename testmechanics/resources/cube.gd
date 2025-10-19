@@ -75,6 +75,8 @@ func _process(_delta: float) -> void:
 
 func _fizzle():
 	fizzleTimer = 0
+	collision_layer = 0
+	collision_mask = 0
 
 func onFloorButton():
 	$Sprite2D.modulate = Color(1, 1, 0)
