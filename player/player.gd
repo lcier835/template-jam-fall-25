@@ -152,7 +152,8 @@ func _input(event: InputEvent) -> void:
 	if !movementEnabled: return
 	if event.is_action_pressed(&"interact"):
 		if heldObject && heldObject.has_method(&"_unuse"):
-			heldObject._unuse(self)
+			if $InteractionArea.get_overlapping_bodies().find(heldObject) == -1:
+				heldObject._unuse(self)
 		else:
 			interact()
 

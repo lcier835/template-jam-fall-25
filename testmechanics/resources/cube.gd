@@ -23,8 +23,6 @@ func _interacted_by_player(_player: Player):
 	held = true
 
 func _unuse(_player: Player):
-	if p.interaction_area.get_overlapping_bodies().find(self) != -1:
-		return
 	collision_layer = 263
 	linear_velocity = Vector2(0, 0)
 	_player.heldObject = null
