@@ -33,8 +33,8 @@ func _process(_delta: float) -> void:
 	
 	# remove and update invalid ones
 	for m in currentlyDisplacedObjects:
-		if !objectInside(m):
-			stopDisplacing(m)
+		if m == null || !objectInside(m):
+			if m != null: stopDisplacing(m)
 			currentlyDisplacedObjects.erase(m)
 
 func startDisplacing(object: Node2D):
