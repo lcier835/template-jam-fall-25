@@ -12,6 +12,10 @@ var playerPortalTeleportProgressLastFrame: float = 2
 var displacementFieldOffset := Vector2(0, 0)
 var displacedByField := false
 
+@export var reflector = false
+
+var angle: int
+
 func _interacted_by_player(_player: Player):
 	collision_layer = 6
 	_player.heldObject = self
@@ -36,6 +40,9 @@ func _physics_process(_delta: float) -> void:
 		linear_velocity = Vector2(0, 0)
 
 func _process(_delta: float) -> void:
+	if reflector:
+		$Sprite2D.frame = angle + 1
+		$CloneSprite.frame = $Sprite2D.frame
 	if fizzleTimer > -1:
 		fizzleTimer += _delta * 4
 		modulate.a = 1 - fizzleTimer
@@ -48,6 +55,7 @@ func _process(_delta: float) -> void:
 	$Sprite2D.global_position = ($Sprite2D.global_position / 4).round() * 4
 	processDisplacement(_delta)
 	if held:
+		angle = p.angle
 		# logic for portal teleportation
 		
 		# just left portal
