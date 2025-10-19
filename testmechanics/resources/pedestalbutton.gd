@@ -6,6 +6,9 @@ var pressTimer = 1
 signal OnButtonPressed
 signal OnButtonUnpressed
 
+var displacementFieldOffset := Vector2(0, 0)
+var displacedByField := false
+
 func _interacted_by_player(_player: Player):
 	if pressTimer > pressTime || (pressTime == -1 && pressTimer != -1):
 		$Sprite2D.modulate = Color(1, 1, 0)
@@ -22,3 +25,8 @@ func _process(_delta: float) -> void:
 	
 	if pressTime != -1:
 		pressTimer += _delta
+	
+	if displacedByField:
+		$CollisionShape2D.position = -displacementFieldOffset
+	else:
+		$CollisionShape2D.position = Vector2(0, 0)

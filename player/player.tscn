@@ -29,7 +29,7 @@ stream_4/stream = ExtResource("9_yllr7")
 [sub_resource type="CircleShape2D" id="CircleShape2D_hg6s5"]
 radius = 14.0
 
-[node name="Player" type="RigidBody2D" node_paths=PackedStringArray("sprite", "interaction_hitbox", "interaction_area", "step_sfx", "portalRaycast", "normalRaycast")]
+[node name="Player" type="RigidBody2D" node_paths=PackedStringArray("sprite", "interaction_hitbox", "interaction_area", "step_sfx", "portalRaycast", "normalRaycast") groups=["Displaceable"]]
 collision_layer = 6
 physics_material_override = SubResource("PhysicsMaterial_boad6")
 lock_rotation = true
@@ -48,6 +48,16 @@ position = Vector2(0, 16)
 shape = SubResource("CircleShape2D_boad6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+texture_filter = 1
+position = Vector2(0, -8)
+scale = Vector2(4, 4)
+texture = ExtResource("2_i3pqv")
+hframes = 4
+vframes = 4
+
+[node name="CloneSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.5019608)
 z_index = 2
 texture_filter = 1
 position = Vector2(0, -8)

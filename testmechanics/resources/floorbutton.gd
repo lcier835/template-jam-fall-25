@@ -2,10 +2,13 @@ class_name FloorButton extends Area2D
 
 var lastFrameCollidingBodyCount = 0
 
-var overlappingCubes = [Cube]
+var overlappingCubes: Array[Cube] = []
 
 signal OnButtonPressed
 signal OnButtonUnpressed
+
+var displacementFieldOffset := Vector2(0, 0)
+var displacedByField := false
 
 func _process(_delta: float) -> void:
 	var currentOverlappingBodies = get_overlapping_bodies().size() + get_overlapping_areas().size()
@@ -28,4 +31,8 @@ func _process(_delta: float) -> void:
 		if get_overlapping_bodies().find(c) == -1:
 			c.offFloorButton()
 			overlappingCubes.erase(c)
-			
+	
+	if displacedByField:
+		$CollisionShape2D.position = -displacementFieldOffset
+	else:
+		$CollisionShape2D.position = Vector2(0, 0)

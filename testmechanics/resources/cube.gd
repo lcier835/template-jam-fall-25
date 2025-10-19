@@ -9,6 +9,9 @@ var fizzleTimer: float = -1
 
 var playerPortalTeleportProgressLastFrame: float = 2
 
+var displacementFieldOffset := Vector2(0, 0)
+var displacedByField := false
+
 func _interacted_by_player(_player: Player):
 	collision_layer = 6
 	_player.heldObject = self
@@ -27,7 +30,7 @@ func _physics_process(_delta: float) -> void:
 	if fizzleTimer > -1: return
 	if held && p.portalTeleportProgress >= 2:
 		linear_velocity = (goalPos - position) * 15
-		if(position - goalPos).length() > 128:
+		if(position - goalPos).length() > 196:
 			_unuse(p)
 	else:
 		linear_velocity = Vector2(0, 0)
@@ -37,12 +40,13 @@ func _process(_delta: float) -> void:
 		fizzleTimer += _delta * 4
 		modulate.a = 1 - fizzleTimer
 		if fizzleTimer > 1: 
-			dropper.respawnNoFizzle()
+			if dropper != null:
+				dropper.respawnNoFizzle()
 			queue_free()
 	
 	$Sprite2D.position = Vector2(0, 0)
 	$Sprite2D.global_position = ($Sprite2D.global_position / 4).round() * 4
-	
+	processDisplacement(_delta)
 	if held:
 		# logic for portal teleportation
 		
@@ -77,3 +81,12 @@ func onFloorButton():
 
 func offFloorButton():
 	$Sprite2D.modulate = Color(0, 0.5, 1)
+
+func processDisplacement(_delta: float):
+	if displacedByField:
+		$CloneSprite.position = $Sprite2D.position + displacementFieldOffset
+		$CloneSprite.visible = true
+		$CloneSprite.modulate = $Sprite2D.modulate
+		$CloneSprite.modulate.a /= 2
+	else:
+		$CloneSprite.visible = false

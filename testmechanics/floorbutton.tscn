@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvinn"]
 size = Vector2(32, 32)
 
-[node name="FloorButton" type="Area2D"]
+[node name="FloorButton" type="Area2D" groups=["Displaceable"]]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_e1g03")

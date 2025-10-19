@@ -20,11 +20,11 @@ config/icon="uid://bv8i66e2am8k1"
 window/size/viewport_width=1440
 window/size/viewport_height=1080
 window/stretch/mode="viewport"
-window/stretch/scale_mode="integer"
 
 [global_group]
 
 Portals=""
+Displaceable="May be displaced by displacement fields."
 
 [input]
 

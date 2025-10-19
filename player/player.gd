@@ -38,6 +38,9 @@ var lastSafeSpot: Vector2
 
 var heldObject: Cube
 
+var displacementFieldOffset := Vector2(0, 0)
+var displacedByField := false
+
 func updateKeys():
 	var upEvent = Input.is_action_just_pressed(&"up") || Input.is_action_just_released(&"up")
 	var downEvent = Input.is_action_just_pressed(&"down") || Input.is_action_just_released(&"down")
@@ -102,10 +105,23 @@ func _process(delta: float) -> void:
 	var actingLinearVelocityLength := (250 if linear_velocity.length() > 1 else 0)
 	
 	updateSprite(actingLinearVelocityLength, delta)
+	processDisplacement(delta)
 	sound_delay += delta * walk_sfx_speed * actingLinearVelocityLength
 	if sound_delay > 1.0:
 		sound_delay = fmod(sound_delay, 1.0)
 		step_sfx.play()
+
+func processDisplacement(_delta: float):
+	if displacedByField:
+		$PortalableRaycast.position = Vector2(0, 16) + displacementFieldOffset
+		$NormalRaycast.position = Vector2(0, 16) + displacementFieldOffset
+		$CloneSprite.position = sprite.position + displacementFieldOffset
+		$CloneSprite.visible = true
+		$CloneSprite.modulate.a = sprite.modulate.a / 2
+	else:
+		$PortalableRaycast.position = Vector2(0, 16)
+		$NormalRaycast.position = Vector2(0, 16)
+		$CloneSprite.visible = false
 
 func angleToVector(ang) -> Vector2:
 	match(ang):
@@ -118,6 +134,7 @@ func angleToVector(ang) -> Vector2:
 func updateSprite(speed: float, delta: float):
 	animation_frame = fmod(delta * anim_speed * speed + animation_frame, 4)
 	sprite.frame = floori(animation_frame) + angle * 4
+	$CloneSprite.frame = floori(animation_frame) + angle * 4
 	
 	sprite.position = Vector2(0, -8)
 	sprite.global_position = (sprite.global_position / 4).round() * 4
@@ -188,6 +205,8 @@ func portallingProcess(delta: float) -> void:
 	if portalTeleportProgress > 2: 
 		position = portal2.position + (angleToVector(angle) * endDistance)
 		sprite.modulate = Color(1, 1, 1)
+	
+	processDisplacement(delta)
 
 func getCameraPos() -> Vector2:
 	if portalTeleportProgress < 2:
@@ -196,6 +215,8 @@ func getCameraPos() -> Vector2:
 		var t = portalTeleportProgress / 2
 		t = t * t * (3.0 - (2.0 * t))
 		return lerp(pos1, pos2, t)
+	elif displacedByField:
+		return position + displacementFieldOffset / 2
 	else:
 		return position
 
