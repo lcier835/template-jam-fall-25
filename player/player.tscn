@@ -30,7 +30,7 @@ stream_4/stream = ExtResource("9_yllr7")
 radius = 14.0
 
 [node name="Player" type="RigidBody2D" node_paths=PackedStringArray("sprite", "interaction_hitbox", "interaction_area", "step_sfx", "portalRaycast", "normalRaycast") groups=["Displaceable", "Player"]]
-collision_layer = 134
+collision_layer = 130
 physics_material_override = SubResource("PhysicsMaterial_boad6")
 lock_rotation = true
 contact_monitor = true

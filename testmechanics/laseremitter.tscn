@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyq7ikato2uno"]
+
+[ext_resource type="Texture2D" uid="uid://dvsd5k8b6rh7r" path="res://testmechanics/resources/laseremitter.png" id="1_w57dw"]
+[ext_resource type="Script" uid="uid://ckfdspmjbbqe1" path="res://testmechanics/resources/laseremitter.gd" id="1_wdg8n"]
+[ext_resource type="Texture2D" uid="uid://bpi6kfiyr8apc" path="res://testmechanics/resources/fizzlermiddle.png" id="2_xub83"]
+
+[node name="LaserEmitter" type="Node2D"]
+script = ExtResource("1_wdg8n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -16)
+scale = Vector2(4, 4)
+texture = ExtResource("1_w57dw")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -32)
+enabled = false
+target_position = Vector2(0, -2560)
+collision_mask = 304
+
+[node name="Fizzlermiddle" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 0.5019608)
+position = Vector2(0, -64)
+scale = Vector2(4, 4)
+texture = ExtResource("2_xub83")

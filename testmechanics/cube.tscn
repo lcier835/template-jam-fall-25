@@ -36,3 +36,10 @@ position = Vector2(0, -4)
 scale = Vector2(4, 4)
 texture = ExtResource("1_m3oyu")
 hframes = 5
+
+[node name="CloneReflector" type="StaticBody2D" parent="." groups=["LaserInteract"]]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CloneReflector"]
+shape = SubResource("RectangleShape2D_fvinn")

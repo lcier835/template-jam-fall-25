@@ -17,7 +17,7 @@ var displacedByField := false
 var angle: int
 
 func _interacted_by_player(_player: Player):
-	collision_layer = 6
+	collision_layer = 262
 	_player.heldObject = self
 	p = _player
 	held = true
@@ -25,7 +25,7 @@ func _interacted_by_player(_player: Player):
 func _unuse(_player: Player):
 	if p.interaction_area.get_overlapping_bodies().find(self) != -1:
 		return
-	collision_layer = 7
+	collision_layer = 263
 	linear_velocity = Vector2(0, 0)
 	_player.heldObject = null
 	held = false
@@ -41,6 +41,7 @@ func _physics_process(_delta: float) -> void:
 
 func _process(_delta: float) -> void:
 	if reflector:
+		add_to_group("LaserInteract", false)
 		$Sprite2D.frame = angle + 1
 		$CloneSprite.frame = $Sprite2D.frame
 	if fizzleTimer > -1:
@@ -98,5 +99,10 @@ func processDisplacement(_delta: float):
 		$CloneSprite.visible = true
 		$CloneSprite.modulate = $Sprite2D.modulate
 		$CloneSprite.modulate.a /= 2
+		if collision_layer >= 256: collision_layer -= 256
+		$CloneReflector.collision_layer = 256
+		$CloneReflector.position = displacementFieldOffset
 	else:
 		$CloneSprite.visible = false
+		if collision_layer < 256: collision_layer += 256
+		$CloneReflector.collision_layer = 0

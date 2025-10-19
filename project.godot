@@ -27,6 +27,7 @@ Portals=""
 Displaceable="May be displaced by displacement fields."
 Player=""
 Camera=""
+LaserInteract=""
 
 [input]
 
@@ -87,6 +88,7 @@ strafe={
 2d_physics/layer_6="Portalable"
 2d_physics/layer_7="Kinetic grill blockers"
 2d_physics/layer_8="Player"
+2d_physics/layer_9="LaserCollide"
 2d_physics/stretch/scale_mode="fractional"
 
 [physics]
