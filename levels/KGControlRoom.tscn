@@ -124,10 +124,12 @@ position = Vector2(-288, -416)
 [node name="Trigger" parent="." instance=ExtResource("9_b0epe")]
 position = Vector2(320, -832)
 scale = Vector2(2, 1)
+once = true
 
 [node name="Trigger2" parent="." instance=ExtResource("9_b0epe")]
 position = Vector2(224, -576)
 scale = Vector2(1, 2)
+once = true
 
 [node name="Fizzler" parent="." instance=ExtResource("7_bhhaw")]
 position = Vector2(704, -544)
@@ -136,6 +138,7 @@ rotation = 1.5707964
 [node name="Trigger4" parent="." instance=ExtResource("9_b0epe")]
 position = Vector2(704, -544)
 scale = Vector2(2, 1)
+once = true
 
 [connection signal="OnButtonPressed" from="FloorButton2" to="AutoportalBlueL" method="placeBluePortal"]
 [connection signal="OnButtonUnpressed" from="FloorButton2" to="AutoportalBlueL" method="clearPortal"]

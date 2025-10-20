@@ -6,11 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://dq28jt7gp46pk" path="res://camera/camera.tscn" id="4_o027c"]
 [ext_resource type="PackedScene" uid="uid://1h64ibhwpof6" path="res://testmechanics/autoportal.tscn" id="5_1c7jj"]
 [ext_resource type="PackedScene" uid="uid://b7rh2d43wg2dw" path="res://testchamber/door.tscn" id="6_wn7qo"]
-[ext_resource type="PackedScene" uid="uid://ccwssux3byp8q" path="res://testmechanics/pedestalbutton.tscn" id="7_1c7jj"]
 [ext_resource type="PackedScene" uid="uid://dy8qgf014pglj" path="res://testmechanics/cubedropper.tscn" id="8_ijwbo"]
 [ext_resource type="PackedScene" uid="uid://d0rlets6d8b82" path="res://testmechanics/floorbutton.tscn" id="9_2rhnf"]
 [ext_resource type="PackedScene" uid="uid://c5ly2um5kudf3" path="res://testmechanics/fizzler.tscn" id="10_ijwbo"]
 [ext_resource type="PackedScene" uid="uid://bw8sfidflx43c" path="res://testmechanics/trigger.tscn" id="11_2rhnf"]
+[ext_resource type="PackedScene" uid="uid://b3wi75vtnfsd" path="res://camera/show_input_prompt.tscn" id="11_kgkjd"]
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -51,12 +51,8 @@ startPortalOrange = true
 position = Vector2(-64, -448)
 rotation = -1.5707964
 
-[node name="PedestalButton" parent="." instance=ExtResource("7_1c7jj")]
-position = Vector2(-160, -608)
-
 [node name="CubeDropper" parent="." instance=ExtResource("8_ijwbo")]
 position = Vector2(-192, -704)
-startWithCube = false
 
 [node name="FloorButton" parent="." instance=ExtResource("9_2rhnf")]
 position = Vector2(64, -704)
@@ -72,18 +68,28 @@ rotation = 4.712389
 [node name="Openmiddoor" parent="." instance=ExtResource("11_2rhnf")]
 position = Vector2(-192, -288)
 scale = Vector2(2, 3)
+once = true
 
 [node name="Closemiddoor" parent="." instance=ExtResource("11_2rhnf")]
 position = Vector2(-64, -640)
 scale = Vector2(6, 1)
+once = true
 
 [node name="Closeenddoor" parent="." instance=ExtResource("11_2rhnf")]
 position = Vector2(-64, -1120)
 scale = Vector2(2, 1)
 
-[connection signal="OnButtonPressed" from="PedestalButton" to="CubeDropper" method="spawnCube"]
+[node name="Trigger" parent="." instance=ExtResource("11_2rhnf")]
+position = Vector2(-64, 80)
+once = true
+
+[node name="ShowInputPrompt" parent="." instance=ExtResource("11_kgkjd")]
+position = Vector2(-688, 112)
+
 [connection signal="OnButtonPressed" from="FloorButton" to="ExitDoor" method="openDoor"]
 [connection signal="OnButtonUnpressed" from="FloorButton" to="ExitDoor" method="closeDoor"]
 [connection signal="trigger" from="Openmiddoor" to="Middoor" method="openDoor"]
 [connection signal="trigger" from="Closemiddoor" to="Middoor" method="closeDoor"]
+[connection signal="trigger" from="Closemiddoor" to="ShowInputPrompt" method="pickupPromp"]
 [connection signal="trigger" from="Closeenddoor" to="ExitDoor" method="closeDoor"]
+[connection signal="trigger" from="Trigger" to="ShowInputPrompt" method="movePrompt"]

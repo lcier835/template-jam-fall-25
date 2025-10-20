@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://de6isry7ovc4c"]
+[gd_scene load_steps=13 format=4 uid="uid://de6isry7ovc4c"]
 
 [ext_resource type="TileSet" uid="uid://b4n7twc482f2" path="res://testchamber/chambertileset.tres" id="1_wvduc"]
 [ext_resource type="PackedScene" uid="uid://bxshcvar0v0kf" path="res://testchamber/exit_elevator.tscn" id="2_776v0"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c5ly2um5kudf3" path="res://testmechanics/fizzler.tscn" id="7_502a4"]
 [ext_resource type="PackedScene" uid="uid://1h64ibhwpof6" path="res://testmechanics/autoportal.tscn" id="8_drcvi"]
 [ext_resource type="PackedScene" uid="uid://bw8sfidflx43c" path="res://testmechanics/trigger.tscn" id="9_5fqgs"]
+[ext_resource type="PackedScene" uid="uid://b3wi75vtnfsd" path="res://camera/show_input_prompt.tscn" id="12_3577d"]
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -102,14 +103,20 @@ rotation = 1.5707964
 [node name="Trigger" parent="." instance=ExtResource("9_5fqgs")]
 position = Vector2(512, 320)
 scale = Vector2(2, 1)
+once = true
 
 [node name="Trigger2" parent="." instance=ExtResource("9_5fqgs")]
 position = Vector2(448, -256)
 scale = Vector2(1, 2)
+once = true
 
 [node name="Trigger3" parent="." instance=ExtResource("9_5fqgs")]
 position = Vector2(32, -128)
 scale = Vector2(1, 6)
+once = true
+
+[node name="ShowInputPrompt" parent="." instance=ExtResource("12_3577d")]
+position = Vector2(-1136, 112)
 
 [connection signal="OnLaserPowered" from="StaticBody2D" to="Door" method="openDoor"]
 [connection signal="OnLaserUnpowered" from="StaticBody2D" to="Door" method="closeDoor"]
@@ -124,3 +131,4 @@ scale = Vector2(1, 6)
 [connection signal="trigger" from="Trigger" to="Door4" method="closeDoor"]
 [connection signal="trigger" from="Trigger2" to="Door3" method="openDoor"]
 [connection signal="trigger" from="Trigger3" to="Door3" method="closeDoor"]
+[connection signal="trigger" from="Trigger3" to="ShowInputPrompt" method="strafePrompt"]

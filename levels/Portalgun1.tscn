@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://dsvnd08ub5yvk"]
+[gd_scene load_steps=9 format=4 uid="uid://dsvnd08ub5yvk"]
 
 [ext_resource type="TileSet" uid="uid://b4n7twc482f2" path="res://testchamber/chambertileset.tres" id="1_10e28"]
 [ext_resource type="PackedScene" uid="uid://bxshcvar0v0kf" path="res://testchamber/exit_elevator.tscn" id="2_ayv0m"]
 [ext_resource type="PackedScene" uid="uid://chlvwkvf1kf63" path="res://testchamber/enterance_elevator.tscn" id="3_hs1so"]
 [ext_resource type="PackedScene" uid="uid://bnhpr6qdbrfn" path="res://testmechanics/portalgunpedestal.tscn" id="4_bbs5f"]
+[ext_resource type="PackedScene" uid="uid://b3wi75vtnfsd" path="res://camera/show_input_prompt.tscn" id="8_l28u6"]
 [ext_resource type="PackedScene" uid="uid://1h64ibhwpof6" path="res://testmechanics/autoportal.tscn" id="8_sog3r"]
 [ext_resource type="PackedScene" uid="uid://c5ly2um5kudf3" path="res://testmechanics/fizzler.tscn" id="10_fog2u"]
 [ext_resource type="PackedScene" uid="uid://bw8sfidflx43c" path="res://testmechanics/trigger.tscn" id="11_x7b1d"]
@@ -43,6 +44,7 @@ startPortalOrange = true
 [node name="Trigger" parent="." instance=ExtResource("11_x7b1d")]
 position = Vector2(-576, 672)
 scale = Vector2(2, 1)
+once = true
 
 [node name="Autoportal2" parent="." instance=ExtResource("8_sog3r")]
 position = Vector2(-160, 736)
@@ -55,4 +57,13 @@ rotation = 1.5707964
 position = Vector2(256, 1152)
 rotation = 1.5707964
 
+[node name="Trigger2" parent="." instance=ExtResource("11_x7b1d")]
+position = Vector2(-192, 32)
+once = true
+
+[node name="ShowInputPrompt" parent="." instance=ExtResource("8_l28u6")]
+position = Vector2(-704, 32)
+
+[connection signal="OnTaken" from="Pedestal" to="ShowInputPrompt" method="bluePrompt"]
 [connection signal="trigger" from="Trigger" to="Autoportal2" method="placeOrangePortal"]
+[connection signal="trigger" from="Trigger2" to="ShowInputPrompt" method="takePrompt"]

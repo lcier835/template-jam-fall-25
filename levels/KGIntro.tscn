@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://ce8k8slmu5xfd"]
+[gd_scene load_steps=12 format=4 uid="uid://ce8k8slmu5xfd"]
 
 [ext_resource type="TileSet" uid="uid://b4n7twc482f2" path="res://testchamber/chambertileset.tres" id="1_g58v1"]
 [ext_resource type="PackedScene" uid="uid://bxshcvar0v0kf" path="res://testchamber/exit_elevator.tscn" id="2_y0ehi"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://1h64ibhwpof6" path="res://testmechanics/autoportal.tscn" id="8_mr7in"]
 [ext_resource type="PackedScene" uid="uid://bw8sfidflx43c" path="res://testmechanics/trigger.tscn" id="9_ofbpy"]
 [ext_resource type="PackedScene" uid="uid://dy8qgf014pglj" path="res://testmechanics/cubedropper.tscn" id="10_3khnu"]
+[ext_resource type="PackedScene" uid="uid://b3wi75vtnfsd" path="res://camera/show_input_prompt.tscn" id="11_y0ehi"]
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -121,14 +122,17 @@ scale = Vector2(2, 1)
 [node name="Trigger2" parent="." instance=ExtResource("9_ofbpy")]
 position = Vector2(576, -544)
 scale = Vector2(2, 1)
+once = true
 
 [node name="Trigger3" parent="." instance=ExtResource("9_ofbpy")]
 position = Vector2(384, 288)
 scale = Vector2(2, 1)
+once = true
 
 [node name="Trigger4" parent="." instance=ExtResource("9_ofbpy")]
 position = Vector2(832, 672)
 scale = Vector2(2, 1)
+once = true
 
 [node name="CubeDropper" parent="." instance=ExtResource("10_3khnu")]
 position = Vector2(320, -384)
@@ -138,6 +142,9 @@ position = Vector2(32, 224)
 
 [node name="CubeDropper3" parent="." instance=ExtResource("10_3khnu")]
 position = Vector2(32, 800)
+
+[node name="ShowInputPrompt" parent="." instance=ExtResource("11_y0ehi")]
+position = Vector2(64, -432)
 
 [connection signal="OnButtonPressed" from="Button" to="Autoportal4" method="placeOrangePortal"]
 [connection signal="OnButtonPressed" from="Button1" to="Autoportal6" method="placeOrangePortal"]
@@ -157,6 +164,7 @@ position = Vector2(32, 800)
 [connection signal="trigger" from="Trigger" to="Door3" method="openDoor"]
 [connection signal="trigger" from="Trigger2" to="Door3" method="closeDoor"]
 [connection signal="trigger" from="Trigger2" to="Autoportal5" method="placeBluePortal"]
+[connection signal="trigger" from="Trigger2" to="ShowInputPrompt" method="pressPrompt"]
 [connection signal="trigger" from="Trigger3" to="Door2" method="closeDoor"]
 [connection signal="trigger" from="Trigger3" to="Autoportal2" method="placeOrangePortal"]
 [connection signal="trigger" from="Trigger3" to="Autoportal5" method="clearPortal"]
