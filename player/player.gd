@@ -187,6 +187,11 @@ func portallingProcess(delta: float) -> void:
 	if angle == 0: endDistance = 68
 	if angle == 2: endDistance = 40
 	
+	if portal1 == null || portal2 == null:
+		global_position = lastSafeSpot
+		portalTeleportProgress = 3
+		$Sprite2D.modulate = Color(1,1,1)
+		return
 	
 	if portalTeleportProgress < 1:
 		angle = (portal1.angle + 2) % 4

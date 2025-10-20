@@ -19,6 +19,11 @@ func _interacted_by_player(_player: Player):
 		_player.orangePortalgun = true
 	else:
 		_player.bluePortalgun = true
+	
+	for p in get_tree().get_nodes_in_group("Portals"):
+		if p.orangePortal == shootOrange:
+			p.queue_free()
+	
 	used = true
 	timer = 1
 

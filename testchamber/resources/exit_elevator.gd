@@ -45,6 +45,8 @@ func _process(delta: float) -> void:
 				p.visible = false
 				p.movementEnabled = false
 				p.inputVector = Vector2()
+				$ElevatorTop.z_index += 2
+				$ElevatorBottom.z_index = $ElevatorTop.z_index - 1
 				return
 		2:
 			closeDoorTimer -= delta

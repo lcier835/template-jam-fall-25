@@ -35,5 +35,5 @@ func _process(_delta: float) -> void:
 	if wantsToClose && !$PlayerBlocker.has_overlapping_bodies():
 		open = false
 		updateSprites()
-		$StaticBody2D.collision_layer = 17
+		$StaticBody2D.collision_layer = 273
 		wantsToClose = false

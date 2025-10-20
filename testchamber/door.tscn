@@ -10,7 +10,7 @@ size = Vector2(128, 32)
 size = Vector2(128, 64)
 
 [node name="Door" type="StaticBody2D"]
-collision_layer = 17
+collision_layer = 273
 collision_mask = 0
 script = ExtResource("1_p04d2")
 
@@ -74,7 +74,7 @@ collision_mask = 128
 shape = SubResource("RectangleShape2D_p04d2")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 17
+collision_layer = 273
 collision_mask = 0
 
 [node name="BlockerMiddle" type="CollisionShape2D" parent="StaticBody2D"]
