@@ -23,7 +23,8 @@ func placeOrangePortal():
 	placePortal(true)
 
 func clearPortal():
-	portal.queue_free()
+	if portal != null:
+		portal.queue_free()
 
 func placePortal(orange: bool):
 	if portal != null:
