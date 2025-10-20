@@ -1,0 +1,156 @@
+[gd_scene load_steps=10 format=4 uid="uid://cmhs5i5wljgh8"]
+
+[ext_resource type="TileSet" uid="uid://b4n7twc482f2" path="res://testchamber/chambertileset.tres" id="1_syod0"]
+[ext_resource type="PackedScene" uid="uid://bxshcvar0v0kf" path="res://testchamber/exit_elevator.tscn" id="2_q27k7"]
+[ext_resource type="PackedScene" uid="uid://chlvwkvf1kf63" path="res://testchamber/enterance_elevator.tscn" id="3_wqejr"]
+[ext_resource type="PackedScene" uid="uid://b7rh2d43wg2dw" path="res://testchamber/door.tscn" id="4_jn7lm"]
+[ext_resource type="PackedScene" uid="uid://ce2r63i43hhn1" path="res://testmechanics/cube.tscn" id="5_uede6"]
+[ext_resource type="PackedScene" uid="uid://d0rlets6d8b82" path="res://testmechanics/floorbutton.tscn" id="6_xuvmq"]
+[ext_resource type="PackedScene" uid="uid://c5ly2um5kudf3" path="res://testmechanics/fizzler.tscn" id="7_bhhaw"]
+[ext_resource type="PackedScene" uid="uid://1h64ibhwpof6" path="res://testmechanics/autoportal.tscn" id="8_us02g"]
+[ext_resource type="PackedScene" uid="uid://bw8sfidflx43c" path="res://testmechanics/trigger.tscn" id="9_b0epe"]
+
+[node name="Main" type="Node2D"]
+y_sort_enabled = true
+texture_filter = 1
+metadata/_edit_horizontal_guides_ = [-31.0]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -2
+y_sort_enabled = true
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAABAP3/AAAIAAQAAAABAP7/AAAIAAQAAAABAP//AAAHAAIAAAD+/wIAAAAIAAQAAAD+/wEAAAAIAAQAAAD+/wAAAAAIAAQAAAD+////AAAIAAQAAAD+//7/AAAIAAQAAAD+//3/AAAIAAQAAAAAAP3/AAAIAAQAAAAAAP7/AAAIAAQAAAAAAP//AAAGAAIAAAAAAAAAAAAGAAMAAAAAAAEAAAABAAEAAAD//wIAAAAIAAQAAAD//wEAAAAIAAQAAAD//wAAAAAIAAQAAAD/////AAAIAAQAAAD///7/AAAIAAQAAAD///3/AAAIAAQAAAD+//z/AAAIAAQAAAD///z/AAAIAAQAAAAAAPz/AAAIAAQAAAABAPz/AAAIAAQAAAD8//z/AAAIAAQAAAD8//3/AAAIAAQAAAD8//7/AAAIAAQAAAD7//7/AAAIAAQAAAD7//z/AAAIAAQAAAD7//3/AAAIAAQAAAADAPz/AAAIAAQAAAADAP3/AAAIAAQAAAADAP7/AAAIAAQAAAAEAP7/AAAIAAQAAAAFAP7/AAAIAAQAAAAEAP3/AAAIAAQAAAAEAPz/AAAIAAQAAAAFAPz/AAAIAAQAAAAFAP3/AAAIAAQAAAD9//z/AAAIAAQAAAD9//3/AAAIAAQAAAD9//7/AAAIAAQAAAACAP7/AAAIAAQAAAACAP3/AAAIAAQAAAACAPz/AAAIAAQAAAD5/wMAAAABAAIAAAD5/wEAAAAIAAQAAAD6/wEAAAAIAAQAAAD7/wEAAAAIAAQAAAD8/wEAAAAIAAQAAAD9/wEAAAAIAAQAAAD9/wIAAAAIAAQAAAD7/wMAAAACAAMAAAD6/wMAAAABAAIAAAD6/wIAAAAIAAQAAAD7/wIAAAAIAAQAAAD8/wIAAAAIAAQAAAD4/wMAAAABAAIAAAD4/wIAAAAIAAQAAAD4/wEAAAAIAAQAAAD5/wIAAAAIAAQAAAACAP//AAAEAAMAAAAFAP//AAABAAIAAAAEAP//AAABAAIAAAADAP//AAABAAIAAAD8////AAAEAAIAAAD9////AAAFAAIAAAD9/wAAAAAFAAMAAAD7////AAABAAIAAAD7//r/AAAIAAQAAAD8//r/AAAIAAQAAAD9//j/AAAFAAAAAAD9//n/AAAFAAEAAAD9//r/AAAIAAQAAAD+//j/AAAIAAQAAAD+//n/AAAIAAQAAAD+//r/AAAIAAQAAAD///j/AAAIAAQAAAD///n/AAAIAAQAAAD///r/AAAIAAQAAAAAAPj/AAAIAAQAAAAAAPn/AAAIAAQAAAAAAPr/AAAIAAQAAAABAPj/AAAIAAQAAAABAPn/AAAIAAQAAAABAPr/AAAIAAQAAAACAPj/AAAIAAQAAAACAPn/AAAIAAQAAAACAPr/AAAIAAQAAAADAPn/AAAGAAEAAAADAPr/AAAIAAQAAAAEAPn/AAAHAAEAAAAEAPr/AAAIAAQAAAAFAPr/AAAIAAQAAAD7//n/AAAHAAMAAAD8//n/AAAEAAEAAAADAPj/AAAGAAIAAAAEAPj/AAAHAAIAAAAFAPn/AAAHAAMAAAD7//v/AAAIAAQAAAD8//v/AAAIAAQAAAD9//v/AAAIAAQAAAD+//v/AAAIAAQAAAD///v/AAAIAAQAAAAAAPv/AAAIAAQAAAABAPv/AAAIAAQAAAACAPv/AAAIAAQAAAADAPv/AAAIAAQAAAAEAPv/AAAIAAQAAAAFAPv/AAAIAAQAAAD6//n/AAABAAAAAAD6//r/AAAIAAQAAAD6//v/AAAIAAQAAAD6//z/AAAIAAQAAAD6//3/AAAIAAQAAAD6//7/AAAIAAQAAAD6////AAABAAMAAAD5//n/AAAAAAAAAAD5//r/AAAAAAEAAAD5//v/AAACAAEAAAD5//z/AAACAAEAAAD5//3/AAACAAEAAAD5//7/AAAAAAIAAAD5////AAAAAAMAAAD9//b/AAAAAAEAAAD+//b/AAAIAAQAAAD///b/AAAIAAQAAAAAAPb/AAAIAAQAAAABAPb/AAAIAAQAAAACAPb/AAAIAAQAAAD9//X/AAAAAAAAAAD+//X/AAABAAAAAAD///X/AAACAAIAAAAAAPX/AAACAAIAAAABAPX/AAACAAIAAAACAPX/AAACAAIAAAADAPX/AAACAAIAAAD9//f/AAACAAEAAAD+//f/AAAIAAQAAAD///f/AAAIAAQAAAAAAPf/AAAIAAQAAAABAPf/AAAIAAQAAAACAPf/AAAIAAQAAAAFAPj/AAACAAMAAAAGAPf/AAADAAIAAAAGAPj/AAADAAMAAAAGAPX/AAADAAAAAAAGAPb/AAADAAEAAAADAPb/AAAIAAQAAAAEAPb/AAAIAAQAAAAFAPb/AAAIAAQAAAAFAPf/AAAIAAQAAAAEAPf/AAAIAAQAAAADAPf/AAAIAAQAAAAGAPP/AAADAAIAAAAGAPT/AAADAAMAAAADAPP/AAAAAAIAAAADAPT/AAAAAAMAAAAEAPX/AAAIAAQAAAAEAPT/AAAIAAQAAAAEAPP/AAAIAAQAAAAFAPP/AAAIAAQAAAAFAPT/AAAIAAQAAAAFAPX/AAAIAAQAAAAFAPL/AAAIAAQAAAAEAPL/AAAIAAQAAAADAPH/AAACAAEAAAADAPL/AAACAAEAAAAGAPH/AAABAAEAAAAGAPL/AAABAAEAAAAGAPn/AAACAAAAAAAGAPr/AAAIAAQAAAAGAPv/AAAIAAQAAAAGAPz/AAAIAAQAAAAGAP3/AAAIAAQAAAAGAP7/AAAIAAQAAAAGAP//AAACAAMAAAAHAPn/AAADAAAAAAAHAPr/AAAGAAEAAAAHAPv/AAAIAAQAAAAHAPz/AAAIAAQAAAAHAP3/AAAIAAQAAAAHAP7/AAAGAAIAAAAHAP//AAADAAMAAAD//wMAAAACAAMAAAAAAAIAAAADAAIAAAAAAAMAAAADAAMAAAD9/wMAAAAAAAMAAAD+/wMAAAABAAMAAAD7/wAAAAACAAAAAAD8/wAAAAADAAAAAAD6/wAAAAAHAAMAAAD8/wMAAAADAAMAAAD5/wAAAAACAAIAAAD3/wMAAAABAAIAAAD4/wAAAAACAAIAAAD3/wAAAAACAAIAAAD3/wIAAAAIAAQAAAD3/wEAAAAIAAQAAAAIAP7/AAAHAAIAAAAIAPr/AAAHAAEAAAAIAP3/AAAIAAQAAAAIAPz/AAAIAAQAAAAIAPv/AAAIAAQAAAALAP7/AAACAAMAAAAMAP7/AAADAAMAAAAJAP7/AAABAAIAAAAKAP7/AAABAAIAAAAJAPr/AAACAAIAAAAMAPr/AAADAAAAAAAMAPv/AAADAAEAAAAMAP3/AAADAAIAAAAMAPz/AAABAAEAAAAJAP3/AAAIAAQAAAAJAPz/AAAIAAQAAAAJAPv/AAAIAAQAAAAKAPv/AAAIAAQAAAALAPv/AAAIAAQAAAALAPz/AAAIAAQAAAALAP3/AAAIAAQAAAAKAP3/AAAIAAQAAAAKAPz/AAAIAAQAAAAMAPj/AAADAAIAAAAMAPn/AAADAAMAAAAJAPj/AAAAAAIAAAAJAPn/AAAAAAMAAAAKAPj/AAAIAAQAAAAKAPf/AAAIAAQAAAALAPf/AAAIAAQAAAALAPj/AAAIAAQAAAAJAPf/AAACAAEAAAAJAPb/AAACAAEAAAAJAPX/AAACAAEAAAAKAPb/AAAIAAQAAAALAPb/AAAIAAQAAAAMAPf/AAABAAEAAAAMAPb/AAABAAEAAAAMAPX/AAABAAEAAAAKAPn/AAAIAAQAAAAKAPr/AAAIAAQAAAALAPr/AAAIAAQAAAALAPn/AAAIAAQAAAD1/wAAAAAAAAAAAAD1/wEAAAAAAAEAAAD1/wIAAAAAAAIAAAD1/wMAAAAAAAMAAAD2/wAAAAABAAAAAAD2/wEAAAAIAAQAAAD2/wIAAAAIAAQAAAD2/wMAAAABAAMAAAA=")
+tile_set = ExtResource("1_syod0")
+
+[node name="ExitElevator" parent="." instance=ExtResource("2_q27k7")]
+position = Vector2(704, -800)
+nextMapName = "LaserIntro"
+maxElevatorDistance = 1024.0
+
+[node name="EnteranceElevator" parent="." instance=ExtResource("3_wqejr")]
+position = Vector2(320, -1056)
+startingElevatorDistance = 2048.0
+bluePortalgun = false
+orangePortalgun = false
+
+[node name="Middoor" parent="." instance=ExtResource("4_jn7lm")]
+position = Vector2(-192, 128)
+rotation = 3.1415927
+
+[node name="ExitDoor" parent="." instance=ExtResource("4_jn7lm")]
+position = Vector2(704, -384)
+rotation = 4.712389
+
+[node name="EnterDoor" parent="." instance=ExtResource("4_jn7lm")]
+position = Vector2(320, -704)
+rotation = 4.712389
+
+[node name="Cube" parent="." instance=ExtResource("5_uede6")]
+position = Vector2(32, -608)
+
+[node name="FloorButton2" parent="." instance=ExtResource("6_xuvmq")]
+position = Vector2(-32, -544)
+
+[node name="FloorButton3" parent="." instance=ExtResource("6_xuvmq")]
+position = Vector2(96, -544)
+
+[node name="TopGate" parent="." instance=ExtResource("7_bhhaw")]
+position = Vector2(32, -448)
+rotation = 1.5707964
+tilesWide = 5.0
+kineticGrill = true
+
+[node name="FloorButton" parent="." instance=ExtResource("6_xuvmq")]
+position = Vector2(-288, -160)
+
+[node name="FloorButton6" parent="." instance=ExtResource("6_xuvmq")]
+position = Vector2(416, -224)
+
+[node name="FloorButton8" parent="." instance=ExtResource("6_xuvmq")]
+position = Vector2(672, -224)
+
+[node name="FloorButton4" parent="." instance=ExtResource("6_xuvmq")]
+position = Vector2(-288, -288)
+
+[node name="Cube2" parent="." instance=ExtResource("5_uede6")]
+position = Vector2(352, -224)
+
+[node name="LeftGate" parent="." instance=ExtResource("7_bhhaw")]
+position = Vector2(-192, -224)
+tilesWide = 5.0
+kineticGrill = true
+
+[node name="LowerGate" parent="." instance=ExtResource("7_bhhaw")]
+position = Vector2(-64, 0)
+rotation = -1.5707964
+kineticGrill = true
+
+[node name="RightGate" parent="." instance=ExtResource("7_bhhaw")]
+position = Vector2(256, -224)
+tilesWide = 5.0
+kineticGrill = true
+
+[node name="ExitGate" parent="." instance=ExtResource("7_bhhaw")]
+position = Vector2(512, -224)
+tilesWide = 3.0
+kineticGrill = true
+
+[node name="Fizzler4" parent="." instance=ExtResource("7_bhhaw")]
+position = Vector2(-448, 128)
+rotation = 3.1415927
+kineticGrill = true
+
+[node name="FloorButton7" parent="." instance=ExtResource("6_xuvmq")]
+position = Vector2(-576, 128)
+
+[node name="Cube3" parent="." instance=ExtResource("5_uede6")]
+position = Vector2(-576, 128)
+
+[node name="AutoportalOrangeR" parent="." instance=ExtResource("8_us02g")]
+position = Vector2(160, -32)
+rotation = 3.1415927
+startWithPortal = true
+startPortalOrange = true
+
+[node name="AutoportalOrangeL" parent="." instance=ExtResource("8_us02g")]
+position = Vector2(-352, 32)
+
+[node name="AutoportalBlueR" parent="." instance=ExtResource("8_us02g")]
+position = Vector2(352, -416)
+
+[node name="AutoportalBlueL" parent="." instance=ExtResource("8_us02g")]
+position = Vector2(-288, -416)
+
+[node name="Trigger" parent="." instance=ExtResource("9_b0epe")]
+position = Vector2(320, -832)
+scale = Vector2(2, 1)
+
+[node name="Trigger2" parent="." instance=ExtResource("9_b0epe")]
+position = Vector2(224, -576)
+scale = Vector2(1, 2)
+
+[node name="Fizzler" parent="." instance=ExtResource("7_bhhaw")]
+position = Vector2(704, -544)
+rotation = 1.5707964
+
+[node name="Trigger4" parent="." instance=ExtResource("9_b0epe")]
+position = Vector2(704, -544)
+scale = Vector2(2, 1)
+
+[connection signal="OnButtonPressed" from="FloorButton2" to="AutoportalBlueL" method="placeBluePortal"]
+[connection signal="OnButtonUnpressed" from="FloorButton2" to="AutoportalBlueL" method="clearPortal"]
+[connection signal="OnButtonPressed" from="FloorButton3" to="AutoportalBlueR" method="placeBluePortal"]
+[connection signal="OnButtonUnpressed" from="FloorButton3" to="AutoportalBlueR" method="clearPortal"]
+[connection signal="OnButtonPressed" from="FloorButton" to="Fizzler4" method="disableFizzler"]
+[connection signal="OnButtonUnpressed" from="FloorButton" to="Fizzler4" method="enableFizzler"]
+[connection signal="OnButtonPressed" from="FloorButton6" to="ExitGate" method="disableFizzler"]
+[connection signal="OnButtonUnpressed" from="FloorButton6" to="ExitGate" method="enableFizzler"]
+[connection signal="OnButtonPressed" from="FloorButton8" to="ExitDoor" method="openDoor"]
+[connection signal="OnButtonUnpressed" from="FloorButton8" to="ExitDoor" method="closeDoor"]
+[connection signal="OnButtonPressed" from="FloorButton4" to="Middoor" method="openDoor"]
+[connection signal="OnButtonUnpressed" from="FloorButton4" to="Middoor" method="closeDoor"]
+[connection signal="OnButtonPressed" from="FloorButton7" to="AutoportalOrangeR" method="placeOrangePortal"]
+[connection signal="OnButtonUnpressed" from="FloorButton7" to="AutoportalOrangeL" method="placeOrangePortal"]
+[connection signal="trigger" from="Trigger" to="EnterDoor" method="openDoor"]
+[connection signal="trigger" from="Trigger2" to="EnterDoor" method="closeDoor"]
+[connection signal="trigger" from="Trigger4" to="ExitDoor" method="closeDoor"]
