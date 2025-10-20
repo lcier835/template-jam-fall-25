@@ -1,15 +1,15 @@
 [gd_scene load_steps=11 format=4 uid="uid://ce8k8slmu5xfd"]
 
-[ext_resource type="TileSet" uid="uid://b4n7twc482f2" path="res://testchamber/chambertileset.tres" id="1_8rndi"]
-[ext_resource type="PackedScene" uid="uid://bxshcvar0v0kf" path="res://testchamber/exit_elevator.tscn" id="2_hphnx"]
-[ext_resource type="PackedScene" uid="uid://chlvwkvf1kf63" path="res://testchamber/enterance_elevator.tscn" id="3_4aga8"]
-[ext_resource type="PackedScene" uid="uid://ccwssux3byp8q" path="res://testmechanics/pedestalbutton.tscn" id="4_8rndi"]
-[ext_resource type="PackedScene" uid="uid://1h64ibhwpof6" path="res://testmechanics/autoportal.tscn" id="5_5lflo"]
-[ext_resource type="PackedScene" uid="uid://d0rlets6d8b82" path="res://testmechanics/floorbutton.tscn" id="5_hphnx"]
-[ext_resource type="PackedScene" uid="uid://c5ly2um5kudf3" path="res://testmechanics/fizzler.tscn" id="6_hphnx"]
-[ext_resource type="PackedScene" uid="uid://b7rh2d43wg2dw" path="res://testchamber/door.tscn" id="7_8lumq"]
-[ext_resource type="PackedScene" uid="uid://bw8sfidflx43c" path="res://testmechanics/trigger.tscn" id="10_752x1"]
-[ext_resource type="PackedScene" uid="uid://dy8qgf014pglj" path="res://testmechanics/cubedropper.tscn" id="10_dfqdh"]
+[ext_resource type="TileSet" uid="uid://b4n7twc482f2" path="res://testchamber/chambertileset.tres" id="1_g58v1"]
+[ext_resource type="PackedScene" uid="uid://bxshcvar0v0kf" path="res://testchamber/exit_elevator.tscn" id="2_y0ehi"]
+[ext_resource type="PackedScene" uid="uid://chlvwkvf1kf63" path="res://testchamber/enterance_elevator.tscn" id="3_my4wu"]
+[ext_resource type="PackedScene" uid="uid://ccwssux3byp8q" path="res://testmechanics/pedestalbutton.tscn" id="4_okynx"]
+[ext_resource type="PackedScene" uid="uid://d0rlets6d8b82" path="res://testmechanics/floorbutton.tscn" id="5_6i16o"]
+[ext_resource type="PackedScene" uid="uid://c5ly2um5kudf3" path="res://testmechanics/fizzler.tscn" id="6_tsw3i"]
+[ext_resource type="PackedScene" uid="uid://b7rh2d43wg2dw" path="res://testchamber/door.tscn" id="7_hygjx"]
+[ext_resource type="PackedScene" uid="uid://1h64ibhwpof6" path="res://testmechanics/autoportal.tscn" id="8_mr7in"]
+[ext_resource type="PackedScene" uid="uid://bw8sfidflx43c" path="res://testmechanics/trigger.tscn" id="9_ofbpy"]
+[ext_resource type="PackedScene" uid="uid://dy8qgf014pglj" path="res://testmechanics/cubedropper.tscn" id="10_3khnu"]
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -21,121 +21,122 @@ z_index = -2
 y_sort_enabled = true
 scale = Vector2(4, 4)
 tile_map_data = PackedByteArray("AAAJAPL/AAAIAAQAAAAJAPP/AAAIAAQAAAAJAPT/AAAIAAQAAAAJAPX/AAAIAAQAAAAIAPP/AAAIAAQAAAAIAPL/AAAIAAQAAAAIAPT/AAAIAAQAAAAIAPX/AAAIAAQAAAAIAPb/AAAIAAQAAAAJAPb/AAAIAAQAAAAHAPH/AAACAAEAAAAHAPL/AAACAAEAAAAHAPP/AAAAAAIAAAAKAPH/AAABAAEAAAAKAPL/AAABAAEAAAAKAPP/AAADAAIAAAAHAPT/AAAAAAMAAAAHAPX/AAAAAAAAAAAHAPb/AAAAAAEAAAAKAPX/AAADAAAAAAAKAPb/AAADAAEAAAAKAPT/AAADAAMAAAAKAPj/AAAEAAAAAAAKAPf/AAABAAEAAAAKAPn/AAAGAAAAAAAKAPr/AAAGAAEAAAALAPr/AAAHAAEAAAAKAPv/AAAKAAAAAAALAPv/AAALAAAAAAAOAPr/AAADAAAAAAANAPr/AAACAAAAAAAOAPv/AAADAAEAAAAKAP//AAAMAAAAAAALAP//AAANAAAAAAAKAP3/AAAJAAEAAAAKAPz/AAAMAAAAAAAKAAAAAAAKAAEAAAALAAAAAAALAAEAAAAKAP7/AAAJAAAAAAALAPz/AAANAAAAAAALAP3/AAANAAAAAAALAP7/AAANAAAAAAAMAPr/AAACAAIAAAAOAPz/AAAEAAAAAAAOAP3/AAABAAEAAAAOAP7/AAABAAEAAAAOAP//AAABAAEAAAANAAEAAAACAAMAAAAOAAAAAAADAAIAAAAOAAEAAAADAAMAAAAJAP3/AAANAAEAAAAIAP3/AAANAAEAAAAHAP3/AAAIAAEAAAAHAPz/AAANAAAAAAAHAPv/AAANAAAAAAAHAPr/AAANAAAAAAAGAPn/AAAKAAAAAAAHAPn/AAALAAAAAAAGAPj/AAAEAAEAAAAHAPf/AAAFAAAAAAAHAPj/AAAFAAEAAAADAPj/AAAAAAAAAAADAPn/AAAAAAEAAAAEAPj/AAABAAAAAAAGAPr/AAAMAAAAAAAGAPv/AAAMAAAAAAAGAPz/AAAMAAAAAAAFAP3/AAANAAEAAAAEAP3/AAAKAAAAAAAEAP7/AAAKAAEAAAAFAP7/AAAMAAEAAAAGAP7/AAAMAAEAAAAHAP7/AAAMAAEAAAAIAP7/AAAMAAEAAAAJAP7/AAAMAAEAAAAGAP3/AAAJAAEAAAAMAAEAAAABAAIAAAALAAEAAAABAAIAAAAKAAEAAAABAAIAAAAJAAEAAAABAAIAAAAIAAEAAAAEAAMAAAADAPr/AAACAAEAAAADAPv/AAAHAAAAAAADAPz/AAACAAEAAAADAP3/AAACAAEAAAADAP7/AAACAAEAAAAFAPj/AAACAAIAAAADAAEAAAAAAAMAAAAMAPv/AAAIAAQAAAAMAPz/AAAIAAQAAAAMAP3/AAAIAAQAAAAMAP7/AAAIAAQAAAAMAP//AAAIAAQAAAAMAAAAAAAIAAQAAAANAP//AAAIAAQAAAANAP7/AAAIAAQAAAANAP3/AAAIAAQAAAANAPz/AAAIAAQAAAANAPv/AAAIAAQAAAANAAAAAAAIAAQAAAAJAAAAAAAIAAQAAAAIAAAAAAAIAAQAAAAHAAAAAAAIAAQAAAAGAAAAAAAIAAQAAAAFAAAAAAAIAAQAAAAEAAAAAAAIAAQAAAADAAAAAAAAAAIAAAADAP//AAACAAEAAAAEAP//AAAIAAQAAAAFAP//AAAIAAQAAAAGAP//AAAIAAQAAAAHAP//AAAIAAQAAAAIAP//AAAIAAQAAAAJAP//AAAIAAQAAAAFAPz/AAAIAAQAAAAEAPz/AAAIAAQAAAAEAPv/AAAIAAQAAAAFAPv/AAAIAAQAAAAFAPr/AAAIAAQAAAAEAPr/AAAIAAQAAAAFAPn/AAAIAAQAAAAEAPn/AAAIAAQAAAAIAPf/AAAIAAQAAAAIAPj/AAAIAAQAAAAIAPn/AAAIAAQAAAAIAPr/AAAIAAQAAAAIAPv/AAAIAAQAAAAIAPz/AAAIAAQAAAAJAPz/AAAIAAQAAAAJAPv/AAAIAAQAAAAJAPr/AAAIAAQAAAAJAPn/AAAIAAQAAAAJAPj/AAAIAAQAAAAJAPf/AAAIAAQAAAAEAAEAAAABAAMAAAAHAAEAAAABAAIAAAAGAAEAAAAIAAQAAAAGAAIAAAAIAAQAAAAFAAIAAAAIAAQAAAAFAAEAAAAIAAQAAAAFAAMAAAAIAAQAAAAFAAQAAAAIAAQAAAAGAAQAAAAIAAQAAAAGAAMAAAAIAAQAAAAGAAUAAAAIAAQAAAAGAAYAAAAIAAQAAAAFAAYAAAAIAAQAAAAFAAUAAAAIAAQAAAAEAAYAAAAFAAEAAAADAAYAAAAGAAEAAAACAAYAAAAIAAQAAAABAAYAAAAIAAQAAAABAAUAAAAIAAQAAAACAAUAAAAIAAQAAAADAAUAAAAGAAIAAAAEAAUAAAAFAAIAAAAAAAUAAAAIAAQAAAAAAAYAAAAIAAQAAAAAAAQAAAAIAAQAAAABAAQAAAAIAAQAAAACAAQAAAAIAAQAAAADAAQAAAAKAAEAAAAEAAQAAAALAAEAAAAAAAcAAAAIAAQAAAABAAcAAAAIAAQAAAACAAcAAAAIAAQAAAADAAcAAAAIAAQAAAADAAgAAAAIAAQAAAAEAAgAAAAIAAQAAAAEAAcAAAAIAAQAAAACAAgAAAAIAAQAAAABAAgAAAAIAAQAAAAAAAgAAAAIAAQAAAD//wgAAAAIAAQAAAAEAAMAAAALAAAAAAAEAAIAAAACAAIAAAADAAMAAAAKAAAAAAD+/wMAAAAAAAEAAAD+/wQAAAAHAAAAAAD//wMAAAAIAAQAAAAEAAoAAAAFAAEAAAADAAsAAAAKAAAAAAACAAMAAAAIAAQAAAACAAIAAAACAAIAAAADAAIAAAACAAIAAAABAAMAAAAIAAQAAAAAAAMAAAAIAAQAAAD//wQAAAAIAAQAAAD//wUAAAAIAAQAAAD//wYAAAAIAAQAAAD//wcAAAAIAAQAAAD+/wIAAAAAAAAAAAD//wIAAAABAAAAAAABAAIAAAACAAIAAAAAAAIAAAACAAIAAAAEAAkAAAAFAAIAAAADAAkAAAAGAAIAAAADAAoAAAAGAAEAAAACAA0AAAABAAIAAAADAAwAAAAKAAEAAAADAA0AAAABAAIAAAABAA0AAAABAAIAAAAAAA0AAAABAAIAAAD+/wwAAAAAAAIAAAD+/w0AAAAAAAMAAAD//w0AAAABAAMAAAD+/wsAAAACAAEAAAD+/woAAAAFAAMAAAD9/wkAAAAAAAMAAAD+/wkAAAAFAAIAAAD9/wYAAAAAAAAAAAD+/wUAAAAFAAAAAAD+/wYAAAAFAAEAAAD//wwAAAAIAAQAAAD//wsAAAAIAAQAAAD//woAAAAIAAQAAAD//wkAAAAIAAQAAAAAAAkAAAAIAAQAAAABAAkAAAAIAAQAAAACAAkAAAAIAAQAAAACAAoAAAAIAAQAAAACAAsAAAAIAAQAAAACAAwAAAAIAAQAAAABAAwAAAAIAAQAAAAAAAwAAAAIAAQAAAAAAAsAAAAIAAQAAAAAAAoAAAAIAAQAAAABAAoAAAAIAAQAAAABAAsAAAAIAAQAAAD+/wgAAAAIAAQAAAD9/wgAAAAAAAIAAAD9/wcAAAAAAAEAAAD+/wcAAAAIAAQAAAAHAAUAAAAIAAQAAAAIAAUAAAAIAAQAAAAIAAYAAAAIAAQAAAAIAAcAAAAIAAQAAAAIAAgAAAAGAAIAAAAIAAkAAAADAAMAAAAIAAoAAAAHAAEAAAAHAAoAAAAGAAEAAAAGAAoAAAAIAAQAAAAFAAoAAAAIAAQAAAAFAAkAAAAIAAQAAAAFAAgAAAAIAAQAAAAFAAcAAAAIAAQAAAAHAAYAAAAIAAQAAAAHAAcAAAAIAAQAAAAHAAgAAAAIAAQAAAAHAAkAAAAGAAIAAAAGAAkAAAAIAAQAAAAGAAgAAAAIAAQAAAAGAAcAAAAIAAQAAAAHAAIAAAADAAAAAAAHAAMAAAAGAAEAAAAHAAQAAAAIAAQAAAAIAAQAAAAGAAEAAAAIAAMAAAADAAAAAAAIAAsAAAAIAAQAAAAHAAsAAAAIAAQAAAAGAAsAAAAIAAQAAAAFAAsAAAAIAAQAAAAJAAQAAAADAAAAAAAJAAUAAAADAAEAAAAJAAYAAAAEAAAAAAAJAAcAAAADAAIAAAAJAAgAAAADAAMAAAAJAAsAAAAIAAQAAAAEAAwAAAALAAEAAAAEAA0AAAABAAIAAAAFAA0AAAABAAIAAAAGAA0AAAABAAIAAAAHAA0AAAABAAIAAAAIAA0AAAABAAIAAAAEAAsAAAALAAAAAAAKAAwAAAAIAAQAAAAJAAwAAAAIAAQAAAAIAAwAAAAIAAQAAAAHAAwAAAAIAAQAAAAGAAwAAAAIAAQAAAAFAAwAAAAIAAQAAAAJAA0AAAACAAMAAAAJAAoAAAACAAAAAAAKAAoAAAADAAAAAAAKAA0AAAADAAMAAAAMAA0AAAABAAMAAAANAAwAAAAIAAQAAAANAA0AAAACAAMAAAAOAAwAAAADAAIAAAAOAA0AAAADAAMAAAALAAkAAAAFAAAAAAALAAoAAAACAAEAAAAKAAsAAAAIAAQAAAALAAsAAAAIAAQAAAAMAAsAAAAIAAQAAAANAAsAAAAIAAQAAAAMAAwAAAAIAAQAAAALAAwAAAAIAAQAAAAMAAoAAAAIAAQAAAAMAAkAAAAIAAQAAAANAAkAAAAIAAQAAAANAAoAAAAIAAQAAAALAAgAAAACAAEAAAAOAAgAAAABAAEAAAAOAAkAAAABAAEAAAAOAAoAAAABAAEAAAAOAAsAAAABAAEAAAALAA0AAAAAAAMAAAALAAcAAAACAAEAAAAOAAcAAAABAAEAAAAMAAgAAAAIAAQAAAANAAgAAAAIAAQAAAA=")
-tile_set = ExtResource("1_8rndi")
+tile_set = ExtResource("1_g58v1")
 
-[node name="ExitElevator" parent="." instance=ExtResource("2_hphnx")]
+[node name="ExitElevator" parent="." instance=ExtResource("2_y0ehi")]
 position = Vector2(832, 352)
-nextMapName = "Intro"
+nextMapName = "KGControlRoom"
+maxElevatorDistance = 2304.0
 
-[node name="EnteranceElevator" parent="." instance=ExtResource("3_4aga8")]
+[node name="EnteranceElevator" parent="." instance=ExtResource("3_my4wu")]
 position = Vector2(576, -1056)
 startingElevatorDistance = 2880.0
 bluePortalgun = false
 orangePortalgun = false
 
-[node name="Button" parent="." instance=ExtResource("4_8rndi")]
+[node name="Button" parent="." instance=ExtResource("4_okynx")]
 position = Vector2(624, -288)
 
-[node name="Button1" parent="." instance=ExtResource("4_8rndi")]
+[node name="Button1" parent="." instance=ExtResource("4_okynx")]
 position = Vector2(576, -224)
 
-[node name="Button2" parent="." instance=ExtResource("4_8rndi")]
+[node name="Button2" parent="." instance=ExtResource("4_okynx")]
 position = Vector2(528, -416)
 
-[node name="FloorButton" parent="." instance=ExtResource("5_hphnx")]
+[node name="FloorButton" parent="." instance=ExtResource("5_6i16o")]
 position = Vector2(832, 0)
 
-[node name="Fizzler" parent="." instance=ExtResource("6_hphnx")]
+[node name="Fizzler" parent="." instance=ExtResource("6_tsw3i")]
 position = Vector2(832, 672)
 rotation = 1.5707964
 
-[node name="Fizzler3" parent="." instance=ExtResource("6_hphnx")]
+[node name="Fizzler3" parent="." instance=ExtResource("6_tsw3i")]
 position = Vector2(64, 640)
 rotation = -1.5707964
 tilesWide = 4.0
 kineticGrill = true
 
-[node name="Fizzler4" parent="." instance=ExtResource("6_hphnx")]
+[node name="Fizzler4" parent="." instance=ExtResource("6_tsw3i")]
 position = Vector2(64, 384)
 rotation = 1.5707964
 tilesWide = 4.0
 kineticGrill = true
 
-[node name="Fizzler5" parent="." instance=ExtResource("6_hphnx")]
+[node name="Fizzler5" parent="." instance=ExtResource("6_tsw3i")]
 position = Vector2(384, 640)
 rotation = 1.5707964
 kineticGrill = true
 
-[node name="Door" parent="." instance=ExtResource("7_8lumq")]
+[node name="Door" parent="." instance=ExtResource("7_hygjx")]
 position = Vector2(704, 768)
 
-[node name="Door2" parent="." instance=ExtResource("7_8lumq")]
+[node name="Door2" parent="." instance=ExtResource("7_hygjx")]
 position = Vector2(384, 128)
 rotation = 1.5707964
 
-[node name="Door3" parent="." instance=ExtResource("7_8lumq")]
+[node name="Door3" parent="." instance=ExtResource("7_hygjx")]
 position = Vector2(576, -704)
 rotation = 1.5707964
 
-[node name="FloorButton2" parent="." instance=ExtResource("5_hphnx")]
+[node name="FloorButton2" parent="." instance=ExtResource("5_6i16o")]
 position = Vector2(128, 288)
 
-[node name="FloorButton3" parent="." instance=ExtResource("5_hphnx")]
+[node name="FloorButton3" parent="." instance=ExtResource("5_6i16o")]
 position = Vector2(-64, 512)
 
-[node name="FloorButton4" parent="." instance=ExtResource("5_hphnx")]
+[node name="FloorButton4" parent="." instance=ExtResource("5_6i16o")]
 position = Vector2(448, 512)
 
-[node name="FloorButton5" parent="." instance=ExtResource("5_hphnx")]
+[node name="FloorButton5" parent="." instance=ExtResource("5_6i16o")]
 position = Vector2(512, 768)
 
-[node name="Autoportal" parent="." instance=ExtResource("5_5lflo")]
+[node name="Autoportal" parent="." instance=ExtResource("8_mr7in")]
 position = Vector2(-96, 288)
 rotation = -1.5707964
 
-[node name="Autoportal2" parent="." instance=ExtResource("5_5lflo")]
+[node name="Autoportal2" parent="." instance=ExtResource("8_mr7in")]
 position = Vector2(608, 416)
 rotation = 1.5707964
 
-[node name="Autoportal3" parent="." instance=ExtResource("5_5lflo")]
+[node name="Autoportal3" parent="." instance=ExtResource("8_mr7in")]
 position = Vector2(224, -288)
 rotation = -1.5707964
 
-[node name="Autoportal4" parent="." instance=ExtResource("5_5lflo")]
+[node name="Autoportal4" parent="." instance=ExtResource("8_mr7in")]
 position = Vector2(928, -224)
 rotation = 1.5707964
 
-[node name="Autoportal5" parent="." instance=ExtResource("5_5lflo")]
+[node name="Autoportal5" parent="." instance=ExtResource("8_mr7in")]
 position = Vector2(672, -480)
 rotation = 1.5707964
 
-[node name="Autoportal6" parent="." instance=ExtResource("5_5lflo")]
+[node name="Autoportal6" parent="." instance=ExtResource("8_mr7in")]
 position = Vector2(544, 96)
 rotation = -3.1415927
 
-[node name="Trigger" parent="." instance=ExtResource("10_752x1")]
+[node name="Trigger" parent="." instance=ExtResource("9_ofbpy")]
 position = Vector2(576, -848)
 scale = Vector2(2, 1)
 
-[node name="Trigger2" parent="." instance=ExtResource("10_752x1")]
+[node name="Trigger2" parent="." instance=ExtResource("9_ofbpy")]
 position = Vector2(576, -544)
 scale = Vector2(2, 1)
 
-[node name="Trigger3" parent="." instance=ExtResource("10_752x1")]
+[node name="Trigger3" parent="." instance=ExtResource("9_ofbpy")]
 position = Vector2(384, 288)
 scale = Vector2(2, 1)
 
-[node name="Trigger4" parent="." instance=ExtResource("10_752x1")]
+[node name="Trigger4" parent="." instance=ExtResource("9_ofbpy")]
 position = Vector2(832, 672)
 scale = Vector2(2, 1)
 
-[node name="CubeDropper" parent="." instance=ExtResource("10_dfqdh")]
+[node name="CubeDropper" parent="." instance=ExtResource("10_3khnu")]
 position = Vector2(320, -384)
 
-[node name="CubeDropper2" parent="." instance=ExtResource("10_dfqdh")]
+[node name="CubeDropper2" parent="." instance=ExtResource("10_3khnu")]
 position = Vector2(32, 224)
 
-[node name="CubeDropper3" parent="." instance=ExtResource("10_dfqdh")]
+[node name="CubeDropper3" parent="." instance=ExtResource("10_3khnu")]
 position = Vector2(32, 800)
 
 [connection signal="OnButtonPressed" from="Button" to="Autoportal4" method="placeOrangePortal"]
