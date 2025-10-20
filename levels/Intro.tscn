@@ -27,9 +27,10 @@ tile_set = ExtResource("1_xdeqn")
 [node name="ExitElevator" parent="." instance=ExtResource("2_wn7qo")]
 position = Vector2(-64, -1312)
 nextMapName = "KineticIntro"
+maxElevatorDistance = 768.0
 
 [node name="Player" parent="." instance=ExtResource("3_mavnb")]
-position = Vector2(-64, -1120)
+position = Vector2(-64, 64)
 bluePortalgun = false
 orangePortalgun = false
 
@@ -82,6 +83,7 @@ scale = Vector2(2, 1)
 
 [connection signal="OnButtonPressed" from="PedestalButton" to="CubeDropper" method="spawnCube"]
 [connection signal="OnButtonPressed" from="FloorButton" to="ExitDoor" method="openDoor"]
+[connection signal="OnButtonUnpressed" from="FloorButton" to="ExitDoor" method="closeDoor"]
 [connection signal="trigger" from="Openmiddoor" to="Middoor" method="openDoor"]
 [connection signal="trigger" from="Closemiddoor" to="Middoor" method="closeDoor"]
 [connection signal="trigger" from="Closeenddoor" to="ExitDoor" method="closeDoor"]
