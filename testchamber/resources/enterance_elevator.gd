@@ -9,13 +9,11 @@ var elevatorSpeed: float = 512
 @export var startingElevatorDistance: float = 1048
 @export var bluePortalgun: bool = true
 @export var orangePortalgun: bool = true
-@onready var playerTemplate = preload("res://player/player.tscn")
-@onready var cameraTemplate = preload("res://camera/camera.tscn")
-var p: Player
-var camera: FancyCam
+#@onready var playerTemplate = preload("res://player/player.tscn")
+#@onready var cameraTemplate = preload("res://camera/camera.tscn")
+@export var p: Player
+@export var camera: FancyCam
 var closeDoorTimer: float = 1
-
-var doneFirstTickChecks = false
 
 # 0: ascending
 # 1: 256 units away, start slowing down
@@ -23,53 +21,45 @@ var doneFirstTickChecks = false
 # 3: door open, waiting for player to leave, close when they are far enough away
 var phase: int = 0
 
-func _begin():
+func _ready():
 	elevatorDistance = startingElevatorDistance
 	$ElevatorBottom.texture = closeDoorSprite
 	$ElevatorWalls2.z_index = 4
+	camera.target = self
+	camera.lag = false
+	
+	elevatorDistance = startingElevatorDistance
+	$ElevatorTop.position.y = elevatorDistance
+	$ElevatorBottom.position.y = elevatorDistance
+	
+	camera.global_position = $ElevatorTop.global_position
+	camera.smoothedPosition = $ElevatorTop.global_position
+	
+	p.global_position = global_position
+	p.visible = false
+	p.bluePortalgun = bluePortalgun
+	p.orangePortalgun = orangePortalgun
+	p.movementEnabled = false
 
 func _process(delta: float) -> void:
-	if !doneFirstTickChecks:
-		p = playerTemplate.instantiate()
-		camera = cameraTemplate.instantiate()
-		camera.target = self
-		camera.lag = false
-		
-		elevatorDistance = startingElevatorDistance
-		$ElevatorTop.position.y = elevatorDistance
-		$ElevatorBottom.position.y = elevatorDistance
-		
-		camera.position = $ElevatorTop.global_position
-		camera.smoothedPosition = $ElevatorTop.global_position
-		
-		p.position = global_position
-		p.visible = false
-		p.bluePortalgun = bluePortalgun
-		p.orangePortalgun = orangePortalgun
-		p.movementEnabled = false
-		get_tree().get_current_scene().add_child(p)
-		get_tree().get_current_scene().add_child(camera)
-		doneFirstTickChecks = true
-		
 	match phase:
 		0:
 			elevatorDistance -= elevatorSpeed * delta
 			$ElevatorTop.position.y = elevatorDistance
 			$ElevatorBottom.position.y = elevatorDistance
-			camera.position = $ElevatorTop.global_position
+			camera.global_position = $ElevatorTop.global_position
 			if (elevatorDistance - (elevatorSpeed * delta)) < 256: # predict next frame to avoid pseudo lag framew
 				phase = 1
-				print("elevator on phase 2 now")
 				return
 		1:
 			elevatorDistance = lerp(0, 256, closeDoorTimer * closeDoorTimer)
 			$ElevatorTop.position.y = elevatorDistance
 			$ElevatorBottom.position.y = elevatorDistance
-			camera.position = $ElevatorTop.global_position
+			camera.global_position = $ElevatorTop.global_position
 			if elevatorDistance < 36: $ElevatorTop.z_index = 3
 			closeDoorTimer -= delta
 			if closeDoorTimer < 0:
-				closeDoorTimer = 1.5
+				closeDoorTimer = 0.75
 				phase = 2
 				camera.lag = true
 				$ElevatorWalls2.z_index = -1

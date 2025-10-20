@@ -76,7 +76,7 @@ func _process(delta: float) -> void:
 		drownAfterAnimation += delta
 		if drownAfterAnimation >= 1:
 			$Sprite2D.modulate.a = 1
-			position = lastSafeSpot
+			global_position = lastSafeSpot
 			angle = 2
 			collision_mask = 1
 	
@@ -145,7 +145,7 @@ func _physics_process(delta: float) -> void:
 	var goal_movement_vector: Vector2 = inputVector * delta * mov_speed
 	linear_velocity = goal_movement_vector
 	if heldObject != null:
-		var goalPosition = position + angleToVector(angle) * 64
+		var goalPosition = global_position + angleToVector(angle) * 64
 		heldObject.goalPos = goalPosition
 
 func _input(event: InputEvent) -> void:
@@ -190,14 +190,14 @@ func portallingProcess(delta: float) -> void:
 	
 	if portalTeleportProgress < 1:
 		angle = (portal1.angle + 2) % 4
-		position = lerp(portal1.position + (angleToVector(angle) * -32), portal1.position, portalTeleportProgress)
+		global_position = lerp(portal1.position + (angleToVector(angle) * -32), portal1.position, portalTeleportProgress)
 		var goalColor = portal1.sprite.modulate
 		goalColor.a = 0
 		$Sprite2D.modulate = lerp(Color(1,1,1), goalColor, portalTeleportProgress)
 	
 	else:
 		angle = (portal2.angle) % 4
-		position = lerp(portal2.position, portal2.position + (angleToVector(angle) * endDistance), portalTeleportProgress - 1)
+		global_position = lerp(portal2.position, portal2.position + (angleToVector(angle) * endDistance), portalTeleportProgress - 1)
 		var goalColor = portal1.sprite.modulate
 		goalColor.a = 0
 		$Sprite2D.modulate = lerp(goalColor, Color(1,1,1), portalTeleportProgress - 1)
@@ -208,7 +208,7 @@ func portallingProcess(delta: float) -> void:
 	portalTeleportProgress += (delta * 2) / portalTeleportSpeed
 	updateSprite(250, delta)
 	if portalTeleportProgress > 2: 
-		position = portal2.position + (angleToVector(angle) * endDistance)
+		global_position = portal2.position + (angleToVector(angle) * endDistance)
 		$Sprite2D.modulate = Color(1, 1, 1)
 	
 	processDisplacement(delta)
@@ -221,9 +221,9 @@ func getCameraPos() -> Vector2:
 		t = t * t * (3.0 - (2.0 * t))
 		return lerp(pos1, pos2, t)
 	elif displacedByField:
-		return position + displacementFieldOffset / 2
+		return global_position + displacementFieldOffset / 2
 	else:
-		return position
+		return global_position
 
 func shootPortal(orange: bool):
 	$PortalRaycast.target_position = angleToVector(angle) * 5000

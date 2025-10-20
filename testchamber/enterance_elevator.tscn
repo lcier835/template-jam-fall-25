@@ -1,16 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://chlvwkvf1kf63"]
+[gd_scene load_steps=9 format=3 uid="uid://chlvwkvf1kf63"]
 
 [ext_resource type="Script" uid="uid://cv6iyck0p07n3" path="res://testchamber/resources/enterance_elevator.gd" id="1_i01mv"]
 [ext_resource type="Texture2D" uid="uid://b6xilvuix4wwf" path="res://testchamber/resources/elevatorwalls.png" id="2_rsc2n"]
 [ext_resource type="Texture2D" uid="uid://dn4yr6xfwqmm7" path="res://testchamber/resources/elevatorwalls_bottom.png" id="3_poxeo"]
 [ext_resource type="Texture2D" uid="uid://c54lsll6hok2a" path="res://testchamber/resources/elevatorside_closed.png" id="4_qj6rb"]
 [ext_resource type="Texture2D" uid="uid://cr258it46jqoh" path="res://testchamber/resources/elevatortop.png" id="5_h4vlw"]
+[ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://player/player.tscn" id="6_poxeo"]
+[ext_resource type="PackedScene" uid="uid://dq28jt7gp46pk" path="res://camera/camera.tscn" id="7_qj6rb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5eas2"]
 size = Vector2(64, 128)
 
-[node name="EnteranceElevator" type="Node2D"]
+[node name="EnteranceElevator" type="Node2D" node_paths=PackedStringArray("p", "camera")]
 script = ExtResource("1_i01mv")
+p = NodePath("Player")
+camera = NodePath("Camera")
 
 [node name="ElevatorWalls" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -65,3 +69,7 @@ collision_mask = 0
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_5eas2")
+
+[node name="Player" parent="." instance=ExtResource("6_poxeo")]
+
+[node name="Camera" parent="." instance=ExtResource("7_qj6rb")]

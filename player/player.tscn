@@ -31,6 +31,7 @@ radius = 14.0
 
 [node name="Player" type="RigidBody2D" groups=["Displaceable", "Player"]]
 collision_layer = 130
+collision_mask = 129
 physics_material_override = SubResource("PhysicsMaterial_boad6")
 lock_rotation = true
 contact_monitor = true
