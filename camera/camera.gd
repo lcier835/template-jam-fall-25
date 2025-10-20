@@ -7,6 +7,8 @@ var target: Node2D
 var smoothedPosition: Vector2
 var lag = true
 
+var iconProgress = 0.0
+
 func begin():
 	global_position = target.global_position
 
@@ -16,6 +18,10 @@ func smoothMin(a: float, b: float, k: float) -> float:
 	return 0.5 * (a + b - sqrt (x * x + k * k))
 
 func _process(delta: float) -> void:
+	if iconProgress > 0:
+		$Sprite2D.modulate.a = min(1, iconProgress)
+		iconProgress -= delta
+		
 	if target == null:
 		if get_tree().get_nodes_in_group("Player").size() == 0: return
 		target = get_tree().get_nodes_in_group("Player")[0]
@@ -29,3 +35,7 @@ func _process(delta: float) -> void:
 	else:
 		smoothedPosition = goalPosition
 	global_position = smoothedPosition
+
+func _showIcon(icon: String):
+	iconProgress = 5
+	$Sprite2D.texture = load("res://camera/" + icon + ".png")

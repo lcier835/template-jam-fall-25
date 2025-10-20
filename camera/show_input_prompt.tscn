@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3wi75vtnfsd"]
+
+[ext_resource type="Script" uid="uid://cq5k2tddjq438" path="res://camera/show_input_prompt.gd" id="1_mra5k"]
+
+[node name="ShowInputPrompt" type="Node2D"]
+script = ExtResource("1_mra5k")

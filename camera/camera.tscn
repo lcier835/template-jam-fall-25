@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://dq28jt7gp46pk"]
+[gd_scene load_steps=3 format=3 uid="uid://dq28jt7gp46pk"]
 
 [ext_resource type="Script" uid="uid://bqjbnbfd7jlob" path="res://camera/camera.gd" id="1_8nkvj"]
+[ext_resource type="Texture2D" uid="uid://c2i5inq6avof5" path="res://camera/move.png" id="2_gsf7k"]
 
 [node name="Camera" type="Camera2D" groups=["Camera"]]
 script = ExtResource("1_8nkvj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 7
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("2_gsf7k")
