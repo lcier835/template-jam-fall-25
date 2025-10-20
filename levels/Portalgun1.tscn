@@ -23,7 +23,7 @@ tile_set = ExtResource("1_10e28")
 
 [node name="ExitElevator" parent="." instance=ExtResource("2_ayv0m")]
 position = Vector2(256, 864)
-nextMapName = "Portalgun1"
+nextMapName = "CubeFizzler"
 maxElevatorDistance = 2300.0
 
 [node name="EnteranceElevator" parent="." instance=ExtResource("3_hs1so")]
