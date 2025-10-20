@@ -3,7 +3,7 @@ extends Area2D
 signal trigger
 
 @export var once = false
-
+var triggered = false
 @export var player = true
 
 func _ready():
@@ -12,4 +12,6 @@ func _ready():
 		collision_mask += 128
 
 func _hit(node: Node2D):
+	if once && triggered: return
 	emit_signal("trigger")
+	triggered = true

@@ -20,7 +20,7 @@ func _interacted_by_player(_player: Player):
 
 func _process(_delta: float) -> void:
 	if pressTimer < pressTime && (pressTimer + _delta) >= pressTime:
-		$Sprite2D.modulate = Color(1, 1, 1)
+		$Sprite2D.modulate = Color(1, 0, 0)
 		emit_signal("OnButtonUnpressed")
 	
 	if pressTime != -1:

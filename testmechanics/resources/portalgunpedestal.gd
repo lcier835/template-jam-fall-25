@@ -8,13 +8,16 @@ class_name PGunPedestal extends Area2D
 
 @onready var portalScene = preload("res://portals/portal.tscn")
 
+signal OnTaken
+
 var timer: float = 0
 var used = false
 var angle = 0
 var turnSpeed = 2
 
 func _interacted_by_player(_player: Player):
-	print("used")
+	if used: return
+	emit_signal("OnTaken")
 	if shootOrange:
 		_player.orangePortalgun = true
 	else:
