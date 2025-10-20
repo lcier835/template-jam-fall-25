@@ -8,7 +8,7 @@ var smoothedPosition: Vector2
 var lag = true
 
 func begin():
-	position = target.position
+	global_position = target.global_position
 
 func smoothMin(a: float, b: float, k: float) -> float:
 	k *= 2
@@ -19,8 +19,8 @@ func _process(delta: float) -> void:
 	if target == null:
 		if get_tree().get_nodes_in_group("Player").size() == 0: return
 		target = get_tree().get_nodes_in_group("Player")[0]
-		position = target.position
-		smoothedPosition = target.position
+		global_position = target.global_position
+		smoothedPosition = target.global_position
 	var goalPosition = target.position
 	if target.has_method("getCameraPos"):
 		goalPosition = target.getCameraPos()
@@ -28,4 +28,4 @@ func _process(delta: float) -> void:
 		smoothedPosition = lerp(smoothedPosition, goalPosition, delta * 3)
 	else:
 		smoothedPosition = goalPosition
-	position = smoothedPosition
+	global_position = smoothedPosition

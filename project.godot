@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Template Jam"
-run/main_scene="uid://cqow47bch5ocs"
+run/main_scene="uid://c7qpneixacsf0"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="uid://bv8i66e2am8k1"
 
