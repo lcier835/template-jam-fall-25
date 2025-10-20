@@ -3,6 +3,7 @@ class_name Fizzler extends Area2D
 @export var tilesWide: float = 2
 @export var kineticGrill: bool = false
 @export var displacementFieldBorder: bool = false
+@export var startEnabled = true
 
 var enabled: bool
 
@@ -29,7 +30,8 @@ func _ready():
 		$Side2/Fizzleredge.modulate = Color(1, 1, 1, 0.5)
 		collision_mask = 0
 		$PortalshotBlocker.collision_layer = 0
-		
+	
+	if !startEnabled: disableFizzler()
 
 func _objectCollide(body:Node2D):
 	if body.has_method("_fizzle") && !kineticGrill: body._fizzle()

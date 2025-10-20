@@ -9,7 +9,7 @@ var portal: Portal
 var angle = 0
 
 func _ready() -> void:
-	angle = (global_rotation + (PI * 2)) / (PI / 2)
+	angle = (global_rotation + (PI * 2)) / (PI / 2.1)
 
 func _process(_delta: float) -> void:
 	if startWithPortal: 
@@ -30,7 +30,7 @@ func placePortal(orange: bool):
 		clearPortal()
 	portal = portalScene.instantiate()
 	portal.position = global_position
-	portal.angle = int(angle + 3) % 4
+	portal.angle = int(angle + 2) % 4
 	portal.orangePortal = orange
 	portal.placedByPlayer = false
 	

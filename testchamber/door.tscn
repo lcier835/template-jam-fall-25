@@ -22,9 +22,6 @@ shape = SubResource("RectangleShape2D_fvinn")
 position = Vector2(0, 48)
 shape = SubResource("RectangleShape2D_fvinn")
 
-[node name="BlockerMiddle" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_p04d2")
-
 [node name="LdoorTop" type="Sprite2D" parent="."]
 z_index = 3
 texture_filter = 1
@@ -74,4 +71,11 @@ collision_layer = 0
 collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBlocker"]
+shape = SubResource("RectangleShape2D_p04d2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 17
+collision_mask = 0
+
+[node name="BlockerMiddle" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_p04d2")

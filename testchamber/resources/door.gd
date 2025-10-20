@@ -25,7 +25,7 @@ func updateSprites():
 
 func openDoor():
 	open = true
-	$BlockerMiddle.disabled = true
+	$StaticBody2D.collision_layer = 0
 	updateSprites()
 
 func closeDoor():
@@ -35,5 +35,5 @@ func _process(_delta: float) -> void:
 	if wantsToClose && !$PlayerBlocker.has_overlapping_bodies():
 		open = false
 		updateSprites()
-		$BlockerMiddle.disabled = false
+		$StaticBody2D.collision_layer = 17
 		wantsToClose = false
