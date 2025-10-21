@@ -1,7 +1,7 @@
 class_name PedestalButton extends StaticBody2D
 
 var pressTimer = 1
-@export var pressTime = 0.5
+@export var pressTime = 0.125
 
 signal OnButtonPressed
 signal OnButtonUnpressed

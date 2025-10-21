@@ -8,6 +8,7 @@ var wantsToClose = false
 
 func _ready() -> void:
 	open = startOpen
+	updateSprites()
 
 func updateSprite(isTop: bool, isLeft: bool, sprite: Sprite2D):
 	var index = 0

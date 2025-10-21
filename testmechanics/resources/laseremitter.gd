@@ -2,6 +2,8 @@ extends Node2D
 
 var laserSegments: Array[Sprite2D] = []
 
+@export var enabled = true
+
 func _ready() -> void:
 	for i in range(10):
 		var current = $Fizzlermiddle.duplicate()
@@ -12,7 +14,13 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	hideCurrentLasers()
-	placeLasers()
+	if enabled: placeLasers()
+
+func disableLaser():
+	enabled = false
+
+func enableLaser():
+	enabled = true
 
 func hideCurrentLasers():
 	for l in laserSegments:
