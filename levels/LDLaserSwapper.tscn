@@ -27,12 +27,13 @@ tile_set = ExtResource("1_cduu6")
 
 [node name="ExitElevator" parent="." instance=ExtResource("2_yr4fe")]
 position = Vector2(-320, -1120)
-nextMapName = "LDLaserChainer"
+nextMapName = "Portalgun2"
 maxElevatorDistance = 800.0
 
 [node name="EnteranceElevator" parent="." instance=ExtResource("3_0b1hd")]
 position = Vector2(-640, -608)
 startingElevatorDistance = 1700.0
+orangePortalgun = false
 
 [node name="DisplacementField" parent="." instance=ExtResource("4_381kh")]
 position = Vector2(-224, 32)

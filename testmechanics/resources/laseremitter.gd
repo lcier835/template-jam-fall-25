@@ -65,9 +65,9 @@ func placeLasers():
 			var distanceX = newStartPoint.x - p.position.x
 			var distanceY = newStartPoint.y - p.position.y
 			var finalDistance = 64
-			if(abs(distanceX) == 32.0) && abs(distanceY) < 32.0:
+			if(abs(distanceX) > 31.0) && abs(distanceX) < 33.0 && abs(distanceY) <= 32.0:
 				finalDistance = distanceY
-			elif(abs(distanceY) == 32.0) && abs(distanceX) < 32.0:
+			elif(abs(distanceY) > 31.0) && abs(distanceY) < 33.0 && abs(distanceX) <= 32.0:
 				finalDistance = distanceX
 			
 			if finalDistance != 64: #don't return in case it could go through other portal
