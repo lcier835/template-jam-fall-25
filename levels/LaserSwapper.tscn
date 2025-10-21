@@ -80,6 +80,9 @@ reflector = true
 [node name="PedestalButton3" parent="." instance=ExtResource("10_lmi6a")]
 position = Vector2(416, 96)
 
+[node name="PedestalButton4" parent="." instance=ExtResource("10_lmi6a")]
+position = Vector2(96, 96)
+
 [node name="LaserEmitter" parent="." instance=ExtResource("4_7tq5n")]
 position = Vector2(448, 352)
 rotation = -1.5707964
@@ -119,6 +122,7 @@ position = Vector2(-608, 96)
 [connection signal="OnLaserUnpowered" from="StaticBody2D2" to="Fizzler2" method="enableFizzler"]
 [connection signal="OnButtonPressed" from="PedestalButton2" to="CubeDropper" method="respawn"]
 [connection signal="OnButtonPressed" from="PedestalButton3" to="CubeDropper2" method="respawn"]
+[connection signal="OnButtonPressed" from="PedestalButton4" to="CubeDropper2" method="respawn"]
 [connection signal="trigger" from="Trigger" to="Door2" method="openDoor"]
 [connection signal="trigger" from="Trigger2" to="Autoportal" method="placeOrangePortal"]
 [connection signal="trigger" from="Trigger2" to="Door2" method="closeDoor"]
