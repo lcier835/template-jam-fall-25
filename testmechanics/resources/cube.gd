@@ -39,6 +39,14 @@ func _physics_process(_delta: float) -> void:
 	else:
 		linear_velocity = Vector2(0, 0)
 
+func addToLaserInteract():
+	if reflector: 
+		add_to_group("LaserInteract")
+		$CloneReflector.add_to_group("LaserInteract")
+
+func _ready() -> void:
+	addToLaserInteract()
+
 func _process(_delta: float) -> void:
 	if reflector:
 		add_to_group("LaserInteract", false)

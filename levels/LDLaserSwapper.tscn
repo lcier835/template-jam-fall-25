@@ -99,7 +99,7 @@ rotation = 1.5707964
 position = Vector2(-192, -704)
 
 [node name="Fizzler2" parent="." instance=ExtResource("5_dflcq")]
-position = Vector2(0, -608)
+position = Vector2(0, -576)
 rotation = 1.5707964
 tilesWide = 4.0
 kineticGrill = true

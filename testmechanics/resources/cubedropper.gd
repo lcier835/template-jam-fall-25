@@ -16,6 +16,7 @@ func spawnCube():
 	cube.global_position = global_position
 	cube.dropper = self
 	cube.reflector = reflector
+	cube.addToLaserInteract()
 	get_tree().get_current_scene().add_child(cube)
 
 func respawn():
