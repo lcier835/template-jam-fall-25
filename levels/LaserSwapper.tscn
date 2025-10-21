@@ -1,0 +1,125 @@
+[gd_scene load_steps=13 format=4 uid="uid://bdgj04gckockd"]
+
+[ext_resource type="TileSet" uid="uid://b4n7twc482f2" path="res://testchamber/chambertileset.tres" id="1_0x4ht"]
+[ext_resource type="PackedScene" uid="uid://bxshcvar0v0kf" path="res://testchamber/exit_elevator.tscn" id="2_nx6m8"]
+[ext_resource type="PackedScene" uid="uid://chlvwkvf1kf63" path="res://testchamber/enterance_elevator.tscn" id="3_lnl6m"]
+[ext_resource type="PackedScene" uid="uid://dyq7ikato2uno" path="res://testmechanics/laseremitter.tscn" id="4_7tq5n"]
+[ext_resource type="PackedScene" uid="uid://c5ly2um5kudf3" path="res://testmechanics/fizzler.tscn" id="5_dm73d"]
+[ext_resource type="PackedScene" uid="uid://c8xk0xb71rp4x" path="res://testmechanics/lasercatcher.tscn" id="6_1f3v8"]
+[ext_resource type="PackedScene" uid="uid://d0rlets6d8b82" path="res://testmechanics/floorbutton.tscn" id="7_2hgts"]
+[ext_resource type="PackedScene" uid="uid://1h64ibhwpof6" path="res://testmechanics/autoportal.tscn" id="8_gig11"]
+[ext_resource type="PackedScene" uid="uid://dy8qgf014pglj" path="res://testmechanics/cubedropper.tscn" id="9_ej21x"]
+[ext_resource type="PackedScene" uid="uid://ccwssux3byp8q" path="res://testmechanics/pedestalbutton.tscn" id="10_lmi6a"]
+[ext_resource type="PackedScene" uid="uid://b7rh2d43wg2dw" path="res://testchamber/door.tscn" id="11_loll3"]
+[ext_resource type="PackedScene" uid="uid://bw8sfidflx43c" path="res://testmechanics/trigger.tscn" id="12_6nklv"]
+
+[node name="Main" type="Node2D"]
+y_sort_enabled = true
+texture_filter = 1
+metadata/_edit_horizontal_guides_ = [-31.0]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -2
+y_sort_enabled = true
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAD8/wEAAAAIAAQAAAD7/wEAAAAIAAQAAAD8/wAAAAAIAAQAAAD7/wAAAAAIAAQAAAD7/wIAAAAIAAQAAAD7/wMAAAAIAAQAAAD8/wIAAAAGAAIAAAD8/wMAAAAGAAMAAAD5/wIAAAAIAAQAAAD5/wMAAAAIAAQAAAD4/wIAAAAFAAIAAAD4/wMAAAAFAAUAAAD3/wIAAAAEAAIAAAD6/wMAAAAIAAQAAAD6/wIAAAAIAAQAAAD6/wEAAAAIAAQAAAD6/wAAAAAIAAQAAAD5/wAAAAAIAAQAAAD5/wEAAAAIAAQAAAD4/wEAAAAIAAQAAAD3/wEAAAAIAAQAAAD3/wAAAAAIAAQAAAD4/wAAAAAIAAQAAADy/wAAAAACAAEAAADy/wEAAAAAAAIAAADy/wIAAAAAAAMAAADz/wAAAAAIAAQAAADz/wEAAAAIAAQAAADz/wIAAAABAAMAAAD1/wAAAAAIAAQAAAD1/wEAAAAIAAQAAAD1/wIAAAAEAAMAAAD2/wIAAAABAAIAAAD0/wIAAAABAAIAAAD0/wEAAAAIAAQAAAD0/wAAAAAIAAQAAAD2/wAAAAAIAAQAAAD2/wEAAAAIAAQAAAD8/wQAAAABAAEAAAD6/wUAAAAIAAQAAAD5/wUAAAAIAAQAAAD5/wQAAAAIAAQAAAD6/wQAAAAIAAQAAAD7/wQAAAAIAAQAAAD3/wMAAAAEAAUAAAD4/wUAAAAIAAQAAAD3/wUAAAAIAAQAAAD3/wQAAAAIAAQAAAD4/wQAAAAIAAQAAAD2/wUAAAAIAAQAAAD2/wYAAAAIAAQAAAD2/wQAAAAIAAQAAAD2/wMAAAACAAYAAAD3/wcAAAAGAAYAAAD7/wYAAAAIAAQAAAD8/wYAAAADAAIAAAD3/wgAAAAGAAcAAAD4/wcAAAAHAAYAAAD5/wcAAAABAAIAAAD6/wcAAAABAAIAAAD7/wcAAAACAAMAAAD8/wcAAAADAAMAAAD0/wMAAAABAAQAAAD0/wQAAAAIAAQAAAD0/wUAAAAIAAQAAAD0/wYAAAAIAAQAAADz/wMAAAAAAAQAAADz/wQAAAAAAAUAAADz/wUAAAACAAUAAADz/wYAAAACAAUAAAD8/wUAAAABAAEAAAD7/wUAAAAIAAQAAAD6/wYAAAAIAAQAAAD5/wYAAAAIAAQAAAD4/wYAAAAIAAQAAAD3/wYAAAAIAAQAAAD1/wYAAAAIAAQAAAD1/wUAAAAIAAQAAAD1/wQAAAAIAAQAAAD1/wMAAAACAAYAAAD2/wcAAAAIAAQAAAD2/wgAAAAIAAQAAAD2/wkAAAAIAAQAAAD1/wkAAAAIAAQAAAD0/wkAAAAIAAQAAAD0/wgAAAAIAAQAAAD0/wcAAAAIAAQAAAD1/wcAAAAIAAQAAAD1/wgAAAAIAAQAAAD3/wkAAAADAAYAAADz/wkAAAAAAAYAAADx/wYAAAACAAQAAADy/wYAAAADAAQAAADx/wkAAAACAAcAAADy/wkAAAADAAcAAADz/wgAAAAIAAQAAADy/wgAAAAIAAQAAADx/wgAAAAIAAQAAADw/wgAAAAIAAQAAADv/wgAAAAIAAQAAADv/wcAAAAIAAQAAADw/wcAAAAIAAQAAADx/wcAAAAIAAQAAADy/wcAAAAIAAQAAADz/wcAAAAIAAQAAADt/wkAAAABAAcAAADu/wkAAAABAAYAAADv/wkAAAABAAYAAADw/wkAAAABAAYAAADv/wUAAAAGAAQAAADv/wYAAAAGAAUAAADw/wYAAAAHAAUAAADs/wgAAAAAAAYAAADs/wkAAAAAAAcAAADu/wcAAAAIAAQAAADu/wgAAAAIAAQAAADt/wgAAAAIAAQAAADt/wcAAAAIAAQAAADt/wYAAAAIAAQAAADt/wUAAAAIAAQAAADu/wUAAAAIAAQAAADu/wYAAAAIAAQAAADs/wcAAAACAAUAAADs/wYAAAACAAUAAADs/wUAAAACAAUAAADs/wQAAAACAAUAAADv/wQAAAABAAUAAADz/woAAAAAAAcAAAD0/woAAAABAAcAAAD1/woAAAABAAYAAAD2/woAAAACAAcAAAD3/woAAAADAAcAAAD9/wAAAAAIAAQAAAD9/wEAAAAIAAQAAAD9/wIAAAAFAAYAAAD9/wMAAAAFAAcAAAD9/wQAAAACAAUAAAD9/wUAAAAHAAAAAAD9/wYAAAAAAAYAAAD9/wcAAAAAAAcAAAD+/wAAAAAIAAQAAAD+/wEAAAAIAAQAAAD+/wIAAAAKAAAAAAD+/wMAAAAKAAEAAAD+/wQAAAAIAAQAAAD+/wUAAAAIAAQAAAD+/wYAAAAIAAQAAAD+/wcAAAABAAcAAAD//wAAAAAIAAQAAAD//wEAAAAIAAQAAAD//wIAAAANAAEAAAD//wMAAAAMAAEAAAD//wQAAAAIAAQAAAD//wUAAAAIAAQAAAD//wYAAAAIAAQAAAD//wcAAAABAAYAAAAAAAIAAAANAAEAAAABAAIAAAALAAAAAAABAAMAAAALAAEAAAAAAAMAAAAMAAEAAAABAAcAAAABAAYAAAAAAAcAAAABAAYAAAAAAAYAAAAIAAQAAAABAAYAAAAIAAQAAAABAAUAAAAIAAQAAAABAAQAAAAIAAQAAAAAAAQAAAAIAAQAAAAAAAUAAAAIAAQAAAAAAAEAAAAIAAQAAAABAAEAAAAIAAQAAAABAAAAAAAIAAQAAAAAAAAAAAAIAAQAAADy//7/AAAAAAEAAADy////AAACAAEAAAABAP//AAAIAAQAAAAAAP//AAAIAAQAAAD/////AAAIAAQAAAD+////AAAIAAQAAAD9////AAAIAAQAAAD8////AAAIAAQAAAD7////AAAIAAQAAAD6////AAAIAAQAAAD5////AAAIAAQAAAD4////AAAIAAQAAAD3////AAAIAAQAAAD2////AAAIAAQAAAD1////AAAIAAQAAAD0////AAAIAAQAAAD0//7/AAAIAAQAAADz//7/AAAIAAQAAADz////AAAIAAQAAAD1//7/AAAIAAQAAAD2//7/AAAIAAQAAAD3//7/AAAIAAQAAAD4//7/AAAIAAQAAAD5//7/AAAIAAQAAAD6//7/AAAIAAQAAAD7//7/AAAIAAQAAAD8//7/AAAIAAQAAAD9//7/AAAIAAQAAAD+//7/AAAIAAQAAAD///7/AAAIAAQAAAAAAP7/AAAIAAQAAAABAP7/AAAIAAQAAADy//j/AAACAAEAAADy//n/AAACAAEAAADy//r/AAACAAEAAADy//v/AAAAAAIAAADy//z/AAAAAAMAAADy//3/AAAAAAAAAADz//n/AAAIAAQAAADz//r/AAAIAAQAAADz//v/AAAIAAQAAADz//z/AAAIAAQAAADz//3/AAAIAAQAAAD0//n/AAAIAAQAAAD0//r/AAAIAAQAAAD0//v/AAAIAAQAAAD0//z/AAAIAAQAAAD0//3/AAAIAAQAAAD1//j/AAABAAEAAAD1//n/AAABAAEAAAD1//r/AAABAAEAAAD1//v/AAADAAIAAAD1//z/AAADAAMAAAD1//3/AAACAAIAAAD2//3/AAACAAIAAAD3//3/AAAEAAEAAAD4//j/AAAAAAAAAAD4//n/AAAAAAEAAAD4//r/AAACAAEAAAD4//v/AAACAAEAAAD4//z/AAAFAAAAAAD4//3/AAAFAAEAAAD5//j/AAABAAAAAAD5//n/AAAIAAQAAAD5//r/AAAIAAQAAAD5//v/AAAIAAQAAAD5//z/AAAKAAAAAAD5//3/AAAKAAEAAAD6//j/AAACAAIAAAD6//n/AAAIAAQAAAD6//r/AAAIAAQAAAD6//v/AAAIAAQAAAD6//z/AAANAAEAAAD6//3/AAAMAAEAAAD7//j/AAACAAAAAAD7//n/AAAIAAQAAAD7//r/AAAIAAQAAAD7//v/AAAIAAQAAAD7//z/AAALAAAAAAD7//3/AAALAAEAAAD8//j/AAADAAAAAAD8//n/AAADAAEAAAD8//r/AAABAAEAAAD8//v/AAABAAEAAAD8//z/AAAGAAAAAAD8//3/AAAGAAEAAAD9//3/AAAHAAEAAAD+//3/AAACAAIAAAD///3/AAACAAIAAAAAAP3/AAACAAIAAAABAP3/AAACAAAAAAACAP3/AAADAAAAAAACAP7/AAADAAEAAAACAP//AAABAAEAAAACAAAAAAABAAEAAAACAAEAAAABAAEAAAACAAIAAAAGAAQAAAACAAMAAAAGAAUAAAACAAQAAAAIAAQAAAACAAUAAAAIAAQAAAACAAYAAAAIAAQAAAACAAcAAAABAAYAAAADAAAAAAAAAAQAAAADAAEAAAAAAAUAAAADAAIAAAAFAAQAAAADAAMAAAAFAAUAAAADAAQAAAAIAAQAAAADAAUAAAAIAAQAAAADAAYAAAAIAAQAAAADAAcAAAABAAYAAAAEAAAAAAABAAQAAAAEAAEAAAAIAAQAAAAEAAIAAAAIAAQAAAAEAAMAAAAIAAQAAAAEAAQAAAAIAAQAAAAEAAUAAAAIAAQAAAAEAAYAAAAIAAQAAAAEAAcAAAABAAYAAAAFAAAAAAACAAIAAAAFAAEAAAAIAAQAAAAFAAIAAAAIAAQAAAAFAAMAAAAIAAQAAAAFAAQAAAAIAAQAAAAFAAUAAAAIAAQAAAAFAAYAAAAIAAQAAAAFAAcAAAABAAYAAAAGAAAAAAACAAQAAAAGAAEAAAAIAAQAAAAGAAIAAAAIAAQAAAAGAAMAAAAIAAQAAAAGAAQAAAAIAAQAAAAGAAUAAAAIAAQAAAAGAAYAAAAIAAQAAAAGAAcAAAACAAcAAAAHAAAAAAADAAQAAAAHAAEAAAADAAUAAAAHAAIAAAADAAUAAAAHAAMAAAABAAUAAAAHAAQAAAABAAUAAAAHAAUAAAABAAUAAAAHAAYAAAADAAYAAAAHAAcAAAADAAcAAAA=")
+tile_set = ExtResource("1_0x4ht")
+
+[node name="ExitElevator" parent="." instance=ExtResource("2_nx6m8")]
+position = Vector2(-1152, 160)
+nextMapName = "Intro"
+maxElevatorDistance = 2100.0
+
+[node name="EnteranceElevator" parent="." instance=ExtResource("3_lnl6m")]
+position = Vector2(-768, -608)
+startingElevatorDistance = 2100.0
+orangePortalgun = false
+
+[node name="LaserEmitter2" parent="." instance=ExtResource("4_7tq5n")]
+position = Vector2(-832, -32)
+rotation = 1.5707964
+
+[node name="Fizzler" parent="." instance=ExtResource("5_dm73d")]
+position = Vector2(-192, 0)
+rotation = -3.1415927
+tilesWide = 4.0
+
+[node name="StaticBody2D" parent="." instance=ExtResource("6_1f3v8")]
+position = Vector2(-672, 640)
+
+[node name="FloorButton" parent="." instance=ExtResource("7_2hgts")]
+position = Vector2(-352, 224)
+
+[node name="Autoportal" parent="." instance=ExtResource("8_gig11")]
+position = Vector2(-672, 160)
+rotation = 3.1415927
+
+[node name="CubeDropper" parent="." instance=ExtResource("9_ej21x")]
+position = Vector2(-352, -352)
+reflector = true
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("6_1f3v8")]
+position = Vector2(0, 448)
+
+[node name="Fizzler2" parent="." instance=ExtResource("5_dm73d")]
+position = Vector2(0, 192)
+rotation = 1.5707964
+tilesWide = 4.0
+
+[node name="PedestalButton2" parent="." instance=ExtResource("10_lmi6a")]
+position = Vector2(-288, -288)
+
+[node name="Autoportal2" parent="." instance=ExtResource("8_gig11")]
+position = Vector2(-160, 352)
+rotation = -1.5707964
+
+[node name="CubeDropper2" parent="." instance=ExtResource("9_ej21x")]
+position = Vector2(352, 160)
+reflector = true
+
+[node name="PedestalButton3" parent="." instance=ExtResource("10_lmi6a")]
+position = Vector2(416, 96)
+
+[node name="LaserEmitter" parent="." instance=ExtResource("4_7tq5n")]
+position = Vector2(448, 352)
+rotation = -1.5707964
+
+[node name="Door" parent="." instance=ExtResource("11_loll3")]
+position = Vector2(-832, 512)
+leftSideBlack = true
+rightSideBlack = true
+
+[node name="Door2" parent="." instance=ExtResource("11_loll3")]
+position = Vector2(-768, -192)
+rotation = 1.5707964
+
+[node name="Fizzler3" parent="." instance=ExtResource("5_dm73d")]
+position = Vector2(-1024, 512)
+
+[node name="Trigger" parent="." instance=ExtResource("12_6nklv")]
+position = Vector2(-768, -352)
+scale = Vector2(2, 1)
+once = true
+
+[node name="Trigger2" parent="." instance=ExtResource("12_6nklv")]
+position = Vector2(-672, -32)
+scale = Vector2(1, 5)
+once = true
+
+[node name="PedestalButton" parent="." instance=ExtResource("10_lmi6a")]
+position = Vector2(-608, 96)
+
+[connection signal="OnLaserPowered" from="StaticBody2D" to="Door" method="openDoor"]
+[connection signal="OnLaserUnpowered" from="StaticBody2D" to="Door" method="closeDoor"]
+[connection signal="OnButtonPressed" from="FloorButton" to="Fizzler" method="disableFizzler"]
+[connection signal="OnButtonUnpressed" from="FloorButton" to="Fizzler" method="enableFizzler"]
+[connection signal="OnLaserPowered" from="StaticBody2D2" to="Fizzler2" method="disableFizzler"]
+[connection signal="OnLaserPowered" from="StaticBody2D2" to="Autoportal2" method="placeOrangePortal"]
+[connection signal="OnLaserUnpowered" from="StaticBody2D2" to="Autoportal" method="placeOrangePortal"]
+[connection signal="OnLaserUnpowered" from="StaticBody2D2" to="Fizzler2" method="enableFizzler"]
+[connection signal="OnButtonPressed" from="PedestalButton2" to="CubeDropper" method="respawn"]
+[connection signal="OnButtonPressed" from="PedestalButton3" to="CubeDropper2" method="respawn"]
+[connection signal="trigger" from="Trigger" to="Door2" method="openDoor"]
+[connection signal="trigger" from="Trigger2" to="Autoportal" method="placeOrangePortal"]
+[connection signal="trigger" from="Trigger2" to="Door2" method="closeDoor"]
+[connection signal="OnButtonPressed" from="PedestalButton" to="Autoportal" method="placeOrangePortal"]
