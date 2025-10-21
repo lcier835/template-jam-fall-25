@@ -25,7 +25,7 @@ tile_set = ExtResource("1_a2p51")
 
 [node name="ExitElevator" parent="." instance=ExtResource("2_b6mem")]
 position = Vector2(576, -544)
-nextMapName = "Intro"
+nextMapName = "LDLaserSwapper"
 maxElevatorDistance = 800.0
 
 [node name="EnteranceElevator" parent="." instance=ExtResource("3_la2mx")]
