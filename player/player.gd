@@ -240,9 +240,11 @@ func shootPortal(orange: bool):
 		portalPos += angleToVector(angle) * 32
 		if angle % 2 == 0:
 			portalPos.x = floor(portalPos.x / 64) * 64 + 32
+			portalPos.y = floor(portalPos.y / 64) * 64 + 32
 			portalPos.y = round(portalPos.y)
 		else:
 			portalPos.y = floor(portalPos.y / 64) * 64 + 32
+			portalPos.x = floor(portalPos.x / 64) * 64 + 32
 			portalPos.x = round(portalPos.x)
 		
 		var newPortal = portalScene.instantiate()
