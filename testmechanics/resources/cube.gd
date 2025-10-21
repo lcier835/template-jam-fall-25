@@ -17,13 +17,15 @@ var displacedByField := false
 var angle: int
 
 func _interacted_by_player(_player: Player):
-	collision_layer = 262
+	if displacedByField: collision_layer = 6
+	else: collision_layer = 262
 	_player.heldObject = self
 	p = _player
 	held = true
 
 func _unuse(_player: Player):
-	collision_layer = 263
+	if displacedByField: collision_layer = 7
+	else: collision_layer = 263
 	linear_velocity = Vector2(0, 0)
 	_player.heldObject = null
 	held = false
