@@ -33,6 +33,6 @@ func _process(_delta: float) -> void:
 			overlappingCubes.erase(c)
 	
 	if displacedByField:
-		$CollisionShape2D.position = -displacementFieldOffset
+		$CollisionShape2D.position = displacementFieldOffset
 	else:
 		$CollisionShape2D.position = Vector2(0, 0)
