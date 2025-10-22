@@ -34,6 +34,7 @@ position = Vector2(576, -1056)
 startingElevatorDistance = 2880.0
 bluePortalgun = false
 orangePortalgun = false
+musicKinetic = true
 
 [node name="Button" parent="." instance=ExtResource("4_dvxte")]
 position = Vector2(624, -288)

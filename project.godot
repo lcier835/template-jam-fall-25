@@ -15,6 +15,10 @@ run/main_scene="uid://c8011o785xew1"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="uid://bv8i66e2am8k1"
 
+[autoload]
+
+Musichandler="*res://music/musichandler.tscn"
+
 [display]
 
 window/size/viewport_width=1440

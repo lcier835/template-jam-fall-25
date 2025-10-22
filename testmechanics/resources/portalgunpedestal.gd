@@ -20,8 +20,11 @@ func _interacted_by_player(_player: Player):
 	emit_signal("OnTaken")
 	if shootOrange:
 		_player.orangePortalgun = true
+		Musichandler.enableLayer(7)
 	else:
 		_player.bluePortalgun = true
+		Musichandler.enableLayer(6)
+		Musichandler.disableLayer(7)
 	
 	for p in get_tree().get_nodes_in_group("Portals"):
 		if p.orangePortal == shootOrange:

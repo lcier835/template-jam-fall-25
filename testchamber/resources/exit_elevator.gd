@@ -54,6 +54,8 @@ func _process(delta: float) -> void:
 				phase = 3
 				camera.lag = false
 				return
+			for i in range(1, 6): 
+				Musichandler.disableLayer(i)
 		3:
 			elevatorVelocity += elevatorAcceleration * delta
 			elevatorVelocity = min(elevatorVelocity, maxElevatorVelocity)

@@ -35,6 +35,9 @@ maxElevatorDistance = 800.0
 position = Vector2(-640, -608)
 startingElevatorDistance = 1700.0
 orangePortalgun = false
+musicDisplacer = true
+musicKinetic = true
+musicLaserLate = true
 
 [node name="DisplacementField" parent="." instance=ExtResource("4_kel6k")]
 position = Vector2(-224, 32)

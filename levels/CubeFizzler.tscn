@@ -33,6 +33,7 @@ maxElevatorDistance = 768.0
 position = Vector2(320, -736)
 startingElevatorDistance = 1800.0
 orangePortalgun = false
+musicKinetic = true
 
 [node name="Fizzler" parent="." instance=ExtResource("4_w7303")]
 position = Vector2(-320, -32)

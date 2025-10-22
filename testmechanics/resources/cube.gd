@@ -59,7 +59,7 @@ func _process(_delta: float) -> void:
 		modulate.a = 1 - fizzleTimer
 		if fizzleTimer > 1: 
 			if dropper != null:
-				dropper.respawnNoFizzle()
+				dropper.call_deferred("respawnNoFizzle")
 			queue_free()
 	
 	$Sprite2D.position = Vector2(0, 0)

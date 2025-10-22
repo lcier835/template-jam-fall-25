@@ -13,6 +13,11 @@ var elevatorSpeed: float = 512
 #@onready var cameraTemplate = preload("res://camera/camera.tscn")
 @export var p: Player
 @export var camera: FancyCam
+@export var musicClimb = false
+@export var musicDisplacer = false
+@export var musicKinetic = false
+@export var musicLaserEarly = false
+@export var musicLaserLate = false
 var closeDoorTimer: float = 1
 
 # 0: ascending
@@ -74,6 +79,15 @@ func _process(delta: float) -> void:
 				p.visible = true
 				camera.target = p
 				$ElevatorBottom.texture = openDoorSprite
+				
+				if musicClimb: Musichandler.enableLayer(1)
+				if musicDisplacer: Musichandler.enableLayer(2)
+				if musicKinetic: Musichandler.enableLayer(3)
+				if musicLaserEarly: Musichandler.enableLayer(4)
+				if musicLaserLate: Musichandler.enableLayer(5)
+				if bluePortalgun: Musichandler.enableLayer(6)
+				if orangePortalgun: Musichandler.enableLayer(7)
+				
 				return
 		3:
 			if (p.global_position - global_position).length() > 256:

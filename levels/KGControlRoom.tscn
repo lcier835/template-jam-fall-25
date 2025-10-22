@@ -32,6 +32,7 @@ position = Vector2(320, -1056)
 startingElevatorDistance = 2048.0
 bluePortalgun = false
 orangePortalgun = false
+musicKinetic = true
 
 [node name="Middoor" parent="." instance=ExtResource("4_q8qa8")]
 position = Vector2(-192, 128)
@@ -49,10 +50,10 @@ rotation = 4.712389
 position = Vector2(32, -608)
 
 [node name="FloorButton2" parent="." instance=ExtResource("6_b1u2c")]
-position = Vector2(-32, -544)
+position = Vector2(-64, -576)
 
 [node name="FloorButton3" parent="." instance=ExtResource("6_b1u2c")]
-position = Vector2(96, -544)
+position = Vector2(128, -576)
 
 [node name="TopGate" parent="." instance=ExtResource("7_houjy")]
 position = Vector2(32, -448)

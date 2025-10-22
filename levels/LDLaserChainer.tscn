@@ -25,12 +25,15 @@ tile_set = ExtResource("1_u1oh7")
 
 [node name="ExitElevator" parent="." instance=ExtResource("2_jfxrg")]
 position = Vector2(448, -864)
-nextMapName = "ldlaserchainer"
+nextMapName = "climb"
 maxElevatorDistance = 1000.0
 
 [node name="EnteranceElevator" parent="." instance=ExtResource("3_8lgk5")]
 position = Vector2(-448, -864)
 startingElevatorDistance = 1800.0
+musicDisplacer = true
+musicKinetic = true
+musicLaserLate = true
 
 [node name="Fizzler2" parent="." instance=ExtResource("4_16m1w")]
 position = Vector2(-256, -124)

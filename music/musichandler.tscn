@@ -1,0 +1,43 @@
+[gd_scene load_steps=11 format=3 uid="uid://da0rsyhy5dys8"]
+
+[ext_resource type="Script" uid="uid://juenq5byhv3j" path="res://music/musichandler.gd" id="1_brseh"]
+[ext_resource type="AudioStream" uid="uid://c7se4g7oxgefi" path="res://music/resources/base.ogg" id="1_c6c8s"]
+[ext_resource type="AudioStream" uid="uid://baq3ql0ppkmx0" path="res://music/resources/climb.ogg" id="2_fvyqr"]
+[ext_resource type="AudioStream" uid="uid://5cw4h61txnag" path="res://music/resources/displacer.ogg" id="3_brseh"]
+[ext_resource type="AudioStream" uid="uid://c14rkvdl65tie" path="res://music/resources/kinetic.ogg" id="4_qapb7"]
+[ext_resource type="AudioStream" uid="uid://c6v38as21wgo3" path="res://music/resources/laserearly.ogg" id="5_edl0l"]
+[ext_resource type="AudioStream" uid="uid://drgcnbevl5eg7" path="res://music/resources/laserlate.ogg" id="6_06vsv"]
+[ext_resource type="AudioStream" uid="uid://6kqw218sqb58" path="res://music/resources/portalgun_1.ogg" id="7_tgech"]
+[ext_resource type="AudioStream" uid="uid://c5rjn6r38nh43" path="res://music/resources/portalgun_2.ogg" id="8_mavdb"]
+[ext_resource type="AudioStream" uid="uid://ffrgnrmo3knq" path="res://music/resources/title.ogg" id="10_qapb7"]
+
+[node name="Musichandler" type="Node2D"]
+script = ExtResource("1_brseh")
+
+[node name="Base" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_c6c8s")
+
+[node name="Climb" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_fvyqr")
+volume_db = -10.934
+
+[node name="Displacer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_brseh")
+
+[node name="Kinetic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qapb7")
+
+[node name="LaserEarly" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_edl0l")
+
+[node name="LaserLate" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_06vsv")
+
+[node name="Portalgun1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_tgech")
+
+[node name="Portalgun2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_mavdb")
+
+[node name="Title" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_qapb7")

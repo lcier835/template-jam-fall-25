@@ -35,6 +35,7 @@ position = Vector2(512, -608)
 startingElevatorDistance = 2048.0
 bluePortalgun = false
 orangePortalgun = false
+musicLaserEarly = true
 
 [node name="LaserEmitter" parent="." instance=ExtResource("4_issui")]
 position = Vector2(-96, 64)

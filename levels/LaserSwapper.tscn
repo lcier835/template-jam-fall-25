@@ -34,6 +34,8 @@ maxElevatorDistance = 2100.0
 position = Vector2(-768, -608)
 startingElevatorDistance = 2100.0
 orangePortalgun = false
+musicKinetic = true
+musicLaserEarly = true
 
 [node name="LaserEmitter2" parent="." instance=ExtResource("4_qrtaa")]
 position = Vector2(-832, -32)
@@ -60,11 +62,6 @@ reflector = true
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("6_ox1k6")]
 position = Vector2(0, 448)
-
-[node name="Fizzler2" parent="." instance=ExtResource("5_x753y")]
-position = Vector2(0, 192)
-rotation = 1.5707964
-tilesWide = 4.0
 
 [node name="PedestalButton2" parent="." instance=ExtResource("10_tpbj4")]
 position = Vector2(-288, -288)
@@ -116,10 +113,8 @@ position = Vector2(-608, 96)
 [connection signal="OnLaserUnpowered" from="StaticBody2D" to="Door" method="closeDoor"]
 [connection signal="OnButtonPressed" from="FloorButton" to="Fizzler" method="disableFizzler"]
 [connection signal="OnButtonUnpressed" from="FloorButton" to="Fizzler" method="enableFizzler"]
-[connection signal="OnLaserPowered" from="StaticBody2D2" to="Fizzler2" method="disableFizzler"]
 [connection signal="OnLaserPowered" from="StaticBody2D2" to="Autoportal2" method="placeOrangePortal"]
 [connection signal="OnLaserUnpowered" from="StaticBody2D2" to="Autoportal" method="placeOrangePortal"]
-[connection signal="OnLaserUnpowered" from="StaticBody2D2" to="Fizzler2" method="enableFizzler"]
 [connection signal="OnButtonPressed" from="PedestalButton2" to="CubeDropper" method="respawn"]
 [connection signal="OnButtonPressed" from="PedestalButton3" to="CubeDropper2" method="respawn"]
 [connection signal="OnButtonPressed" from="PedestalButton4" to="CubeDropper2" method="respawn"]
