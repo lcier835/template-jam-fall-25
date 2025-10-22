@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8011o785xew1"]
+
+[ext_resource type="Texture2D" uid="uid://bg55bd5pd6vju" path="res://titlescreen/background.png" id="1_bh84a"]
+[ext_resource type="Script" uid="uid://dacp701jjel5e" path="res://titlescreen/titlescreen.gd" id="1_t13nr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gkwka"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gkwka"]
+bg_color = Color(1, 1, 0, 0.2509804)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t13nr"]
+bg_color = Color(1, 1, 1, 0.2509804)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t13nr"]
+
+[node name="Titlescreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t13nr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(720, 540)
+scale = Vector2(4, 4)
+texture = ExtResource("1_bh84a")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 988.0
+offset_right = 224.0
+offset_bottom = 1024.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gkwka")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gkwka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t13nr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t13nr")
+
+[connection signal="button_up" from="Button" to="." method="startGame"]
+[connection signal="pressed" from="Button" to="." method="startGame"]

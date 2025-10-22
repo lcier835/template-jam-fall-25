@@ -65,6 +65,10 @@ func updateKeys():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	# quit game, highest priority
+	if Input.is_action_pressed("close"):
+		get_tree().quit()
+	
 	updateKeys()
 	
 	if portalTeleportProgress < 2:
