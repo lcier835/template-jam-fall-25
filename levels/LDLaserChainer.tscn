@@ -1,15 +1,15 @@
 [gd_scene load_steps=11 format=4 uid="uid://c3mkdwncei04q"]
 
-[ext_resource type="TileSet" uid="uid://b4n7twc482f2" path="res://testchamber/chambertileset.tres" id="1_uvw8c"]
-[ext_resource type="PackedScene" uid="uid://bxshcvar0v0kf" path="res://testchamber/exit_elevator.tscn" id="2_nfcv2"]
-[ext_resource type="PackedScene" uid="uid://chlvwkvf1kf63" path="res://testchamber/enterance_elevator.tscn" id="3_1xstc"]
-[ext_resource type="PackedScene" uid="uid://c5ly2um5kudf3" path="res://testmechanics/fizzler.tscn" id="4_80i0h"]
-[ext_resource type="PackedScene" uid="uid://dh505h1aeux62" path="res://testmechanics/displacementfield.tscn" id="5_gum3l"]
-[ext_resource type="PackedScene" uid="uid://c8xk0xb71rp4x" path="res://testmechanics/lasercatcher.tscn" id="6_034sw"]
-[ext_resource type="PackedScene" uid="uid://dy8qgf014pglj" path="res://testmechanics/cubedropper.tscn" id="7_1usvu"]
-[ext_resource type="PackedScene" uid="uid://dyq7ikato2uno" path="res://testmechanics/laseremitter.tscn" id="8_syl6o"]
-[ext_resource type="PackedScene" uid="uid://b7rh2d43wg2dw" path="res://testchamber/door.tscn" id="9_nfcv2"]
-[ext_resource type="PackedScene" uid="uid://bw8sfidflx43c" path="res://testmechanics/trigger.tscn" id="10_1xstc"]
+[ext_resource type="TileSet" uid="uid://b4n7twc482f2" path="res://testchamber/chambertileset.tres" id="1_u1oh7"]
+[ext_resource type="PackedScene" uid="uid://bxshcvar0v0kf" path="res://testchamber/exit_elevator.tscn" id="2_jfxrg"]
+[ext_resource type="PackedScene" uid="uid://chlvwkvf1kf63" path="res://testchamber/enterance_elevator.tscn" id="3_8lgk5"]
+[ext_resource type="PackedScene" uid="uid://c5ly2um5kudf3" path="res://testmechanics/fizzler.tscn" id="4_16m1w"]
+[ext_resource type="PackedScene" uid="uid://dh505h1aeux62" path="res://testmechanics/displacementfield.tscn" id="5_gefhb"]
+[ext_resource type="PackedScene" uid="uid://c8xk0xb71rp4x" path="res://testmechanics/lasercatcher.tscn" id="6_hsfb5"]
+[ext_resource type="PackedScene" uid="uid://dy8qgf014pglj" path="res://testmechanics/cubedropper.tscn" id="7_nea0d"]
+[ext_resource type="PackedScene" uid="uid://dyq7ikato2uno" path="res://testmechanics/laseremitter.tscn" id="8_e3rm4"]
+[ext_resource type="PackedScene" uid="uid://b7rh2d43wg2dw" path="res://testchamber/door.tscn" id="9_c35yb"]
+[ext_resource type="PackedScene" uid="uid://bw8sfidflx43c" path="res://testmechanics/trigger.tscn" id="10_n4mwe"]
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -21,92 +21,92 @@ z_index = -2
 y_sort_enabled = true
 scale = Vector2(4, 4)
 tile_map_data = PackedByteArray("AAD+//7/AAAIAAQAAAD+////AAAIAAQAAAD+/wAAAAAIAAQAAAD5/wAAAAAIAAQAAAD5////AAAIAAQAAAD5//7/AAAIAAQAAAD9//7/AAAIAAQAAAD9////AAAIAAQAAAD9/wAAAAAIAAQAAAD6/wAAAAAIAAQAAAD6////AAAIAAQAAAD7////AAAIAAQAAAD8////AAAIAAQAAAD8/wAAAAAIAAQAAAD7/wAAAAAIAAQAAAD6//7/AAAIAAQAAAD7//7/AAAIAAQAAAD8//7/AAAIAAQAAAABAP7/AAAIAAQAAAABAP//AAAIAAQAAAABAAAAAAAIAAQAAAAGAAAAAAAIAAQAAAAGAP//AAAIAAQAAAAGAP7/AAAIAAQAAAACAP7/AAAIAAQAAAACAP//AAAIAAQAAAACAAAAAAAIAAQAAAAFAAAAAAAIAAQAAAAFAP//AAAIAAQAAAAFAP7/AAAIAAQAAAAEAP7/AAAIAAQAAAADAP7/AAAIAAQAAAADAP//AAAIAAQAAAADAAAAAAAIAAQAAAAEAAAAAAAIAAQAAAAEAP//AAAIAAQAAAD/////AAABAAEAAAD//wAAAAABAAEAAAAAAAAAAAACAAEAAAAAAP//AAACAAEAAAAHAAAAAAABAAEAAAAHAP//AAABAAEAAAAHAP7/AAAGAAcAAAD4//7/AAAFAAcAAAD4////AAACAAEAAAD4/wAAAAACAAEAAAAAAP7/AAAFAAcAAAD///7/AAAGAAcAAAD4/wEAAAACAAUAAAD4/wIAAAAAAAIAAAD4/wMAAAAAAAMAAAD5/wEAAAAIAAQAAAD5/wIAAAAIAAQAAAD5/wMAAAABAAMAAAD6/wEAAAAIAAQAAAD6/wIAAAAIAAQAAAD6/wMAAAABAAIAAAD7/wEAAAAIAAQAAAD7/wIAAAAIAAQAAAD7/wMAAAABAAIAAAD8/wEAAAAIAAQAAAD8/wIAAAAIAAQAAAD8/wMAAAABAAIAAAD9/wEAAAAIAAQAAAD9/wIAAAAIAAQAAAD9/wMAAAABAAIAAAD+/wEAAAAIAAQAAAD+/wIAAAAIAAQAAAD+/wMAAAACAAMAAAD//wEAAAABAAUAAAD//wIAAAADAAIAAAD//wMAAAADAAMAAAAAAAEAAAACAAUAAAAAAAIAAAAAAAIAAAAAAAMAAAAAAAMAAAABAAEAAAAIAAQAAAABAAIAAAAIAAQAAAABAAMAAAABAAMAAAACAAEAAAAIAAQAAAACAAIAAAAIAAQAAAACAAMAAAABAAIAAAADAAEAAAAIAAQAAAADAAIAAAAIAAQAAAADAAMAAAABAAIAAAAEAAEAAAAIAAQAAAAEAAIAAAAIAAQAAAAEAAMAAAABAAIAAAAFAAEAAAAIAAQAAAAFAAIAAAAIAAQAAAAFAAMAAAABAAIAAAAGAAEAAAAIAAQAAAAGAAIAAAAIAAQAAAAGAAMAAAACAAMAAAAHAAEAAAABAAUAAAAHAAIAAAADAAIAAAAHAAMAAAADAAMAAAD3//T/AAACAAEAAAD3//X/AAACAAEAAAD3//b/AAACAAEAAAD3//f/AAAAAAIAAAD3//j/AAAAAAMAAAD3//n/AAAAAAAAAAD3//r/AAAAAAEAAAD3//v/AAACAAUAAAD3//z/AAAAAAYAAAD4//X/AAAIAAQAAAD4//b/AAAIAAQAAAD4//f/AAAIAAQAAAD4//j/AAAIAAQAAAD4//n/AAAIAAQAAAD4//r/AAAIAAQAAAD4//v/AAAIAAQAAAD4//z/AAAIAAQAAAD4//3/AAAFAAYAAAD5//X/AAAIAAQAAAD5//b/AAAIAAQAAAD5//f/AAAIAAQAAAD5//j/AAAIAAQAAAD5//n/AAAIAAQAAAD5//r/AAAIAAQAAAD5//v/AAAIAAQAAAD5//z/AAAIAAQAAAD5//3/AAAIAAQAAAD6//T/AAABAAEAAAD6//X/AAABAAEAAAD6//b/AAABAAEAAAD6//f/AAADAAIAAAD6//j/AAADAAMAAAD6//n/AAACAAIAAAD6//r/AAAIAAQAAAD6//v/AAAIAAQAAAD6//z/AAAIAAQAAAD6//3/AAAIAAQAAAD7//n/AAACAAIAAAD7//r/AAAIAAQAAAD7//v/AAAIAAQAAAD7//z/AAAIAAQAAAD7//3/AAAIAAQAAAD8//n/AAACAAIAAAD8//r/AAAIAAQAAAD8//v/AAAIAAQAAAD8//z/AAAIAAQAAAD8//3/AAAIAAQAAAD9//n/AAACAAIAAAD9//r/AAAIAAQAAAD9//v/AAAIAAQAAAD9//z/AAAIAAQAAAD9//3/AAAIAAQAAAD+//n/AAACAAIAAAD+//r/AAAIAAQAAAD+//v/AAAIAAQAAAD+//z/AAAIAAQAAAD+//3/AAAIAAQAAAD///n/AAACAAIAAAD///r/AAAIAAQAAAD///v/AAAIAAQAAAD///z/AAAIAAQAAAD///3/AAAGAAYAAAAAAPn/AAACAAIAAAAAAPr/AAAIAAQAAAAAAPv/AAAIAAQAAAAAAPz/AAAIAAQAAAAAAP3/AAAFAAYAAAABAPn/AAACAAIAAAABAPr/AAAIAAQAAAABAPv/AAAIAAQAAAABAPz/AAAIAAQAAAABAP3/AAAIAAQAAAACAPn/AAACAAIAAAACAPr/AAAIAAQAAAACAPv/AAAIAAQAAAACAPz/AAAIAAQAAAACAP3/AAAIAAQAAAADAPn/AAACAAIAAAADAPr/AAAIAAQAAAADAPv/AAAIAAQAAAADAPz/AAAIAAQAAAADAP3/AAAIAAQAAAAEAPn/AAACAAIAAAAEAPr/AAAIAAQAAAAEAPv/AAAIAAQAAAAEAPz/AAAIAAQAAAAEAP3/AAAIAAQAAAAFAPX/AAACAAEAAAAFAPb/AAACAAEAAAAFAPf/AAAAAAIAAAAFAPj/AAAAAAMAAAAFAPn/AAACAAIAAAAFAPr/AAAIAAQAAAAFAPv/AAAIAAQAAAAFAPz/AAAIAAQAAAAFAP3/AAAIAAQAAAAGAPX/AAAIAAQAAAAGAPb/AAAIAAQAAAAGAPf/AAAIAAQAAAAGAPj/AAAIAAQAAAAGAPn/AAAIAAQAAAAGAPr/AAAIAAQAAAAGAPv/AAAIAAQAAAAGAPz/AAAIAAQAAAAGAP3/AAAIAAQAAAAHAPX/AAAIAAQAAAAHAPb/AAAIAAQAAAAHAPf/AAAIAAQAAAAHAPj/AAAIAAQAAAAHAPn/AAAIAAQAAAAHAPr/AAAIAAQAAAAHAPv/AAAIAAQAAAAHAPz/AAAIAAQAAAAHAP3/AAAGAAYAAAAIAPT/AAABAAEAAAAIAPX/AAABAAEAAAAIAPb/AAABAAEAAAAIAPf/AAADAAIAAAAIAPj/AAADAAMAAAAIAPn/AAADAAAAAAAIAPr/AAADAAEAAAAIAPv/AAABAAUAAAAIAPz/AAADAAYAAAD3//3/AAAAAAcAAAAIAP3/AAADAAcAAAAFAPT/AAACAAEAAAA=")
-tile_set = ExtResource("1_uvw8c")
+tile_set = ExtResource("1_u1oh7")
 
-[node name="ExitElevator" parent="." instance=ExtResource("2_nfcv2")]
+[node name="ExitElevator" parent="." instance=ExtResource("2_jfxrg")]
 position = Vector2(448, -864)
-nextMapName = "Climb"
+nextMapName = "ldlaserchainer"
 maxElevatorDistance = 1000.0
 
-[node name="EnteranceElevator" parent="." instance=ExtResource("3_1xstc")]
+[node name="EnteranceElevator" parent="." instance=ExtResource("3_8lgk5")]
 position = Vector2(-448, -864)
 startingElevatorDistance = 1800.0
 
-[node name="Fizzler2" parent="." instance=ExtResource("4_80i0h")]
+[node name="Fizzler2" parent="." instance=ExtResource("4_16m1w")]
 position = Vector2(-256, -124)
 rotation = 1.5707964
 tilesWide = 6.0
 
-[node name="Fizzler3" parent="." instance=ExtResource("4_80i0h")]
+[node name="Fizzler3" parent="." instance=ExtResource("4_16m1w")]
 position = Vector2(256, -124)
 rotation = 1.5707964
 tilesWide = 6.0
 
-[node name="DisplacementField" parent="." instance=ExtResource("5_gum3l")]
+[node name="DisplacementField" parent="." instance=ExtResource("5_gefhb")]
 position = Vector2(-256, 32)
 displacementArea = Vector2(6, 5)
 displacementDistance = Vector2(8, 0)
 
-[node name="Fizzler" parent="DisplacementField" instance=ExtResource("4_80i0h")]
+[node name="Fizzler" parent="DisplacementField" instance=ExtResource("4_16m1w")]
 position = Vector2(0, -164)
 rotation = 1.5707964
 tilesWide = 6.0
 displacementFieldBorder = true
 
-[node name="DisplacementField2" parent="." instance=ExtResource("5_gum3l")]
+[node name="DisplacementField2" parent="." instance=ExtResource("5_gefhb")]
 position = Vector2(256, 32)
 displacementArea = Vector2(6, 5)
 displacementDistance = Vector2(-8, 0)
 
-[node name="Fizzler" parent="DisplacementField2" instance=ExtResource("4_80i0h")]
+[node name="Fizzler" parent="DisplacementField2" instance=ExtResource("4_16m1w")]
 position = Vector2(0, -164)
 rotation = 1.5707964
 tilesWide = 6.0
 displacementFieldBorder = true
 
-[node name="StaticBody2D" parent="." instance=ExtResource("6_034sw")]
+[node name="StaticBody2D" parent="." instance=ExtResource("6_hsfb5")]
 position = Vector2(512, -288)
 rotation = -1.5707964
 
-[node name="CubeDropper" parent="." instance=ExtResource("7_1usvu")]
+[node name="CubeDropper" parent="." instance=ExtResource("7_nea0d")]
 position = Vector2(-320, 0)
 reflector = true
 
-[node name="LaserEmitter" parent="." instance=ExtResource("8_syl6o")]
+[node name="LaserEmitter" parent="." instance=ExtResource("8_e3rm4")]
 position = Vector2(448, 96)
 rotation = -1.5707964
 
-[node name="CubeDropper2" parent="." instance=ExtResource("7_1usvu")]
+[node name="CubeDropper2" parent="." instance=ExtResource("7_nea0d")]
 position = Vector2(320, 0)
 reflector = true
 
-[node name="StaticBody2D2" parent="." instance=ExtResource("6_034sw")]
+[node name="StaticBody2D2" parent="." instance=ExtResource("6_hsfb5")]
 position = Vector2(-64, 96)
 rotation = -1.5707964
 
-[node name="Door" parent="." instance=ExtResource("9_nfcv2")]
+[node name="Door" parent="." instance=ExtResource("9_c35yb")]
 position = Vector2(-448, -448)
 rotation = -1.5707964
 
-[node name="Door2" parent="." instance=ExtResource("9_nfcv2")]
+[node name="Door2" parent="." instance=ExtResource("9_c35yb")]
 position = Vector2(448, -448)
 rotation = -1.5707964
 
-[node name="Trigger" parent="." instance=ExtResource("10_1xstc")]
+[node name="Trigger" parent="." instance=ExtResource("10_n4mwe")]
 position = Vector2(0, -224)
 scale = Vector2(16, 1)
 once = true
 
-[node name="Fizzler" parent="." instance=ExtResource("4_80i0h")]
+[node name="Fizzler" parent="." instance=ExtResource("4_16m1w")]
 position = Vector2(448, -576)
 rotation = 1.5707964
 
-[node name="Trigger2" parent="." instance=ExtResource("10_1xstc")]
+[node name="Trigger2" parent="." instance=ExtResource("10_n4mwe")]
 position = Vector2(448, -608)
 scale = Vector2(2, 1)
 once = true
 
-[node name="Trigger3" parent="." instance=ExtResource("10_1xstc")]
+[node name="Trigger3" parent="." instance=ExtResource("10_n4mwe")]
 position = Vector2(-448, -608)
 scale = Vector2(2, 1)
 once = true
