@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ccwssux3byp8q" path="res://testmechanics/pedestalbutton.tscn" id="12_lyrbc"]
 [ext_resource type="PackedScene" uid="uid://bw8sfidflx43c" path="res://testmechanics/trigger.tscn" id="13_uakhg"]
 
-[node name="Main" type="Node2D"]
+[node name="9" type="Node2D"]
 y_sort_enabled = true
 texture_filter = 1
 metadata/_edit_horizontal_guides_ = [-31.0]

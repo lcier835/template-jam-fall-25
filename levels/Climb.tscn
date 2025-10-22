@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c8xk0xb71rp4x" path="res://testmechanics/lasercatcher.tscn" id="11_cwi0c"]
 [ext_resource type="PackedScene" uid="uid://bw8sfidflx43c" path="res://testmechanics/trigger.tscn" id="12_u3raj"]
 
-[node name="Main" type="Node2D"]
+[node name="11" type="Node2D"]
 y_sort_enabled = true
 texture_filter = 1
 metadata/_edit_horizontal_guides_ = [-31.0]

@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dy8qgf014pglj" path="res://testmechanics/cubedropper.tscn" id="10_5ndva"]
 [ext_resource type="PackedScene" uid="uid://b3wi75vtnfsd" path="res://camera/show_input_prompt.tscn" id="11_n4r1v"]
 
-[node name="Main" type="Node2D"]
+[node name="1" type="Node2D"]
 y_sort_enabled = true
 texture_filter = 1
 metadata/_edit_horizontal_guides_ = [-31.0]

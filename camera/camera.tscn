@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dq28jt7gp46pk"]
+[gd_scene load_steps=4 format=3 uid="uid://dq28jt7gp46pk"]
 
 [ext_resource type="Script" uid="uid://bqjbnbfd7jlob" path="res://camera/camera.gd" id="1_8nkvj"]
 [ext_resource type="Texture2D" uid="uid://c2i5inq6avof5" path="res://camera/move.png" id="2_gsf7k"]
+[ext_resource type="Texture2D" uid="uid://dj22xpn3pps7d" path="res://testchamber/resources/signage.png" id="3_0lfnk"]
 
 [node name="Camera" type="Camera2D" groups=["Camera"]]
 script = ExtResource("1_8nkvj")
@@ -12,3 +13,12 @@ z_index = 7
 texture_filter = 1
 scale = Vector2(4, 4)
 texture = ExtResource("2_gsf7k")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 7
+texture_filter = 1
+position = Vector2(496, 192)
+scale = Vector2(4, 4)
+texture = ExtResource("3_0lfnk")
+hframes = 13

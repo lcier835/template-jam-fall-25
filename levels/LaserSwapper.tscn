@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b7rh2d43wg2dw" path="res://testchamber/door.tscn" id="11_8lp6w"]
 [ext_resource type="PackedScene" uid="uid://bw8sfidflx43c" path="res://testmechanics/trigger.tscn" id="12_ykbk0"]
 
-[node name="Main" type="Node2D"]
+[node name="6" type="Node2D"]
 y_sort_enabled = true
 texture_filter = 1
 metadata/_edit_horizontal_guides_ = [-31.0]

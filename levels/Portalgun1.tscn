@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c5ly2um5kudf3" path="res://testmechanics/fizzler.tscn" id="7_4geo2"]
 [ext_resource type="PackedScene" uid="uid://b3wi75vtnfsd" path="res://camera/show_input_prompt.tscn" id="8_bf7o1"]
 
-[node name="Main" type="Node2D"]
+[node name="4" type="Node2D"]
 y_sort_enabled = true
 texture_filter = 1
 metadata/_edit_horizontal_guides_ = [-31.0]

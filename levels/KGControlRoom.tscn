@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://1h64ibhwpof6" path="res://testmechanics/autoportal.tscn" id="8_8v725"]
 [ext_resource type="PackedScene" uid="uid://bw8sfidflx43c" path="res://testmechanics/trigger.tscn" id="9_1e4cj"]
 
-[node name="Main" type="Node2D"]
+[node name="2" type="Node2D"]
 y_sort_enabled = true
 texture_filter = 1
 metadata/_edit_horizontal_guides_ = [-31.0]
