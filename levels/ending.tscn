@@ -1,0 +1,277 @@
+[gd_scene load_steps=15 format=4 uid="uid://cy8vtv80rcf5i"]
+
+[ext_resource type="TileSet" uid="uid://b4n7twc482f2" path="res://testchamber/chambertileset.tres" id="1_bvc8j"]
+[ext_resource type="Texture2D" uid="uid://dunmgyk0425mw" path="res://ending/caketable.png" id="3_dob33"]
+[ext_resource type="PackedScene" uid="uid://chlvwkvf1kf63" path="res://testchamber/enterance_elevator.tscn" id="3_q4qgm"]
+[ext_resource type="Texture2D" uid="uid://dbbh5my6l76eo" path="res://ending/neurotoxinlabel.png" id="4_7udrn"]
+[ext_resource type="Texture2D" uid="uid://dc3jqs4j3rg7o" path="res://ending/vent.png" id="4_y8xtl"]
+[ext_resource type="Texture2D" uid="uid://dv5svx7nml7n8" path="res://ending/companioncube.png" id="5_lodq4"]
+[ext_resource type="Texture2D" uid="uid://dyf0o1vrgjfbo" path="res://ending/neurotoxinanim.png" id="7_kwwc7"]
+[ext_resource type="PackedScene" uid="uid://b3wi75vtnfsd" path="res://camera/show_input_prompt.tscn" id="8_6cl2c"]
+[ext_resource type="PackedScene" uid="uid://ccwssux3byp8q" path="res://testmechanics/pedestalbutton.tscn" id="9_5ffsj"]
+[ext_resource type="Script" uid="uid://c42i3w7d1cepn" path="res://ending/endingscript.gd" id="9_lhicl"]
+[ext_resource type="Texture2D" uid="uid://dx25shc56nov4" path="res://testmechanics/resources/particle.png" id="10_5rl63"]
+[ext_resource type="PackedScene" uid="uid://bw8sfidflx43c" path="res://testmechanics/trigger.tscn" id="12_1hifj"]
+[ext_resource type="Texture2D" uid="uid://cfd14brqco4vo" path="res://ending/genericfill.png" id="12_bvc8j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7udrn"]
+size = Vector2(48, 48)
+
+[node name="Main" type="Node2D"]
+y_sort_enabled = true
+texture_filter = 1
+metadata/_edit_horizontal_guides_ = [-31.0]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -2
+y_sort_enabled = true
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAD9////AAAEAAUAAAD+//7/AAAFAAQAAAD+////AAAFAAUAAAAAAAIAAAACAAcAAAABAAEAAAADAAYAAAABAAIAAAADAAcAAAD4/wEAAAAAAAYAAAD4/wIAAAAAAAcAAAD5/wIAAAABAAcAAAD7//7/AAAGAAQAAAD7////AAAGAAUAAAD8////AAAHAAUAAAD6/wIAAAABAAYAAAD7/wIAAAABAAYAAAD8/wIAAAABAAYAAAD9/wIAAAABAAYAAAD+/wIAAAABAAYAAAD//wIAAAABAAYAAAD4/wAAAAACAAUAAAD4////AAACAAUAAAD4//7/AAACAAUAAAD4//3/AAACAAUAAAD4//z/AAACAAUAAAD7//3/AAABAAUAAAD7//z/AAABAAUAAAD5//3/AAAIAAQAAAD6//3/AAAIAAQAAAD6//7/AAAIAAQAAAD5//7/AAAIAAQAAAD5////AAAIAAQAAAD6////AAAIAAQAAAD6/wAAAAAIAAQAAAD5/wAAAAAIAAQAAAD6/wEAAAAIAAQAAAD5/wEAAAAIAAQAAAD7/wAAAAAIAAQAAAD8/wAAAAAIAAQAAAD8/wEAAAAIAAQAAAD9/wEAAAAIAAQAAAD+/wEAAAAIAAQAAAD//wEAAAAIAAQAAAAAAAEAAAAIAAQAAAAAAAAAAAAIAAQAAAD//wAAAAAIAAQAAAD+/wAAAAAIAAQAAAD9/wAAAAAIAAQAAAD7/wEAAAAIAAQAAAABAAAAAAABAAUAAAABAP//AAABAAUAAAABAP7/AAABAAUAAAABAP3/AAABAAUAAAABAPz/AAABAAUAAAABAPv/AAABAAUAAAABAPr/AAABAAUAAAABAPn/AAABAAUAAAABAPj/AAABAAUAAAABAPf/AAABAAUAAAABAPb/AAABAAUAAAABAPX/AAABAAUAAAABAPT/AAABAAUAAAABAPP/AAABAAUAAAABAPL/AAABAAUAAAABAPH/AAAGAAcAAAABAPD/AAAGAAYAAAD+//D/AAAFAAYAAAD+//H/AAAFAAcAAAD+//L/AAACAAUAAAD+//P/AAACAAUAAAD+//T/AAACAAUAAAD+//X/AAACAAUAAAD+//b/AAACAAUAAAD+//f/AAACAAUAAAD+//j/AAACAAUAAAD+//n/AAACAAUAAAD+//v/AAACAAUAAAD+//z/AAACAAUAAAD+//3/AAACAAUAAAD+//r/AAACAAUAAAD/////AAAIAAQAAAD///7/AAAIAAQAAAD///3/AAAIAAQAAAD///z/AAAIAAQAAAD///v/AAAIAAQAAAD///r/AAAIAAQAAAD///n/AAAIAAQAAAD///j/AAAIAAQAAAD///f/AAAIAAQAAAD///b/AAAIAAQAAAD///X/AAAIAAQAAAD///T/AAAIAAQAAAD///P/AAAIAAQAAAD///L/AAAIAAQAAAD///H/AAAIAAQAAAD///D/AAAIAAQAAAAAAPD/AAAIAAQAAAAAAO//AAAIAAQAAAAAAPH/AAAIAAQAAAAAAPL/AAAIAAQAAAAAAPP/AAAIAAQAAAAAAPT/AAAIAAQAAAAAAPX/AAAIAAQAAAAAAPb/AAAIAAQAAAAAAPf/AAAIAAQAAAAAAPj/AAAIAAQAAAAAAPn/AAAIAAQAAAAAAPr/AAAIAAQAAAAAAPv/AAAIAAQAAAAAAPz/AAAIAAQAAAAAAP3/AAAIAAQAAAAAAP7/AAAIAAQAAAAAAP//AAAIAAQAAAD9//D/AAAEAAYAAAACAPD/AAAHAAYAAAD7/+//AAAAAAYAAAD7//D/AAAAAAcAAAD8//D/AAABAAcAAAD//+//AAAIAAQAAAD//+7/AAAIAAQAAAD//+3/AAAIAAQAAAD//+z/AAAIAAQAAAAAAOz/AAAIAAQAAAAAAO3/AAAIAAQAAAAAAO7/AAAIAAQAAAD+/+//AAALAAEAAAD+/+7/AAANAAAAAAD+/+3/AAANAAAAAAD+/+z/AAANAAAAAAD+/+v/AAAIAAAAAAD//+v/AAAMAAEAAAAAAOv/AAAMAAEAAAABAOv/AAAJAAAAAAABAOz/AAAMAAAAAAABAO3/AAAMAAAAAAABAO7/AAAMAAAAAAABAO//AAAKAAEAAAACAO//AAAMAAEAAAADAO//AAALAAEAAAADAO7/AAANAAAAAAADAO3/AAANAAAAAAADAOz/AAANAAAAAAADAOv/AAANAAAAAAADAOr/AAANAAAAAAADAOn/AAALAAAAAAACAOn/AAANAAEAAAABAOn/AAANAAEAAAAAAOn/AAANAAEAAAD//+n/AAANAAEAAAD+/+n/AAANAAEAAAD9/+n/AAANAAEAAAD8/+n/AAAKAAAAAAD8/+r/AAAMAAAAAAD8/+v/AAAMAAAAAAD8/+z/AAAMAAAAAAD8/+3/AAAMAAAAAAD8/+7/AAAMAAAAAAD8/+//AAAKAAEAAAD9/+//AAAMAAEAAAD9/+7/AAAIAAIAAAD9/+3/AAAIAAIAAAD9/+z/AAAIAAIAAAD9/+v/AAAIAAIAAAD9/+r/AAAIAAIAAAD+/+r/AAAIAAIAAAD//+r/AAAIAAIAAAAAAOr/AAAIAAIAAAABAOr/AAAIAAIAAAACAOr/AAAIAAIAAAACAOv/AAAIAAIAAAACAOz/AAAIAAIAAAACAO3/AAAIAAIAAAACAO7/AAAIAAIAAAADAPD/AAACAAcAAAAEAO//AAADAAYAAAAEAPD/AAADAAcAAAADAOj/AAACAAQAAAAEAOj/AAADAAQAAAAEAOn/AAADAAUAAAD7/+j/AAAAAAQAAAD7/+n/AAAAAAUAAAD8/+j/AAABAAQAAAD9/+j/AAACAAYAAAD+/+j/AAACAAYAAAD//+j/AAACAAYAAAAAAOj/AAACAAYAAAABAOj/AAACAAYAAAACAOj/AAACAAYAAAAEAOr/AAABAAUAAAAEAOv/AAABAAUAAAAEAOz/AAABAAUAAAAEAO3/AAABAAUAAAAEAO7/AAABAAUAAAD7/+r/AAACAAUAAAD7/+v/AAACAAUAAAD7/+z/AAACAAUAAAD7/+3/AAACAAUAAAD7/+7/AAACAAUAAAAMAOj/AAAAAAQAAAAMAOn/AAAAAAUAAAAMAOr/AAACAAUAAAAMAOv/AAACAAUAAAAMAOz/AAACAAUAAAAMAO3/AAACAAUAAAAMAO7/AAACAAUAAAAMAO//AAAAAAYAAAAMAPD/AAAAAAcAAAANAOj/AAABAAQAAAANAOn/AAAIAAQAAAANAOr/AAAIAAQAAAANAOv/AAAIAAQAAAANAOz/AAAIAAQAAAANAO3/AAAIAAQAAAANAO7/AAAIAAQAAAANAO//AAAIAAQAAAANAPD/AAABAAcAAAAOAOj/AAACAAYAAAAOAOn/AAAIAAQAAAAOAOr/AAAIAAQAAAAOAOv/AAAIAAQAAAAOAOz/AAAIAAQAAAAOAO3/AAAIAAQAAAAOAO7/AAAIAAQAAAAOAO//AAAIAAQAAAAOAPD/AAAEAAYAAAAPAOj/AAACAAYAAAAPAOn/AAAIAAQAAAAPAOr/AAAIAAQAAAAPAOv/AAAIAAQAAAAPAOz/AAAIAAQAAAAPAO3/AAAIAAQAAAAPAO7/AAAIAAQAAAAPAO//AAAIAAQAAAAPAPD/AAAFAAYAAAAPAPH/AAAFAAcAAAAPAPL/AAACAAUAAAAPAPP/AAACAAUAAAAPAPT/AAACAAUAAAAPAPX/AAACAAUAAAAPAPb/AAACAAUAAAAPAPf/AAACAAUAAAAPAPj/AAACAAUAAAAQAOj/AAACAAYAAAAQAOn/AAAIAAQAAAAQAOr/AAAIAAQAAAAQAOv/AAAIAAQAAAAQAOz/AAAIAAQAAAAQAO3/AAAIAAQAAAAQAO7/AAAIAAQAAAAQAO//AAAIAAQAAAAQAPD/AAAIAAQAAAAQAPH/AAAIAAQAAAAQAPL/AAAIAAQAAAAQAPP/AAAIAAQAAAAQAPT/AAAIAAQAAAAQAPX/AAAIAAQAAAAQAPb/AAAIAAQAAAAQAPf/AAAIAAQAAAAQAPj/AAAIAAQAAAARAOj/AAACAAYAAAARAOn/AAAIAAQAAAARAOr/AAAIAAQAAAARAOv/AAAIAAQAAAARAOz/AAAIAAQAAAARAO3/AAAIAAQAAAARAO7/AAAIAAQAAAARAO//AAAIAAQAAAARAPD/AAAIAAQAAAASAOj/AAACAAYAAAASAOn/AAAIAAQAAAASAOr/AAAIAAQAAAASAOv/AAAIAAQAAAASAOz/AAAIAAQAAAASAO3/AAAIAAQAAAASAO7/AAAIAAQAAAASAO//AAAIAAQAAAASAPD/AAAGAAYAAAATAOj/AAACAAYAAAATAOn/AAAIAAQAAAATAOr/AAAIAAQAAAATAOv/AAAIAAQAAAATAOz/AAAIAAQAAAATAO3/AAAIAAQAAAATAO7/AAAIAAQAAAATAO//AAAIAAQAAAATAPD/AAAHAAYAAAARAPH/AAAIAAQAAAARAPL/AAAIAAQAAAARAPP/AAAIAAQAAAARAPT/AAAIAAQAAAARAPX/AAAIAAQAAAARAPb/AAAIAAQAAAARAPf/AAAIAAQAAAARAPj/AAAIAAQAAAASAPH/AAAGAAcAAAASAPL/AAABAAUAAAASAPP/AAABAAUAAAASAPT/AAABAAUAAAASAPX/AAABAAUAAAASAPb/AAABAAUAAAASAPf/AAABAAUAAAASAPj/AAABAAUAAAAUAOj/AAACAAQAAAAUAOn/AAAIAAQAAAAUAOr/AAAIAAQAAAAUAOv/AAAIAAQAAAAUAOz/AAAIAAQAAAAUAO3/AAAIAAQAAAAUAO7/AAAIAAQAAAAUAO//AAAIAAQAAAAUAPD/AAACAAcAAAAVAOj/AAADAAQAAAAVAOn/AAADAAUAAAAVAOr/AAABAAUAAAAVAOv/AAABAAUAAAAVAOz/AAABAAUAAAAVAO3/AAABAAUAAAAVAO7/AAABAAUAAAAVAO//AAADAAYAAAAVAPD/AAADAAcAAAD5//z/AAAIAAQAAAD6//z/AAAIAAQAAAA=")
+tile_set = ExtResource("1_bvc8j")
+
+[node name="EnteranceElevator" parent="." instance=ExtResource("3_q4qgm")]
+position = Vector2(-384, -352)
+startingElevatorDistance = 1000.0
+endingElevator = true
+
+[node name="Caketable" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(0, -1248)
+scale = Vector2(4, 4)
+texture = ExtResource("3_dob33")
+
+[node name="Caketable2" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(-160, -1504)
+scale = Vector2(4, 4)
+texture = ExtResource("4_y8xtl")
+
+[node name="Caketable3" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(0, -1504)
+scale = Vector2(4, 4)
+texture = ExtResource("4_y8xtl")
+
+[node name="Caketable4" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(160, -1504)
+scale = Vector2(4, 4)
+texture = ExtResource("4_y8xtl")
+
+[node name="Caketable5" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(-160, -992)
+scale = Vector2(4, 4)
+texture = ExtResource("4_y8xtl")
+
+[node name="Caketable7" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(-288, -1248)
+rotation = 1.5707964
+scale = Vector2(4, 4)
+texture = ExtResource("4_y8xtl")
+
+[node name="Caketable8" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(-288, -1408)
+rotation = 1.5707964
+scale = Vector2(4, 4)
+texture = ExtResource("4_y8xtl")
+
+[node name="Caketable9" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(-288, -1088)
+rotation = 1.5707964
+scale = Vector2(4, 4)
+texture = ExtResource("4_y8xtl")
+
+[node name="Caketable10" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(288, -1248)
+rotation = 1.5707964
+scale = Vector2(4, 4)
+texture = ExtResource("4_y8xtl")
+
+[node name="Caketable11" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(288, -1408)
+rotation = 1.5707964
+scale = Vector2(4, 4)
+texture = ExtResource("4_y8xtl")
+
+[node name="Caketable12" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(288, -1088)
+rotation = 1.5707964
+scale = Vector2(4, 4)
+texture = ExtResource("4_y8xtl")
+
+[node name="Caketable6" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(160, -992)
+scale = Vector2(4, 4)
+texture = ExtResource("4_y8xtl")
+
+[node name="WarningSign" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(1088, -1312)
+scale = Vector2(4, 4)
+texture = ExtResource("4_7udrn")
+
+[node name="Cube1" type="Sprite2D" parent="."]
+modulate = Color(1, 0.5019608, 1, 1)
+z_index = 1
+texture_filter = 1
+position = Vector2(-40, -1160)
+scale = Vector2(4, 4)
+texture = ExtResource("5_lodq4")
+
+[node name="Cube2" type="Sprite2D" parent="."]
+modulate = Color(1, 0.5019608, 1, 1)
+z_index = 1
+texture_filter = 1
+position = Vector2(40, -1160)
+scale = Vector2(4, 4)
+texture = ExtResource("5_lodq4")
+
+[node name="PedestalButton" parent="." instance=ExtResource("9_5ffsj")]
+position = Vector2(1088, -1216)
+pressTime = 2.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(40, -1160)
+shape = SubResource("RectangleShape2D_7udrn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-40, -1160)
+shape = SubResource("RectangleShape2D_7udrn")
+
+[node name="Trigger" parent="." instance=ExtResource("12_1hifj")]
+position = Vector2(0, -1024)
+scale = Vector2(2, 1)
+
+[node name="ShowInputPrompt" parent="." instance=ExtResource("8_6cl2c")]
+position = Vector2(-456, -1000)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." node_paths=PackedStringArray("pedestalbutton", "neurotoxinFill", "neurotoxinSprite")]
+collision_layer = 3
+script = ExtResource("9_lhicl")
+pedestalbutton = NodePath("../PedestalButton")
+neurotoxinFill = NodePath("../Genericfill")
+neurotoxinSprite = NodePath("../Neurotoxin anim")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(0, -1216)
+shape = SubResource("RectangleShape2D_7udrn")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -1248)
+amount = 56
+texture = ExtResource("10_5rl63")
+lifetime = 10.0
+emission_shape = 3
+emission_rect_extents = Vector2(256, 224)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 5.0
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+
+[node name="CPUParticles2D6" type="CPUParticles2D" parent="."]
+position = Vector2(1088, -1248)
+amount = 56
+texture = ExtResource("10_5rl63")
+lifetime = 10.0
+emission_shape = 3
+emission_rect_extents = Vector2(256, 224)
+direction = Vector2(-1, 0)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 5.0
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2(0, -448)
+amount = 36
+texture = ExtResource("10_5rl63")
+lifetime = 10.0
+emission_shape = 3
+emission_rect_extents = Vector2(64, 576)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 5.0
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+
+[node name="CPUParticles2D5" type="CPUParticles2D" parent="."]
+position = Vector2(1088, -448)
+amount = 36
+texture = ExtResource("10_5rl63")
+lifetime = 10.0
+emission_shape = 3
+emission_rect_extents = Vector2(64, 576)
+direction = Vector2(-1, 0)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 5.0
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="."]
+position = Vector2(-192, 64)
+texture = ExtResource("10_5rl63")
+lifetime = 10.0
+emission_shape = 3
+emission_rect_extents = Vector2(128, 64)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 5.0
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="."]
+position = Vector2(-384, -64)
+amount = 12
+texture = ExtResource("10_5rl63")
+lifetime = 10.0
+emission_shape = 3
+emission_rect_extents = Vector2(64, 192)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 5.0
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+
+[node name="Genericfill" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 0, 0)
+z_index = 15
+position = Vector2(88, -1200)
+scale = Vector2(200, 200)
+texture = ExtResource("12_bvc8j")
+
+[node name="Neurotoxin anim" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 3
+texture_filter = 1
+position = Vector2(0, -1248)
+scale = Vector2(4, 4)
+texture = ExtResource("7_kwwc7")
+hframes = 4
+
+[connection signal="trigger" from="Trigger" to="ShowInputPrompt" method="takePrompt"]

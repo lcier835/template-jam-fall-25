@@ -18,6 +18,7 @@ var elevatorSpeed: float = 512
 @export var musicKinetic = false
 @export var musicLaserEarly = false
 @export var musicLaserLate = false
+@export var endingElevator = false
 var closeDoorTimer: float = 1
 
 # 0: ascending
@@ -80,6 +81,14 @@ func _process(delta: float) -> void:
 				camera.target = p
 				$ElevatorBottom.texture = openDoorSprite
 				
+				if endingElevator:
+					if bluePortalgun: Musichandler.disableLayer(6)
+					if orangePortalgun: Musichandler.disableLayer(7)
+					Musichandler.disableLayer(8)
+					Musichandler.disableLayer(9)
+					return
+				
+				Musichandler.enableLayer(0)
 				if musicClimb: Musichandler.enableLayer(1)
 				if musicDisplacer: Musichandler.enableLayer(2)
 				if musicKinetic: Musichandler.enableLayer(3)
@@ -87,6 +96,7 @@ func _process(delta: float) -> void:
 				if musicLaserLate: Musichandler.enableLayer(5)
 				if bluePortalgun: Musichandler.enableLayer(6)
 				if orangePortalgun: Musichandler.enableLayer(7)
+				Musichandler.disableLayer(8)
 				
 				return
 		3:
