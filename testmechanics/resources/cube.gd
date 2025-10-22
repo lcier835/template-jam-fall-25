@@ -7,6 +7,8 @@ var goalPos: Vector2
 var dropper: CubeDropper
 var fizzleTimer: float = -1
 
+var cloneColor = Color(0.75, 0.75, 1.0, 0.5)
+
 var playerPortalTeleportProgressLastFrame: float = 2
 
 var displacementFieldOffset := Vector2(0, 0)
@@ -107,8 +109,7 @@ func processDisplacement(_delta: float):
 	if displacedByField:
 		$CloneSprite.position = $Sprite2D.position + displacementFieldOffset
 		$CloneSprite.visible = true
-		$CloneSprite.modulate = $Sprite2D.modulate
-		$CloneSprite.modulate.a /= 2
+		$CloneSprite.modulate = $Sprite2D.modulate * cloneColor
 		if collision_layer >= 256: collision_layer -= 256
 		$CloneReflector.collision_layer = 256
 		$CloneReflector.position = displacementFieldOffset

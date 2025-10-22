@@ -25,6 +25,9 @@ var drownAfterAnimation: float = 1
 
 var inputVector: Vector2
 
+var basePlayerColor = Color(1, 1, 1)
+var cloneColor = Color(0.75, 0.75, 1.0, 0.5)
+
 @export var bluePortalgun = true
 @export var orangePortalgun = true
 
@@ -117,7 +120,7 @@ func processDisplacement(_delta: float):
 		$NormalRaycast.position = Vector2(0, 16) + displacementFieldOffset
 		$CloneSprite.position = $Sprite2D.position + displacementFieldOffset
 		$CloneSprite.visible = true
-		$CloneSprite.modulate.a = $Sprite2D.modulate.a / 2
+		$CloneSprite.modulate = $Sprite2D.modulate * cloneColor
 	else:
 		$PortalRaycast.position = Vector2(0, 16)
 		$NormalRaycast.position = Vector2(0, 16)
@@ -190,7 +193,7 @@ func portallingProcess(delta: float) -> void:
 	if portal1 == null || portal2 == null:
 		global_position = lastSafeSpot
 		portalTeleportProgress = 3
-		$Sprite2D.modulate = Color(1,1,1)
+		$Sprite2D.modulate = basePlayerColor
 		return
 	
 	if portalTeleportProgress < 1:
@@ -198,14 +201,14 @@ func portallingProcess(delta: float) -> void:
 		global_position = lerp(portal1.position + (angleToVector(angle) * -32), portal1.position, portalTeleportProgress)
 		var goalColor = portal1.sprite.modulate
 		goalColor.a = 0
-		$Sprite2D.modulate = lerp(Color(1,1,1), goalColor, portalTeleportProgress)
+		$Sprite2D.modulate = lerp(basePlayerColor, goalColor, portalTeleportProgress)
 	
 	else:
 		angle = (portal2.angle) % 4
 		global_position = lerp(portal2.position, portal2.position + (angleToVector(angle) * endDistance), portalTeleportProgress - 1)
 		var goalColor = portal1.sprite.modulate
 		goalColor.a = 0
-		$Sprite2D.modulate = lerp(goalColor, Color(1,1,1), portalTeleportProgress - 1)
+		$Sprite2D.modulate = lerp(goalColor, basePlayerColor, portalTeleportProgress - 1)
 		
 	if heldObject != null:
 		heldObject.modulate.a = $Sprite2D.modulate.a
@@ -214,7 +217,7 @@ func portallingProcess(delta: float) -> void:
 	updateSprite(250, delta)
 	if portalTeleportProgress > 2: 
 		global_position = portal2.position + (angleToVector(angle) * endDistance)
-		$Sprite2D.modulate = Color(1, 1, 1)
+		$Sprite2D.modulate = basePlayerColor
 	
 	processDisplacement(delta)
 

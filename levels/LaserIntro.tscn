@@ -63,10 +63,10 @@ startWithPortal = true
 startPortalOrange = true
 
 [node name="FloorButton" parent="." instance=ExtResource("6_a02rq")]
-position = Vector2(-672, -96)
+position = Vector2(-640, -64)
 
 [node name="FloorButton2" parent="." instance=ExtResource("6_a02rq")]
-position = Vector2(-800, -96)
+position = Vector2(-832, -64)
 
 [node name="AutoportalBlueL" parent="." instance=ExtResource("8_drcvi")]
 position = Vector2(-352, -352)
