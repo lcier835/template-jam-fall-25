@@ -118,7 +118,8 @@ func _process(delta: float) -> void:
 	sound_delay += delta * walk_sfx_speed * actingLinearVelocityLength
 	if sound_delay > 1.0:
 		sound_delay = fmod(sound_delay, 1.0)
-		$StepSFX.play()
+		if Musichandler.masterVolume == 1:
+			$StepSFX.play()
 
 func processDisplacement(_delta: float):
 	if displacedByField:
@@ -163,6 +164,8 @@ func _input(event: InputEvent) -> void:
 		if heldObject && heldObject.has_method(&"_unuse"):
 			if $InteractionArea.get_overlapping_bodies().find(heldObject) == -1:
 				heldObject._unuse(self)
+			else:
+				if heldObject.has_method("jiggle"): heldObject.jiggle()
 		else:
 			interact()
 

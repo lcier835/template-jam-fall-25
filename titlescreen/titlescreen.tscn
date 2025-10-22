@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8011o785xew1"]
+[gd_scene load_steps=8 format=3 uid="uid://c8011o785xew1"]
 
 [ext_resource type="Texture2D" uid="uid://bg55bd5pd6vju" path="res://titlescreen/background.png" id="1_bh84a"]
 [ext_resource type="Script" uid="uid://dacp701jjel5e" path="res://titlescreen/titlescreen.gd" id="1_t13nr"]
+[ext_resource type="Texture2D" uid="uid://c141drpv3t6ow" path="res://titlescreen/levelselect.png" id="3_gkwka"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gkwka"]
 
@@ -28,16 +29,177 @@ position = Vector2(720, 540)
 scale = Vector2(4, 4)
 texture = ExtResource("1_bh84a")
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(720, 540)
+scale = Vector2(4, 4)
+texture = ExtResource("3_gkwka")
+
+[node name="Button3" type="Button" parent="Sprite2D2"]
+offset_left = -101.0
+offset_top = 88.0
+offset_right = -92.0
+offset_bottom = 97.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gkwka")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gkwka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t13nr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t13nr")
+
+[node name="Button4" type="Button" parent="Sprite2D2"]
+offset_left = -89.0
+offset_top = 88.0
+offset_right = -80.0
+offset_bottom = 97.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gkwka")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gkwka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t13nr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t13nr")
+
+[node name="Button5" type="Button" parent="Sprite2D2"]
+offset_left = -77.0
+offset_top = 88.0
+offset_right = -68.0
+offset_bottom = 97.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gkwka")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gkwka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t13nr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t13nr")
+
+[node name="Button6" type="Button" parent="Sprite2D2"]
+offset_left = -65.0
+offset_top = 88.0
+offset_right = -56.0
+offset_bottom = 97.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gkwka")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gkwka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t13nr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t13nr")
+
+[node name="Button7" type="Button" parent="Sprite2D2"]
+offset_left = -101.0
+offset_top = 100.0
+offset_right = -92.0
+offset_bottom = 109.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gkwka")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gkwka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t13nr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t13nr")
+
+[node name="Button8" type="Button" parent="Sprite2D2"]
+offset_left = -89.0
+offset_top = 100.0
+offset_right = -80.0
+offset_bottom = 109.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gkwka")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gkwka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t13nr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t13nr")
+
+[node name="Button9" type="Button" parent="Sprite2D2"]
+offset_left = -77.0
+offset_top = 100.0
+offset_right = -68.0
+offset_bottom = 109.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gkwka")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gkwka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t13nr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t13nr")
+
+[node name="Button10" type="Button" parent="Sprite2D2"]
+offset_left = -65.0
+offset_top = 100.0
+offset_right = -56.0
+offset_bottom = 109.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gkwka")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gkwka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t13nr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t13nr")
+
+[node name="Button11" type="Button" parent="Sprite2D2"]
+offset_left = -101.0
+offset_top = 112.0
+offset_right = -92.0
+offset_bottom = 121.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gkwka")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gkwka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t13nr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t13nr")
+
+[node name="Button12" type="Button" parent="Sprite2D2"]
+offset_left = -89.0
+offset_top = 112.0
+offset_right = -80.0
+offset_bottom = 121.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gkwka")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gkwka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t13nr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t13nr")
+
+[node name="Button13" type="Button" parent="Sprite2D2"]
+offset_left = -77.0
+offset_top = 112.0
+offset_right = -68.0
+offset_bottom = 121.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gkwka")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gkwka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t13nr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t13nr")
+
+[node name="Button14" type="Button" parent="Sprite2D2"]
+offset_left = -65.0
+offset_top = 112.0
+offset_right = -56.0
+offset_bottom = 121.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gkwka")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gkwka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t13nr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t13nr")
+
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
+offset_left = 61.0
+offset_top = 892.0
+offset_right = 225.0
+offset_bottom = 928.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gkwka")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gkwka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t13nr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t13nr")
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 892.0
+offset_right = 288.0
+offset_bottom = 928.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gkwka")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gkwka")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t13nr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t13nr")
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
 offset_left = 60.0
-offset_top = 988.0
-offset_right = 224.0
+offset_top = 956.0
+offset_right = 288.0
 offset_bottom = 1024.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_gkwka")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_gkwka")
 theme_override_styles/hover = SubResource("StyleBoxFlat_t13nr")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_t13nr")
 
-[connection signal="button_up" from="Button" to="." method="startGame"]
+[connection signal="pressed" from="Sprite2D2/Button3" to="." method="loadChamber" binds= [0]]
+[connection signal="pressed" from="Sprite2D2/Button4" to="." method="loadChamber" binds= [1]]
+[connection signal="pressed" from="Sprite2D2/Button5" to="." method="loadChamber" binds= [2]]
+[connection signal="pressed" from="Sprite2D2/Button6" to="." method="loadChamber" binds= [3]]
+[connection signal="pressed" from="Sprite2D2/Button7" to="." method="loadChamber" binds= [4]]
+[connection signal="pressed" from="Sprite2D2/Button8" to="." method="loadChamber" binds= [5]]
+[connection signal="pressed" from="Sprite2D2/Button9" to="." method="loadChamber" binds= [6]]
+[connection signal="pressed" from="Sprite2D2/Button10" to="." method="loadChamber" binds= [7]]
+[connection signal="pressed" from="Sprite2D2/Button11" to="." method="loadChamber" binds= [8]]
+[connection signal="pressed" from="Sprite2D2/Button12" to="." method="loadChamber" binds= [9]]
+[connection signal="pressed" from="Sprite2D2/Button13" to="." method="loadChamber" binds= [10]]
+[connection signal="pressed" from="Sprite2D2/Button14" to="." method="loadChamber" binds= [11]]
 [connection signal="pressed" from="Button" to="." method="startGame"]
+[connection signal="pressed" from="Button3" to="." method="mute"]
+[connection signal="pressed" from="Button2" to="." method="chamberselector"]

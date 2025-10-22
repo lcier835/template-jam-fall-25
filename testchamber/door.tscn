@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bdj8g6x3tcjpk" path="res://testchamber/resources/doors.png" id="2_p04d2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvinn"]
-size = Vector2(128, 32)
+size = Vector2(127, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p04d2"]
-size = Vector2(128, 64)
+size = Vector2(127, 64)
 
 [node name="Door" type="StaticBody2D"]
 collision_layer = 273

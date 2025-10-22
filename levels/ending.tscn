@@ -31,7 +31,7 @@ tile_set = ExtResource("1_bvc8j")
 
 [node name="EnteranceElevator" parent="." instance=ExtResource("3_q4qgm")]
 position = Vector2(-384, -352)
-startingElevatorDistance = 1000.0
+startingElevatorDistance = 1500.0
 endingElevator = true
 
 [node name="Caketable" type="Sprite2D" parent="."]
@@ -147,6 +147,22 @@ position = Vector2(40, -1160)
 scale = Vector2(4, 4)
 texture = ExtResource("5_lodq4")
 
+[node name="Cube3" type="Sprite2D" parent="."]
+modulate = Color(0.7529412, 0.3764706, 1, 0.5019608)
+z_index = 1
+texture_filter = 1
+position = Vector2(1048, -1160)
+scale = Vector2(4, 4)
+texture = ExtResource("5_lodq4")
+
+[node name="Cube4" type="Sprite2D" parent="."]
+modulate = Color(0.7529412, 0.3764706, 1, 0.5019608)
+z_index = 1
+texture_filter = 1
+position = Vector2(1128, -1160)
+scale = Vector2(4, 4)
+texture = ExtResource("5_lodq4")
+
 [node name="PedestalButton" parent="." instance=ExtResource("9_5ffsj")]
 position = Vector2(1088, -1216)
 pressTime = 2.0
@@ -162,8 +178,9 @@ position = Vector2(-40, -1160)
 shape = SubResource("RectangleShape2D_7udrn")
 
 [node name="Trigger" parent="." instance=ExtResource("12_1hifj")]
-position = Vector2(0, -1024)
+position = Vector2(0, -1088)
 scale = Vector2(2, 1)
+once = true
 
 [node name="ShowInputPrompt" parent="." instance=ExtResource("8_6cl2c")]
 position = Vector2(-456, -1000)

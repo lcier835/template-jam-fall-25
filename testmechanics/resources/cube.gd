@@ -13,6 +13,7 @@ var playerPortalTeleportProgressLastFrame: float = 2
 
 var displacementFieldOffset := Vector2(0, 0)
 var displacedByField := false
+var jiggleOffset = 0
 
 @export var reflector = false
 
@@ -62,7 +63,7 @@ func _process(_delta: float) -> void:
 				dropper.call_deferred("respawnNoFizzle")
 			queue_free()
 	
-	$Sprite2D.position = Vector2(0, 0)
+	$Sprite2D.position = Vector2(jiggleOffset, 0)
 	$Sprite2D.global_position = ($Sprite2D.global_position / 4).round() * 4
 	processDisplacement(_delta)
 	if held:
@@ -117,3 +118,12 @@ func processDisplacement(_delta: float):
 		$CloneSprite.visible = false
 		if collision_layer < 256: collision_layer += 256
 		$CloneReflector.collision_layer = 0
+
+func jiggle():
+	for i in range(0, 3):
+		jiggleOffset = 4
+		await get_tree().create_timer(0.075).timeout
+		jiggleOffset = -4
+		await get_tree().create_timer(0.075).timeout
+	jiggleOffset = 0
+	

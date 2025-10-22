@@ -85,7 +85,7 @@ func _process(delta: float) -> void:
 					if bluePortalgun: Musichandler.disableLayer(6)
 					if orangePortalgun: Musichandler.disableLayer(7)
 					Musichandler.disableLayer(8)
-					Musichandler.disableLayer(9)
+					Musichandler.disableLayer(0)
 					return
 				
 				Musichandler.enableLayer(0)

@@ -34,13 +34,13 @@ func _process(delta: float):
 	# neurotoxin fog
 	if timer > 3:
 		
-		neurotoxinFill.modulate.g = sqrt((13 - timer) / 10.0)
-		neurotoxinFill.modulate.a = (timer - 3.0) / 10.0
-		if timer > 13:
+		neurotoxinFill.modulate.g = sqrt((10 - timer) / 7.0)
+		neurotoxinFill.modulate.a = (timer - 3.0) / 7.0
+		if timer > 10:
 			neurotoxinFill.modulate.a = 1
 			neurotoxinFill.modulate.g = 0
 	
-	if timer < 16 && (timer + delta) >= 16:
+	if timer < 13 && (timer + delta) >= 13:
 		get_tree().change_scene_to_file("res://titlescreen/titlescreen.tscn")
 		Musichandler.enableLayer(8)
 	
