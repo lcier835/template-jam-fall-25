@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://ckudr8chj1kgo"]
+[gd_scene load_steps=14 format=3 uid="uid://ckudr8chj1kgo"]
 
 [ext_resource type="Script" uid="uid://beq7d2f4hlba1" path="res://player/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://ck7q7yfgq1skk" path="res://player/Character.png" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://bppywbb7mit2c" path="res://portals/portalshot.png" id="3_rgyib"]
 [ext_resource type="AudioStream" uid="uid://vau3ask78t47" path="res://player/step_sfx/step-01.ogg" id="5_hg6s5"]
 [ext_resource type="AudioStream" uid="uid://c10qjncbvcxw5" path="res://player/step_sfx/step-02.ogg" id="6_8t03j"]
 [ext_resource type="AudioStream" uid="uid://b2rvkbidxtyga" path="res://player/step_sfx/step-03.ogg" id="7_2ieo8"]
@@ -60,6 +61,14 @@ scale = Vector2(4, 4)
 texture = ExtResource("2_i3pqv")
 hframes = 4
 vframes = 4
+
+[node name="Portalshot" type="Sprite2D" parent="."]
+modulate = Color(0.6480781, 0.64807814, 0.6480781, 1)
+z_index = 1
+texture_filter = 1
+position = Vector2(0, -80)
+scale = Vector2(4, 8)
+texture = ExtResource("3_rgyib")
 
 [node name="InteractionArea" type="Area2D" parent="."]
 collision_layer = 0

@@ -32,6 +32,7 @@ var cloneColor = Color(0.75, 0.75, 1.0, 0.5)
 @export var orangePortalgun = true
 
 @onready var portalScene = preload("res://portals/portal.tscn")
+@onready var portalrejectScene = preload("res://portals/portalreject.tscn")
 var lastSafeSpot: Vector2
 
 var heldObject: Cube
@@ -70,6 +71,7 @@ func _process(delta: float) -> void:
 		get_tree().quit()
 	
 	updateKeys()
+	$Portalshot.modulate.a -= delta * 3
 	
 	if portalTeleportProgress < 2:
 		portallingProcess(delta)
@@ -238,6 +240,16 @@ func getCameraPos() -> Vector2:
 		return global_position
 
 func shootPortal(orange: bool):
+	
+	if orange:
+		$Portalshot.modulate = Color(1, 0.5, 0, 0.5)
+	else:
+		$Portalshot.modulate = Color(0, 0.5, 1, 0.5)
+	
+	$Portalshot.position = angleToVector(angle) * 80
+	if displacedByField: $Portalshot.position += displacementFieldOffset
+	$Portalshot.rotation = angle * (PI / 2)
+	
 	$PortalRaycast.target_position = angleToVector(angle) * 5000
 	$NormalRaycast.target_position = angleToVector(angle) * 5000
 	$PortalRaycast.force_raycast_update()
@@ -262,6 +274,7 @@ func shootPortal(orange: bool):
 		# first see if portal should be rejected
 		for p in get_tree().get_nodes_in_group("Portals"):
 			if p.orangePortal != orange && portalPos == p.position:
+				portalReject(orange)
 				return
 		
 		# then after confirming wall is empty clear all portals of current color
@@ -271,6 +284,8 @@ func shootPortal(orange: bool):
 		
 		get_tree().get_current_scene().add_child(newPortal)
 		newPortal.updateSprite(0)
+	else:
+		portalReject(orange)
 
 func waterBodyEntered(_body: Node2D):
 	if drownAfterAnimation >= 1:
@@ -283,3 +298,13 @@ func _fizzle():
 	for p in get_tree().get_nodes_in_group("Portals"):
 			if p.placedByPlayer:
 				p.queue_free()
+
+func portalReject(orange):
+	var pr = portalrejectScene.instantiate()
+	pr.rotation = angle * (PI / 2) + PI
+	if orange:
+		pr.modulate = Color(1, 0.5, 0, 1)
+	else:
+		pr.modulate = Color(0, 0.5, 1, 1)
+	pr.global_position = $NormalRaycast.get_collision_point()
+	get_tree().get_current_scene().add_child(pr)

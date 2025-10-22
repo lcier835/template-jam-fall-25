@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnhpr6qdbrfn"]
+[gd_scene load_steps=5 format=3 uid="uid://bnhpr6qdbrfn"]
 
 [ext_resource type="Script" uid="uid://cdcowcdvnbal" path="res://testmechanics/resources/portalgunpedestal.gd" id="1_nesyg"]
 [ext_resource type="Texture2D" uid="uid://b6tqf2d4cj17b" path="res://testmechanics/resources/portalgunpedestal.png" id="2_nesyg"]
+[ext_resource type="Texture2D" uid="uid://bppywbb7mit2c" path="res://portals/portalshot.png" id="3_lcgvt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvinn"]
 size = Vector2(32, 32)
@@ -33,3 +34,11 @@ position = Vector2(0, 16)
 enabled = false
 target_position = Vector2(0, -5000)
 collision_mask = 48
+
+[node name="Portalshot" type="Sprite2D" parent="."]
+modulate = Color(0.6480781, 0.64807814, 0.6480781, 1)
+z_index = -1
+texture_filter = 1
+position = Vector2(0, -92)
+scale = Vector2(4, 8)
+texture = ExtResource("3_lcgvt")

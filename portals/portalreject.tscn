@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dikvmmc6ngjtk"]
+
+[ext_resource type="Texture2D" uid="uid://dx8mscfg1xi2n" path="res://portals/portalreject.png" id="1_1d8wn"]
+[ext_resource type="Script" uid="uid://ddvb4afkc6qom" path="res://portals/portalreject.gd" id="1_m0kax"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_m0kax")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -32)
+scale = Vector2(4, 4)
+texture = ExtResource("1_1d8wn")
+hframes = 5

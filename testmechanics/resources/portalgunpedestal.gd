@@ -7,6 +7,7 @@ class_name PGunPedestal extends Area2D
 @export var shootOrange = false
 
 @onready var portalScene = preload("res://portals/portal.tscn")
+@onready var portalrejectScene = preload("res://portals/portalreject.tscn")
 
 signal OnTaken
 
@@ -38,6 +39,8 @@ func _process(delta: float) -> void:
 		$Sprite2D.frame = 4 if timer > 0 else 5
 		timer -= delta
 		return
+	
+	$Portalshot.modulate.a -= delta * 3
 	
 	if timer > 1:
 		timer = 0
@@ -75,6 +78,14 @@ func angleToVector(ang) -> Vector2:
 		_: return Vector2(0, 0)
 
 func shootPortal():
+	if shootOrange:
+		$Portalshot.modulate = Color(1, 0.5, 0, 0.5)
+	else:
+		$Portalshot.modulate = Color(0, 0.5, 1, 0.5)
+	
+	$Portalshot.position = angleToVector(angle) * 80 + Vector2(0, -28)
+	$Portalshot.rotation = angle * (PI / 2)
+	
 	$PortalRaycast.target_position = angleToVector(angle) * 5000
 	$NormalRaycast.target_position = angleToVector(angle) * 5000
 	$PortalRaycast.force_raycast_update()
@@ -98,6 +109,7 @@ func shootPortal():
 		# first see if portal should be rejected
 		for p in get_tree().get_nodes_in_group("Portals"):
 			if p.orangePortal != shootOrange && portalPos == p.position:
+				portalReject(shootOrange)
 				return
 		
 		# then after confirming wall is empty clear all portals of current color
@@ -107,3 +119,14 @@ func shootPortal():
 		
 		get_tree().get_current_scene().add_child(newPortal)
 		newPortal.updateSprite(0)
+	else: portalReject(shootOrange)
+
+func portalReject(orange):
+	var pr = portalrejectScene.instantiate()
+	pr.rotation = angle * (PI / 2) + PI
+	if orange:
+		pr.modulate = Color(1, 0.5, 0, 1)
+	else:
+		pr.modulate = Color(0, 0.5, 1, 1)
+	pr.global_position = $NormalRaycast.get_collision_point()
+	get_tree().get_current_scene().add_child(pr)
