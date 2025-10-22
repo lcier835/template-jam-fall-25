@@ -34,8 +34,6 @@ orangePortalgun = false
 
 [node name="Pedestal" parent="." instance=ExtResource("4_lwh8o")]
 position = Vector2(32, 32)
-shootUp = false
-shootLeft = false
 
 [node name="Autoportal" parent="." instance=ExtResource("5_ket02")]
 position = Vector2(416, 544)

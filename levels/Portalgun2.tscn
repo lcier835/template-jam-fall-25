@@ -40,8 +40,6 @@ musicLaserLate = true
 
 [node name="Pedestal" parent="." instance=ExtResource("4_06rot")]
 position = Vector2(32, 32)
-shootUp = false
-shootLeft = false
 shootOrange = true
 
 [node name="Door" parent="." instance=ExtResource("5_fwbhh")]

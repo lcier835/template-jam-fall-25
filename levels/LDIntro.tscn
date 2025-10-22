@@ -57,7 +57,7 @@ displacementFieldBorder = true
 
 [node name="DisplacementField3" parent="." instance=ExtResource("4_kw4ok")]
 position = Vector2(576, 192)
-displacementArea = Vector2(5, 6)
+displacementArea = Vector2(4, 6)
 displacementDistance = Vector2(6, 5)
 
 [node name="Fizzler2" parent="DisplacementField3" instance=ExtResource("5_oefhg")]
