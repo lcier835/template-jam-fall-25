@@ -59,8 +59,6 @@ func _process(_delta: float) -> void:
 		fizzleTimer += _delta * 4
 		modulate.a = 1 - fizzleTimer
 		if fizzleTimer > 1: 
-			if dropper != null:
-				dropper.call_deferred("respawnNoFizzle")
 			queue_free()
 	
 	$Sprite2D.position = Vector2(jiggleOffset, 0)
@@ -96,6 +94,7 @@ func _process(_delta: float) -> void:
 		playerPortalTeleportProgressLastFrame = p.portalTeleportProgress
 
 func _fizzle():
+	dropper.call_deferred("respawnNoFizzle")
 	fizzleTimer = 0
 	collision_layer = 0
 	collision_mask = 0
