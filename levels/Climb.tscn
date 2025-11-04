@@ -113,7 +113,7 @@ tilesWide = 6.0
 kineticGrill = true
 
 [node name="FloorButton3" parent="." instance=ExtResource("6_cswox")]
-position = Vector2(224, -1184)
+position = Vector2(256, -1184)
 
 [node name="LaserEmitter" parent="." instance=ExtResource("10_nhi4v")]
 position = Vector2(-448, -1184)
@@ -137,11 +137,13 @@ position = Vector2(256, -1600)
 
 [node name="Door3" parent="." instance=ExtResource("7_n4fx2")]
 position = Vector2(-128, -1856)
+leftSideBlack = true
 rightSideBlack = true
 
 [node name="Door4" parent="." instance=ExtResource("7_n4fx2")]
 position = Vector2(128, -1856)
 leftSideBlack = true
+rightSideBlack = true
 
 [node name="FloorButton6" parent="." instance=ExtResource("6_cswox")]
 position = Vector2(-256, -2176)

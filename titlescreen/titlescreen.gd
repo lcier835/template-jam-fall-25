@@ -3,7 +3,7 @@ extends Control
 func startGame():
 	loadChamber(0)
 
-func process():
+func _process(_delta):
 	if Input.is_action_pressed("close"):
 		get_tree().quit()
 

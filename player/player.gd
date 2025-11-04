@@ -68,7 +68,10 @@ func updateKeys():
 func _process(delta: float) -> void:
 	# quit game, highest priority
 	if Input.is_action_pressed("close"):
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://titlescreen/titlescreen.tscn")
+		for i in 8:
+			Musichandler.disableLayer(i)
+		Musichandler.enableLayer(8)
 	
 	updateKeys()
 	$Portalshot.modulate.a -= delta * 3
@@ -96,20 +99,23 @@ func _process(delta: float) -> void:
 	if not inputVector.is_zero_approx() && !Input.is_action_pressed("strafe"):
 		# set animation direction
 		if inputVector.y == 1: # down
-			$InteractionArea/InteractionHitbox.position = Vector2(0, interaction_hitbox_distance)
 			angle = 2
 		elif inputVector.y == -1: #up
-			$InteractionArea/InteractionHitbox.position = Vector2(0, -interaction_hitbox_distance)
 			angle = 0
 		elif inputVector.x == 1: # right
-			$InteractionArea/InteractionHitbox.position = Vector2(interaction_hitbox_distance, 0)
 			angle = 1
 		elif inputVector.x == -1: # left
-			$InteractionArea/InteractionHitbox.position = Vector2(-interaction_hitbox_distance, 0)
 			angle = 3
 		
 	if heldObject != null:
 		$InteractionArea/InteractionHitbox.position = Vector2(0, 0)
+	else:
+		match angle:
+			0: $InteractionArea/InteractionHitbox.position = Vector2(0, -interaction_hitbox_distance)
+			1: $InteractionArea/InteractionHitbox.position = Vector2(interaction_hitbox_distance, 0)
+			2: $InteractionArea/InteractionHitbox.position = Vector2(0, interaction_hitbox_distance)
+			3: $InteractionArea/InteractionHitbox.position = Vector2(-interaction_hitbox_distance, 0)
+	
 	
 	var actingLinearVelocityLength := (250 if linear_velocity.length() > 1 else 0)
 	

@@ -32,10 +32,11 @@ func _process(_delta: float) -> void:
 				currentlyDisplacedObjects.append(m)
 	
 	# remove and update invalid ones
-	for m in currentlyDisplacedObjects:
+	for i in range(currentlyDisplacedObjects.size() - 1, -1, -1):
+		var m = currentlyDisplacedObjects[i]
 		if m == null || !objectInside(m):
 			if m != null: stopDisplacing(m)
-			currentlyDisplacedObjects.erase(m)
+			currentlyDisplacedObjects.remove_at(i)
 
 func startDisplacing(object: Node2D):
 	object.displacementFieldOffset = displacementDistance * 64
